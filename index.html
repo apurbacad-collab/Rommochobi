@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রম্যছবি- প্রফেশনাল ওয়েডিং ফটোগ্রাফি | বুকিং পেজ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* --- স্লাইডার স্টাইল --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 20px 0 40px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .fade {
+            animation: fadeAnim 1.5s;
+        }
+        @keyframes fadeAnim {
+            from {opacity: .6} to {opacity: 1}
+        }
+
+        /* --- টেবিল স্টাইল --- */
+        .package-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .package-table th, .package-table td {
+            padding: 15px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        .package-table th {
+            background-color: #e67e22;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* --- ফর্ম স্টাইল --- */
+        .order-form {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .date-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #1e8449;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a1a1a;
+            color: #999;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            .date-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>আপনার সেরা মুহূর্তগুলো ফ্রেমবন্দি করুন</h1>
+    <p>ওয়েডিং এবং আউটডোর ফটোগ্রাফি সার্ভিস</p>
+</header>
+
+<div class="container">
+    
+    <div class="slider-container">
+        <div class="slides fade">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Slide 1">
+        </div>
+        <div class="slides fade">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Slide 2">
+        </div>
+        <div class="slides fade">
+            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=80" alt="Slide 3">
+        </div>
+    </div>
+
+    <h2 style="text-align: center; color: #e67e22;">প্যাকেজ এবং প্রাইস</h2>
+    <table class="package-table">
+        <thead>
+            <tr>
+                <th>প্যাকেজ</th>
+                <th>ডিটেইলস</th>
+                <th>মূল্য</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>আউটডোর</td>
+                <td>২ ঘণ্টা, ৩০টি ছবি</td>
+                <td>৫,০০০/-</td>
+            </tr>
+            <tr>
+                <td>স্ট্যান্ডার্ড</td>
+                <td>৫ ঘণ্টা, ১০০টি ছবি, ১টি অ্যালবাম</td>
+                <td>১২,০০০/-</td>
+            </tr>
+            <tr>
+                <td>প্রিমিয়াম</td>
+                <td>ফুল ডে কভারেজ + ভিডিও</td>
+                <td>২৫,০০০/-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section class="order-form">
+        <h2 style="text-align: center; color: #27ae60; margin-top: 0;">বুকিং ফর্মটি পূরণ করুন</h2>
+        <form id="telegramForm">
+            <div class="form-group">
+                <label>আপনার নাম:</label>
+                <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+            </div>
+            <div class="form-group">
+                <label>ফোন নম্বর:</label>
+                <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
+            </div>
+            
+            <div class="date-grid">
+                <div class="form-group">
+                    <label>ইভেন্ট শুরু:</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label>ইভেন্ট শেষ:</label>
+                    <input type="date" id="endDate" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>ঠিকানা:</label>
+                <textarea id="address" rows="3" placeholder="ইভেন্টের স্থান ও বিস্তারিত ঠিকানা" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>আপনার বাজেট:</label>
+                <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
+            </div>
+            <button type="submit" class="submit-btn">বুকিং কনফার্ম করুন</button>
+        </form>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; ২০২৬ রম্যছবি | সর্বস্বত্ব সংরক্ষিত</p>
+</footer>
+
+<script>
+    // --- স্লাইডার ফাংশন ---
+    let slideIndex = 0;
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); 
+    }
+    showSlides();
+
+    // --- টেলিগ্রাম সাবমিশন ফাংশন ---
+    const form = document.getElementById('telegramForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // ** আপনার টোকেন এবং চ্যাট আইডি এখানে বসান **
+        const botToken = "YOUR_BOT_TOKEN_HERE"; 
+        const chatId = "YOUR_CHAT_ID_HERE";
+
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const start = document.getElementById('startDate').value;
+        const end = document.getElementById('endDate').value;
+        const address = document.getElementById('address').value;
+        const budget = document.getElementById('budget').value;
+
+        // টেলিগ্রাম মেসেজ ফরম্যাট (তারিখের পরিসীমা সহ)
+        const message = `⚡ *নতুন বুকিং অর্ডার (রম্যছবি)* ⚡\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n🗓 ইভেন্ট সময়: ${start} থেকে ${end}\n📍 ঠিকানা: ${address}\n💰 বাজেট: ${budget}`;
+
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(res => {
+            if(res.ok) {
+                alert("ধন্যবাদ! আপনার বুকিং রিকোয়েস্ট সফলভাবে পাঠানো হয়েছে।");
+                form.reset();
+            } else {
+                alert("সমস্যা হয়েছে! টোকেন এবং আইডি চেক করুন।");
+            }
+        })
+        .catch(err => alert("ইন্টারনেট কানেকশন চেক করুন।"));
+    });
+</script>
+
+</body>
+</html>
