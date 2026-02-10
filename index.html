@@ -43,32 +43,61 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
 .about{max-width:800px;margin:auto;text-align:center}
 
 /* PACKAGES */
-.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:900px;margin:auto}
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:auto
+}
 .package{
-  background:#fff;padding:20px;border-radius:10px;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
   box-shadow:0 5px 10px rgba(0,0,0,.1);
   text-align:center;
 }
+.package h3{color:#27ae60;margin-bottom:10px}
+.package strong{font-size:18px}
 
-/* FORM */
+/* BOOKING FORM (Your Given Design) */
 .order-form{
-  max-width:700px;margin:auto;
-  background:#fff;padding:20px;border-radius:10px;
+    max-width:700px;
+    margin:30px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
 }
 .form-group{margin-bottom:15px}
-input,textarea{width:100%;padding:8px}
-button{
-  width:100%;padding:12px;
-  background:#27ae60;color:#fff;
-  border:none;font-size:16px;
+.form-group label{display:block;margin-bottom:5px}
+.form-group input,
+.form-group textarea{width:100%;padding:8px}
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+}
+.submit-btn{
+    width:100%;
+    padding:12px;
+    background:#27ae60;
+    color:#fff;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
 }
 
 /* WHATSAPP */
 .whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:#25d366;color:#fff;
-  padding:15px;border-radius:50%;
-  font-size:22px;text-decoration:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
 }
 </style>
 </head>
@@ -104,24 +133,28 @@ Rommochobi একটি প্রফেশনাল ওয়েডিং ও ই�
 <section>
 <h2>প্যাকেজসমূহ</h2>
 <div class="packages">
+
   <div class="package">
-    <h3>Silver</h3>
+    <h3>🥈 Silver</h3>
     <p>📸 1 Photographer</p>
     <p>🕒 4 Hours</p>
-    <strong>৳ 15,000</strong>
+    <strong>৳ 6,999</strong>
   </div>
+
   <div class="package">
-    <h3>Gold</h3>
+    <h3>🥇 Gold</h3>
     <p>📸 2 Photographer</p>
     <p>🕒 6 Hours</p>
-    <strong>৳ 25,000</strong>
+    <strong>৳ 11,999</strong>
   </div>
+
   <div class="package">
-    <h3>Premium</h3>
+    <h3>💎 Premium</h3>
     <p>📸 Full Coverage</p>
     <p>🎥 Cinematic Video</p>
-    <strong>৳ 40,000</strong>
+    <strong>৳ 18,999</strong>
   </div>
+
 </div>
 </section>
 
@@ -133,26 +166,46 @@ Rommochobi একটি প্রফেশনাল ওয়েডিং ও ই�
 <form id="telegramForm">
 
 <div class="form-group">
-<input type="text" id="name" placeholder="আপনার নাম" required>
+<label>আপনার নাম</label>
+<input type="text" id="name" required>
 </div>
 
 <div class="form-group">
-<input type="tel" id="phone" placeholder="ফোন নম্বর" required>
+<label>ফোন নম্বর</label>
+<input type="tel" id="phone" required>
+</div>
+
+<h3>ইভেন্ট নির্বাচন করুন</h3>
+
+<div class="event-grid">
+<div><label>হলুদ</label><input type="date" id="holudDate"></div>
+<div><label>মেহেন্দি</label><input type="date" id="mehendiDate"></div>
+<div><label>বিয়ে</label><input type="date" id="weddingDate"></div>
+<div><label>রিসিপশন</label><input type="date" id="receptionDate"></div>
+<div><label>এনগেজমেন্ট</label><input type="date" id="engagementDate"></div>
+<div><label>বার্ষিকী</label><input type="date" id="anniversaryDate"></div>
+<div><label>বার্থডে</label><input type="date" id="birthdayDate"></div>
+<div><label>অন্নপ্রাশন</label><input type="date" id="annaprashanDate"></div>
+
+<div>
+<label>Others</label>
+<input type="text" id="otherEventName" placeholder="ইভেন্ট নাম">
+<input type="date" id="otherEventDate">
+</div>
 </div>
 
 <div class="form-group">
-<input type="date" id="eventDate">
+<label>ঠিকানা</label>
+<textarea id="address" required></textarea>
 </div>
 
 <div class="form-group">
-<textarea id="address" placeholder="ঠিকানা" required></textarea>
+<label>বাজেট</label>
+<input type="text" id="budget">
 </div>
 
-<div class="form-group">
-<input type="text" id="budget" placeholder="বাজেট (ঐচ্ছিক)">
-</div>
+<button class="submit-btn" type="submit">বুকিং কনফার্ম করুন</button>
 
-<button type="submit">বুকিং কনফার্ম</button>
 </form>
 </div>
 </section>
@@ -164,35 +217,64 @@ Rommochobi একটি প্রফেশনাল ওয়েডিং ও ই�
 let i=0;
 const slides=document.querySelectorAll(".slide");
 setInterval(()=>{
-slides.forEach(s=>s.classList.remove("active"));
-i=(i+1)%slides.length;
-slides[i].classList.add("active");
+  slides.forEach(s=>s.classList.remove("active"));
+  i=(i+1)%slides.length;
+  slides[i].classList.add("active");
 },3000);
 
-// TELEGRAM
-document.getElementById("telegramForm").addEventListener("submit",function(e){
-e.preventDefault();
+// TELEGRAM BOOKING
+document.getElementById("telegramForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-const BOT_TOKEN="YOUR_BOT_TOKEN";
-const CHAT_ID="YOUR_CHAT_ID";
+    const BOT_TOKEN = "8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
+    const CHAT_ID = "7507021624";
 
-const msg=`📸 New Booking
-👤 ${name.value}
-📞 ${phone.value}
-📅 ${eventDate.value}
-📍 ${address.value}
-💰 ${budget.value || "N/A"}`;
+    let events = "";
+    function addEvent(name, date){
+        if(date){ events += `• ${name}: ${date}\n`; }
+    }
 
-fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({chat_id:CHAT_ID,text:msg})
-}).then(()=>{
-alert("✅ বুকিং পাঠানো হয়েছে");
-this.reset();
-});
+    addEvent("হলুদ", holudDate.value);
+    addEvent("মেহেন্দি", mehendiDate.value);
+    addEvent("বিয়ে", weddingDate.value);
+    addEvent("রিসিপশন", receptionDate.value);
+    addEvent("এনগেজমেন্ট", engagementDate.value);
+    addEvent("বার্ষিকী", anniversaryDate.value);
+    addEvent("বার্থডে", birthdayDate.value);
+    addEvent("অন্নপ্রাশন", annaprashanDate.value);
+
+    if(otherEventName.value && otherEventDate.value){
+        events += `• ${otherEventName.value}: ${otherEventDate.value}\n`;
+    }
+    if(events===""){ events="কোনো ইভেন্ট নির্বাচন করা হয়নি"; }
+
+    let message = `📸 নতুন বুকিং এসেছে
+
+👤 নাম: ${name.value}
+📞 ফোন: ${phone.value}
+
+📅 ইভেন্টসমূহ:
+${events}
+
+📍 ঠিকানা:
+${address.value}
+
+💰 বাজেট: ${budget.value || "উল্লেখ নেই"}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    })
+    .then(()=>{
+        alert("✅ বুকিং সফলভাবে Telegram এ পাঠানো হয়েছে");
+        telegramForm.reset();
+    })
+    .catch(()=>{
+        alert("❌ মেসেজ পাঠানো যায়নি");
+    });
 });
 </script>
 
 </body>
-    </html>
+</html>
