@@ -278,3 +278,322 @@ ${address.value}
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>RommoChobi</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f5f5;
+}
+
+/* ================= TEAM SECTION ================= */
+.team-section{
+  text-align:center;
+  padding:50px 0;
+  background:#fafafa;
+  overflow:hidden;
+}
+
+.team-section h2{
+  margin-bottom:25px;
+}
+
+.team-slider{
+  overflow:hidden;
+}
+
+.team-track{
+  display:flex;
+  gap:20px;
+  animation: teamScroll 6s linear infinite;
+}
+
+.member{
+  min-width:180px;
+  background:#fff;
+  padding:12px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+
+.member img{
+  width:100%;
+  height:150px;
+  object-fit:contain;
+  background:#eee;
+  border-radius:8px;
+  padding:6px;
+}
+
+.member h4{
+  font-size:14px;
+  margin:8px 0 4px;
+}
+
+.member p{
+  font-size:12px;
+  color:#555;
+}
+
+@keyframes teamScroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* ================= REVIEW SECTION ================= */
+.review-section{
+  padding:50px 0 40px;
+  background:linear-gradient(135deg,#111,#333);
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+
+.review-section h2{
+  margin-bottom:25px;
+}
+
+.review-slider{
+  overflow:hidden;
+}
+
+.review-track{
+  display:flex;
+  gap:20px;
+  animation: reviewScroll 7s linear infinite;
+}
+
+.review-card{
+  min-width:260px;
+  background:#fff;
+  color:#333;
+  padding:15px;
+  border-radius:14px;
+  box-shadow:0 6px 15px rgba(0,0,0,.25);
+  text-align:left;
+}
+
+.review-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.review-header img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.review-header h4{
+  font-size:14px;
+  margin:0;
+}
+
+.review-card p{
+  font-size:13px;
+  margin-top:10px;
+  color:#555;
+  line-height:1.4;
+}
+
+@keyframes reviewScroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* Facebook Review Button */
+.review-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 26px;
+  background:#1877f2;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+.review-btn:hover{
+  background:#0f5ec4;
+  transform:translateY(-2px);
+}
+
+/* ================= SOCIAL MEDIA AD ================= */
+.social-ad{
+  background:#fff;
+  padding:25px 0;
+  text-align:center;
+}
+
+.social-ad h3{
+  margin-bottom:15px;
+  font-size:16px;
+  color:#333;
+}
+
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.social-icons a{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  font-size:20px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  transform:scale(1.1);
+}
+
+/* Platform Colors */
+.facebook{background:#1877f2;}
+.instagram{background:#e1306c;}
+.youtube{background:#ff0000;}
+
+/* ================= FOOTER ================= */
+.footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= TEAM ================= -->
+<section class="team-section">
+<h2>📸 RommoChobi Team</h2>
+
+<div class="team-slider">
+<div class="team-track">
+
+  <div class="member">
+    <img src="https://i.postimg.cc/HLySx98T/Apurba-Roy-CEO-Core-Photographer-(1).jpg">
+    <h4>(01) Apurba Roy</h4>
+    <p>Founder & Lead Photographer</p>
+  </div>
+
+  <div class="member">
+    <img src="https://i.postimg.cc/2yzT0pc2/Maya-Chowdhury-Niyaz-Core-CInematographer.jpg">
+    <h4>(02) Maya Chowdhury Niyaz</h4>
+    <p>Core Cinematographer</p>
+  </div>
+
+  <div class="member">
+    <img src="https://i.postimg.cc/7YtXnWgY/FB-IMG-1770755709289.jpg">
+    <h4>(03) Bornali Roy</h4>
+    <p>Editor</p>
+  </div>
+
+  <div class="member">
+    <img src="https://i.postimg.cc/C5m7tv9F/Md-Ariyan-Hasan-Rahat.jpg">
+    <h4>(04) Md Ariyan Hasan Rahat</h4>
+    <p>Assistant Photographer</p>
+  </div>
+
+  <div class="member">
+    <img src="https://i.postimg.cc/DzXCZP4Q/Md-Oly-Raj-Assistant-Cinematographer.jpg">
+    <h4>(05) Md Oly Raj</h4>
+    <p>Assistant Cinematographer</p>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="review-section">
+<h2>💬 Client Reviews</h2>
+
+<div class="review-slider">
+<div class="review-track">
+
+  <div class="review-card">
+    <div class="review-header">
+      <img src="https://i.postimg.cc/j55SPcPH/Shuvojit.jpg">
+      <h4>Shuvojit Saha</h4>
+    </div>
+    <p>ধন্যবাদ রম্যছবির টিম আর বিশেষ করে অপূর্ব ভাইয়াকে এত সুন্দর সুন্দর ছবি তোলে দেওয়ার🥰 জন্য।</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <img src="https://i.postimg.cc/266ShGhv/Puja.jpg">
+      <h4>Puja Roy</h4>
+    </div>
+    <p>ধন্যবাদ রম্যছবির টিম কে এত সুন্দর সুন্দর ছবি তোলে দেওয়ার জন্য 💜🥰</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <img src="https://i.postimg.cc/gJJ28s8v/mou.jpg">
+      <h4>Mou Mita</h4>
+    </div>
+    <p>অপূর্ব ভাইয়া এত সুন্দর করে পিক তুলার জন্য😍। কাজ সত্যিই অসাধারণ।</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <img src="https://i.postimg.cc/855zM4MM/anika.jpg">
+      <h4>Anika Osihee</h4>
+    </div>
+    <p>ব্যবহার ও কাজ দুইটাই অসাধারণ। অনেক শুভ কামনা।</p>
+  </div>
+
+</div>
+</div>
+
+<a class="review-btn"
+   href="https://www.facebook.com/groups/411753944950781/?ref=share&mibextid=NSMWBT"
+   target="_blank">
+✍️ Facebook এ রিভিউ লিখুন
+</a>
+</section>
+
+<!-- ================= SOCIAL MEDIA ICON AD ================= -->
+<section class="social-ad">
+  <h3>🔔 Follow RommoChobi</h3>
+  <div class="social-icons">
+    <a class="facebook" href="https://www.facebook.com/share/1CQSNv3Hf1/" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a class="instagram" href="https://www.instagram.com/romochobi?igsh=bjZiZmRwYmpiNDNu" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a class="youtube" href="https://youtube.com/@ramyachobi?si=gttOfmFEevrgYimx" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+© রম্যছবি - RommoChobi
+</footer>
+
+</body>
+</html>
+
