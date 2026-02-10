@@ -2,266 +2,145 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>রম্যছবি | বুকিং পেজ</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Booking Form</title>
 
 <style>
-body {
-    font-family: 'Hind Siliguri', sans-serif;
-    margin: 0;
-    background: #fdfdfd;
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
 }
-header {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-}
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-.slider-container {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 15px;
-    margin-bottom: 30px;
-}
-.slides { display: none; height:100%; }
-.slides img { width:100%; height:100%; object-fit:cover; }
-
-.order-form {
+.order-form{
+    max-width:700px;
+    margin:30px auto;
     background:#fff;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    padding:20px;
+    border-radius:8px;
 }
-.form-group { margin-bottom:18px; }
-label { font-weight:bold; display:block; margin-bottom:6px; }
-input, textarea {
+.form-group{
+    margin-bottom:15px;
+}
+.form-group label{
+    display:block;
+    margin-bottom:5px;
+}
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:8px;
+}
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+}
+.submit-btn{
     width:100%;
     padding:12px;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
-.submit-btn {
     background:#27ae60;
     color:#fff;
-    padding:15px;
     border:none;
-    border-radius:8px;
-    font-size:18px;
+    font-size:16px;
     cursor:pointer;
-    width:100%;
-}
-.submit-btn:hover { background:#1e8449; }
-
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-.event-item label { font-weight: normal; margin-bottom: 4px; display:block; }
-
-footer {
-    background:#1a1a1a;
-    color:#aaa;
-    text-align:center;
-    padding:30px;
-    margin-top:50px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>আপনার সেরা মুহূর্তগুলো ফ্রেমবন্দি করুন</h1>
-<p>Wedding & Event Photography</p>
-</header>
-
-<div class="container">
-
-<div class="slider-container">
-    <div class="slides"><img src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png"></div>
-    <div class="slides"><img src="https://i.postimg.cc/t4zW2p4V/Rommochobi-Package-02-(1).png"></div>
-    <div class="slides"><img src="https://i.postimg.cc/ZY39w4fK/Rommochobi-Package-01.png"></div>
-</div>
-
 <section class="order-form">
-<h2 style="text-align: center; color: #27ae60; margin-top: 0;">
-    বুকিং ফর্মটি পূরণ করুন
-</h2>
+<h2 style="text-align:center;color:#27ae60;">বুকিং ফর্মটি পূরণ করুন</h2>
 
 <form id="telegramForm">
 
-    <div class="form-group">
-        <label>আপনার নাম:</label>
-        <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
-    </div>
+<div class="form-group">
+<label>আপনার নাম</label>
+<input type="text" id="name" required>
+</div>
 
-    <div class="form-group">
-        <label>ফোন নম্বর:</label>
-        <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
-    </div>
+<div class="form-group">
+<label>ফোন নম্বর</label>
+<input type="tel" id="phone" required>
+</div>
 
-    <!-- Event Selection -->
-    <h3 style="margin-bottom:10px;color:#333;">ইভেন্ট নির্বাচন করুন</h3>
+<h3>ইভেন্ট নির্বাচন করুন</h3>
 
-    <div class="event-grid">
+<div class="event-grid">
+<div><label>হলুদ</label><input type="date" id="holudDate"></div>
+<div><label>মেহেন্দি</label><input type="date" id="mehendiDate"></div>
+<div><label>বিয়ে</label><input type="date" id="weddingDate"></div>
+<div><label>রিসিপশন</label><input type="date" id="receptionDate"></div>
+<div><label>এনগেজমেন্ট</label><input type="date" id="engagementDate"></div>
+<div><label>বার্ষিকী</label><input type="date" id="anniversaryDate"></div>
+<div><label>বার্থডে</label><input type="date" id="birthdayDate"></div>
+<div><label>অন্নপ্রাশন</label><input type="date" id="annaprashanDate"></div>
 
-        <div class="event-item">
-            <label>হলুদ অনুষ্ঠান</label>
-            <input type="date" id="holudDate">
-        </div>
+<div>
+<label>Others</label>
+<input type="text" id="otherEventName" placeholder="ইভেন্ট নাম">
+<input type="date" id="otherEventDate">
+</div>
+</div>
 
-        <div class="event-item">
-            <label>মেহেন্দি অনুষ্ঠান</label>
-            <input type="date" id="mehendiDate">
-        </div>
+<div class="form-group">
+<label>ঠিকানা</label>
+<textarea id="address" required></textarea>
+</div>
 
-        <div class="event-item">
-            <label>বিয়ের অনুষ্ঠান</label>
-            <input type="date" id="weddingDate">
-        </div>
+<div class="form-group">
+<label>বাজেট</label>
+<input type="text" id="budget">
+</div>
 
-        <div class="event-item">
-            <label>রিসিপশন</label>
-            <input type="date" id="receptionDate">
-        </div>
-
-        <div class="event-item">
-            <label>এনগেজমেন্ট</label>
-            <input type="date" id="engagementDate">
-        </div>
-
-        <div class="event-item">
-            <label>বিবাহ বার্ষিকী</label>
-            <input type="date" id="anniversaryDate">
-        </div>
-
-        <div class="event-item">
-            <label>বার্থডে ইভেন্ট</label>
-            <input type="date" id="birthdayDate">
-        </div>
-
-        <div class="event-item">
-            <label>অন্নপ্রাশন</label>
-            <input type="date" id="annaprashanDate">
-        </div>
-
-        <div class="event-item">
-            <label>অন্য প্রোগ্রাম</label>
-            <input type="text" id="otherEventName" placeholder="প্রোগ্রামের নাম">
-            <input type="date" id="otherEventDate">
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <label>ঠিকানা:</label>
-        <textarea id="address" rows="3" placeholder="ইভেন্টের স্থান ও বিস্তারিত ঠিকানা" required></textarea>
-    </div>
-
-    <div class="form-group">
-        <label>আপনার বাজেট:</label>
-        <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
-    </div>
-
-    <button type="submit" class="submit-btn">
-        বুকিং কনফার্ম করুন
-    </button>
+<button class="submit-btn" type="submit">বুকিং কনফার্ম করুন</button>
 
 </form>
 </section>
 
-</div>
-
-<footer>
-&copy; ২০২৬ রম্যছবি
-</footer>
-
 <script>
-/* SLIDER */
-let index = 0;
-const slides = document.getElementsByClassName("slides");
-function showSlides(){
-    for(let i=0;i<slides.length;i++){
-        slides[i].style.display="none";
-    }
-    index++;
-    if(index>slides.length){index=1;}
-    slides[index-1].style.display="block";
-    setTimeout(showSlides,3000);
-}
-showSlides();
-
-/* TELEGRAM FORM */
-document.getElementById("telegramForm").addEventListener("submit",function(e){
+document.getElementById("telegramForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    const BOT_TOKEN = "BOT_TOKEN_HERE";
-    const CHAT_ID = "CHAT_ID_HERE";
+    const BOT_TOKEN = "8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
+    const CHAT_ID = "YOUR_CHAT_ID_HERE"; // এখানে আপনার Chat ID বসান
 
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
+    let message =
+`📸 নতুন বুকিং এসেছে
 
-    const holud = document.getElementById("holudDate").value;
-    const mehendi = document.getElementById("mehendiDate").value;
-    const wedding = document.getElementById("weddingDate").value;
-    const reception = document.getElementById("receptionDate").value;
-    const engagement = document.getElementById("engagementDate").value;
-    const anniversary = document.getElementById("anniversaryDate").value;
-    const birthday = document.getElementById("birthdayDate").value;
-    const annaprashan = document.getElementById("annaprashanDate").value;
-    const otherName = document.getElementById("otherEventName").value;
-    const otherDate = document.getElementById("otherEventDate").value;
+👤 নাম: ${name.value}
+📞 ফোন: ${phone.value}
 
-    const address = document.getElementById("address").value;
-    const budget = document.getElementById("budget").value;
+📅 তারিখ:
+হলুদ: ${holudDate.value}
+মেহেন্দি: ${mehendiDate.value}
+বিয়ে: ${weddingDate.value}
+রিসিপশন: ${receptionDate.value}
+এনগেজমেন্ট: ${engagementDate.value}
+বার্ষিকী: ${anniversaryDate.value}
+বার্থডে: ${birthdayDate.value}
+অন্নপ্রাশন: ${annaprashanDate.value}
 
-    let message = `📸 নতুন বুকিং (রম্যছবি)
+📝 Others: ${otherEventName.value} (${otherEventDate.value})
 
-👤 নাম: ${name}
-📞 ফোন: ${phone}
+📍 ঠিকানা:
+${address.value}
 
-📅 হলুদ: ${holud || "নেই"}
-📅 মেহেন্দি: ${mehendi || "নেই"}
-📅 বিয়ে: ${wedding || "নেই"}
-📅 রিসিপশন: ${reception || "নেই"}
-📅 এনগেজমেন্ট: ${engagement || "নেই"}
-📅 বিবাহ বার্ষিকী: ${anniversary || "নেই"}
-📅 বার্থডে: ${birthday || "নেই"}
-📅 অন্নপ্রাশন: ${annaprashan || "নেই"}
-📅 অন্যান্য (${otherName || "নেই"}): ${otherDate || "নেই"}
-
-📍 ঠিকানা: ${address}
-💰 বাজেট: ${budget || "উল্লেখ নেই"}`;
+💰 বাজেট: ${budget.value}`;
 
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
         method:"POST",
-        headers:{"Content-Type":"application/json"},
+        headers:{ "Content-Type":"application/json" },
         body:JSON.stringify({
-            chat_id:CHAT_ID,
-            text:message
+            chat_id: CHAT_ID,
+            text: message
         })
     })
-    .then(r=>{
-        if(r.ok){
-            alert("বুকিং সফলভাবে পাঠানো হয়েছে ✅");
-            e.target.reset();
-        }else{
-            alert("Telegram error ❌");
-        }
+    .then(()=> {
+        alert("✅ বুকিং সফলভাবে পাঠানো হয়েছে");
+        telegramForm.reset();
     })
-    .catch(()=>alert("ইন্টারনেট সমস্যা"));
+    .catch(()=> alert("❌ মেসেজ পাঠানো যায়নি"));
 });
 </script>
 
 </body>
-        </html>
+</html>
