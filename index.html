@@ -101,44 +101,62 @@ document.getElementById("telegramForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     const BOT_TOKEN = "8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
-    const CHAT_ID = "YOUR_CHAT_ID_HERE"; // এখানে আপনার Chat ID বসান
+    const CHAT_ID = "7507021624";
 
-    let message =
+    let events = "";
+
+    function addEvent(name, date){
+        if(date){
+            events += `• ${name}: ${date}\n`;
+        }
+    }
+
+    addEvent("হলুদ", holudDate.value);
+    addEvent("মেহেন্দি", mehendiDate.value);
+    addEvent("বিয়ে", weddingDate.value);
+    addEvent("রিসিপশন", receptionDate.value);
+    addEvent("এনগেজমেন্ট", engagementDate.value);
+    addEvent("বার্ষিকী", anniversaryDate.value);
+    addEvent("বার্থডে", birthdayDate.value);
+    addEvent("অন্নপ্রাশন", annaprashanDate.value);
+
+    if(otherEventName.value && otherEventDate.value){
+        events += `• ${otherEventName.value}: ${otherEventDate.value}\n`;
+    }
+
+    if(events === ""){
+        events = "কোনো ইভেন্ট নির্বাচন করা হয়নি";
+    }
+
+    let message = 
 `📸 নতুন বুকিং এসেছে
 
 👤 নাম: ${name.value}
 📞 ফোন: ${phone.value}
 
-📅 তারিখ:
-হলুদ: ${holudDate.value}
-মেহেন্দি: ${mehendiDate.value}
-বিয়ে: ${weddingDate.value}
-রিসিপশন: ${receptionDate.value}
-এনগেজমেন্ট: ${engagementDate.value}
-বার্ষিকী: ${anniversaryDate.value}
-বার্থডে: ${birthdayDate.value}
-অন্নপ্রাশন: ${annaprashanDate.value}
-
-📝 Others: ${otherEventName.value} (${otherEventDate.value})
+📅 ইভেন্টসমূহ:
+${events}
 
 📍 ঠিকানা:
 ${address.value}
 
-💰 বাজেট: ${budget.value}`;
+💰 বাজেট: ${budget.value || "উল্লেখ নেই"}`;
 
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
         method:"POST",
         headers:{ "Content-Type":"application/json" },
-        body:JSON.stringify({
+        body: JSON.stringify({
             chat_id: CHAT_ID,
             text: message
         })
     })
-    .then(()=> {
-        alert("✅ বুকিং সফলভাবে পাঠানো হয়েছে");
+    .then(()=>{
+        alert("✅ বুকিং সফলভাবে Telegram এ পাঠানো হয়েছে");
         telegramForm.reset();
     })
-    .catch(()=> alert("❌ মেসেজ পাঠানো যায়নি"));
+    .catch(()=>{
+        alert("❌ মেসেজ পাঠানো যায়নি");
+    });
 });
 </script>
 
