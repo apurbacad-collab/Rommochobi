@@ -162,13 +162,14 @@
 
 </div>
 
-    <section class="order-form">
+<section class="order-form">
     <h2 style="text-align: center; color: #27ae60; margin-top: 0;">
         বুকিং ফর্মটি পূরণ করুন
     </h2>
 
-    <form id="telegramForm">
+    <form id="telegramForm" enctype="multipart/form-data">
 
+        <!-- Client Basic Info -->
         <div class="form-group">
             <label>আপনার নাম:</label>
             <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
@@ -179,11 +180,15 @@
             <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
         </div>
 
+        <div class="form-group">
+            <label>পরিবারের / ভাই-বোনের নাম্বার (সেকেন্ড কন্টাক্ট):</label>
+            <input type="tel" id="secondPhone" placeholder="অন্য একটি যোগাযোগ নম্বর">
+        </div>
+
         <!-- Event Selection -->
-        <h3 style="margin-bottom:10px;color:#333;">ইভেন্ট নির্বাচন করুন</h3>
+        <h3 style="margin-bottom:10px;">ইভেন্ট ও তারিখ নির্বাচন করুন</h3>
 
         <div class="event-grid">
-
             <div class="event-item">
                 <label>হলুদ অনুষ্ঠান</label>
                 <input type="date" id="holudDate">
@@ -229,9 +234,26 @@
                 <input type="text" id="otherEventName" placeholder="প্রোগ্রামের নাম">
                 <input type="date" id="otherEventDate">
             </div>
-
         </div>
 
+        <!-- Image Upload -->
+        <div class="form-group">
+            <label>ক্লায়েন্টের ছবি আপলোড করুন:</label>
+            <input type="file" id="clientImage" accept="image/*">
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="form-group">
+            <label>Facebook Profile Link:</label>
+            <input type="url" id="facebookLink" placeholder="https://facebook.com/username">
+        </div>
+
+        <div class="form-group">
+            <label>Instagram Profile Link:</label>
+            <input type="url" id="instagramLink" placeholder="https://instagram.com/username">
+        </div>
+
+        <!-- Address -->
         <div class="form-group">
             <label>ঠিকানা:</label>
             <textarea id="address" rows="3"
@@ -239,6 +261,7 @@
                 required></textarea>
         </div>
 
+        <!-- Budget -->
         <div class="form-group">
             <label>আপনার বাজেট:</label>
             <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
@@ -250,7 +273,6 @@
 
     </form>
 </section>
-</div>
 
 <footer>
     <p>&copy; ২০২৬ রম্যছবি | সর্বস্বত্ব সংরক্ষিত</p>
