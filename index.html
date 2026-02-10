@@ -1,338 +1,400 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রম্যছবি- প্রফেশনাল ওয়েডিং ফটোগ্রাফি | বুকিং পেজ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: #333;
-            background-color: #fdfdfd;
-        }
-        header {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>রম্যছবি | বুকিং পেজ</title>
 
-        /* --- স্লাইডার স্টাইল --- */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin: 20px 0 40px 0;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .slides {
-            display: none;
-            width: 100%;
-            height: 100%;
-        }
-        .slides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .fade {
-            animation: fadeAnim 1.5s;
-        }
-        @keyframes fadeAnim {
-            from {opacity: .6} to {opacity: 1}
-        }
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
 
-        /* --- টেবিল স্টাইল --- */
-        .package-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 40px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .package-table th, .package-table td {
-            padding: 15px;
-            border: 1px solid #eee;
-            text-align: center;
-        }
-        .package-table th {
-            background-color: #e67e22;
-            color: white;
-            font-size: 18px;
-        }
+<style>
+body {
+    font-family: 'Hind Siliguri', sans-serif;
+    margin: 0;
+    background: #fdfdfd;
+}
+header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+.slider-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.slides { display: none; height:100%; }
+.slides img { width:100%; height:100%; object-fit:cover; }
 
-        /* --- ফর্ম স্টাইল --- */
-        .order-form {
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-top: 5px solid #27ae60;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .date-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #444;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        .submit-btn {
-            background: #27ae60;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-            font-weight: bold;
-            transition: 0.3s ease;
-        }
-        .submit-btn:hover {
-            background: #1e8449;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #1a1a1a;
-            color: #999;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 600px) {
-            .date-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+.order-form {
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+.form-group { margin-bottom:18px; }
+label { font-weight:bold; display:block; margin-bottom:6px; }
+input, textarea {
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+.submit-btn {
+    background:#27ae60;
+    color:#fff;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    width:100%;
+}
+.submit-btn:hover { background:#1e8449; }
+footer {
+    background:#1a1a1a;
+    color:#aaa;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>আপনার সেরা মুহূর্তগুলো ফ্রেমবন্দি করুন</h1>
-    <p>ওয়েডিং এবং আউটডোর ফটোগ্রাফি সার্ভিস</p>
+<h1>আপনার সেরা মুহূর্তগুলো ফ্রেমবন্দি করুন</h1>
+<p>Wedding & Event Photography</p>
 </header>
 
 <div class="container">
-    
+
 <div class="slider-container">
-
-    <div class="slides fade">
-        <a href="https://postimg.cc/xcVJgpW4" target="_blank">
-            <img src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png" alt="Slide 1">
-        </a>
-    </div>
-
-    <div class="slides fade">
-        <a href="https://postimg.cc/Wdhd4Rr2" target="_blank">
-            <img src="https://i.postimg.cc/t4zW2p4V/Rommochobi-Package-02-(1).png" alt="Slide 2">
-        </a>
-    </div>
-
-    <div class="slides fade">
-        <a href="https://postimg.cc/t7qCTQQL" target="_blank">
-            <img src="https://i.postimg.cc/ZY39w4fK/Rommochobi-Package-01.png" alt="Slide 3">
-        </a>
-    </div>
-
+    <div class="slides"><img src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png"></div>
+    <div class="slides"><img src="https://i.postimg.cc/t4zW2p4V/Rommochobi-Package-02-(1).png"></div>
+    <div class="slides"><img src="https://i.postimg.cc/ZY39w4fK/Rommochobi-Package-01.png"></div>
 </div>
 
 <section class="order-form">
-    <h2 style="text-align: center; color: #27ae60; margin-top: 0;">
-        বুকিং ফর্মটি পূরণ করুন
-    </h2>
+<h2 style="text-align:center;color:#27ae60">বুকিং ফর্ম</h2>
 
-    <form id="telegramForm" enctype="multipart/form-data">
+<form id="telegramForm">
 
-        <!-- Client Basic Info -->
-        <div class="form-group">
-            <label>আপনার নাম:</label>
-            <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
-        </div>
+<div class="form-group">
+<label>নাম</label>
+<input type="text" id="name" required>
+</div>
 
-        <div class="form-group">
-            <label>ফোন নম্বর:</label>
-            <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
-        </div>
+<div class="form-group">
+<label>ফোন</label>
+<input type="tel" id="phone" required>
+</div>
 
-        <div class="form-group">
-            <label>পরিবারের / ভাই-বোনের নাম্বার (সেকেন্ড কন্টাক্ট):</label>
-            <input type="tel" id="secondPhone" placeholder="অন্য একটি যোগাযোগ নম্বর">
-        </div>
+<div class="form-group">
+<label>হলুদ</label>
+<input type="date" id="holudDate">
+</div>
 
-        <!-- Event Selection -->
-        <h3 style="margin-bottom:10px;">ইভেন্ট ও তারিখ নির্বাচন করুন</h3>
+<div class="form-group">
+<label>বিয়ে</label>
+<input type="date" id="weddingDate">
+</div>
 
-        <div class="event-grid">
-            <div class="event-item">
-                <label>হলুদ অনুষ্ঠান</label>
-                <input type="date" id="holudDate">
-            </div>
+<div class="form-group">
+<label>রিসিপশন</label>
+<input type="date" id="receptionDate">
+</div>
 
-            <div class="event-item">
-                <label>মেহেন্দি অনুষ্ঠান</label>
-                <input type="date" id="mehendiDate">
-            </div>
+<div class="form-group">
+<label>ঠিকানা</label>
+<textarea id="address" required></textarea>
+</div>
 
-            <div class="event-item">
-                <label>বিয়ের অনুষ্ঠান</label>
-                <input type="date" id="weddingDate">
-            </div>
+<div class="form-group">
+<label>বাজেট</label>
+<input type="text" id="budget">
+</div>
 
-            <div class="event-item">
-                <label>রিসিপশন</label>
-                <input type="date" id="receptionDate">
-            </div>
+<button class="submit-btn" type="submit">বুকিং পাঠান</button>
 
-            <div class="event-item">
-                <label>এনগেজমেন্ট</label>
-                <input type="date" id="engagementDate">
-            </div>
-
-            <div class="event-item">
-                <label>বিবাহ বার্ষিকী</label>
-                <input type="date" id="anniversaryDate">
-            </div>
-
-            <div class="event-item">
-                <label>বার্থডে ইভেন্ট</label>
-                <input type="date" id="birthdayDate">
-            </div>
-
-            <div class="event-item">
-                <label>অন্নপ্রাশন</label>
-                <input type="date" id="annaprashanDate">
-            </div>
-
-            <div class="event-item">
-                <label>আদার্স প্রোগ্রাম</label>
-                <input type="text" id="otherEventName" placeholder="প্রোগ্রামের নাম">
-                <input type="date" id="otherEventDate">
-            </div>
-        </div>
-
-        <!-- Image Upload -->
-        <div class="form-group">
-            <label>ক্লায়েন্টের ছবি আপলোড করুন:</label>
-            <input type="file" id="clientImage" accept="image/*">
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="form-group">
-            <label>Facebook Profile Link:</label>
-            <input type="url" id="facebookLink" placeholder="https://facebook.com/username">
-        </div>
-
-        <div class="form-group">
-            <label>Instagram Profile Link:</label>
-            <input type="url" id="instagramLink" placeholder="https://instagram.com/username">
-        </div>
-
-        <!-- Address -->
-        <div class="form-group">
-            <label>ঠিকানা:</label>
-            <textarea id="address" rows="3"
-                placeholder="ইভেন্টের স্থান ও বিস্তারিত ঠিকানা"
-                required></textarea>
-        </div>
-
-        <!-- Budget -->
-        <div class="form-group">
-            <label>আপনার বাজেট:</label>
-            <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
-        </div>
-
-        <button type="submit" class="submit-btn">
-            বুকিং কনফার্ম করুন
-        </button>
-
-    </form>
+</form>
 </section>
 
+</div>
+
 <footer>
-    <p>&copy; ২০২৬ রম্যছবি | সর্বস্বত্ব সংরক্ষিত</p>
+&copy; ২০২৬ রম্যছবি
 </footer>
 
 <script>
-    // --- স্লাইডার ফাংশন ---
-    let slideIndex = 0;
-    function showSlides() {
-        let slides = document.getElementsByClassName("slides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 3000); 
+/* SLIDER */
+let index = 0;
+const slides = document.getElementsByClassName("slides");
+function showSlides(){
+    for(let i=0;i<slides.length;i++){
+        slides[i].style.display="none";
     }
-    showSlides();
+    index++;
+    if(index>slides.length){index=1;}
+    slides[index-1].style.display="block";
+    setTimeout(showSlides,3000);
+}
+showSlides();
 
-    // --- টেলিগ্রাম সাবমিশন ফাংশন ---
-    const form = document.getElementById('telegramForm');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+/* TELEGRAM FORM */
+document.getElementById("telegramForm").addEventListener("submit",function(e){
+    e.preventDefault();
 
-        // ** আপনার টোকেন এবং চ্যাট আইডি এখানে বসান **
-        const botToken = "8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho"; 
-        const chatId = "7507021624";
+    const BOT_TOKEN = "BOT_TOKEN_HERE";
+    const CHAT_ID = "CHAT_ID_HERE";
 
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const start = document.getElementById('startDate').value;
-        const end = document.getElementById('endDate').value;
-        const address = document.getElementById('address').value;
-        const budget = document.getElementById('budget').value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const holud = document.getElementById("holudDate").value;
+    const wedding = document.getElementById("weddingDate").value;
+    const reception = document.getElementById("receptionDate").value;
+    const address = document.getElementById("address").value;
+    const budget = document.getElementById("budget").value;
 
-        // টেলিগ্রাম মেসেজ ফরম্যাট (তারিখের পরিসীমা সহ)
-        const message = `⚡ *নতুন বুকিং অর্ডার (রম্যছবি)* ⚡\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n🗓 ইভেন্ট সময়: ${start} থেকে ${end}\n📍 ঠিকানা: ${address}\n💰 বাজেট: ${budget}`;
+    let message =
+`📸 নতুন বুকিং (রম্যছবি)
 
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-        
-        fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-                parse_mode: 'Markdown'
-            })
+👤 নাম: ${name}
+📞 ফোন: ${phone}
+
+📅 হলুদ: ${holud || "নেই"}
+📅 বিয়ে: ${wedding || "নেই"}
+📅 রিসিপশন: ${reception || "নেই"}
+
+📍 ঠিকানা: ${address}
+💰 বাজেট: ${budget || "উল্লেখ নেই"}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            chat_id:CHAT_ID,
+            text:message
         })
-        .then(res => {
-            if(res.ok) {
-                alert("ধন্যবাদ! আপনার বুকিং রিকোয়েস্ট সফলভাবে পাঠানো হয়েছে।");
-                form.reset();
-            } else {
-                alert("সমস্যা হয়েছে! টোকেন এবং আইডি চেক করুন।");
-            }
+    })
+    .then(r=>{
+        if(r.ok){
+            alert("বুকিং সফলভাবে পাঠানো হয়েছে ✅");
+            e.target.reset();
+        }else{
+            alert("Telegram error ❌");
+        }
+    })
+    .catch(()=>alert("ইন্টারনেট সমস্যা"));
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>রম্যছবি | বুকিং পেজ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Hind Siliguri', sans-serif;
+    margin: 0;
+    background: #fdfdfd;
+}
+header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+.slider-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.slides { display: none; height:100%; }
+.slides img { width:100%; height:100%; object-fit:cover; }
+
+.order-form {
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+.form-group { margin-bottom:18px; }
+label { font-weight:bold; display:block; margin-bottom:6px; }
+input, textarea {
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+.submit-btn {
+    background:#27ae60;
+    color:#fff;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    width:100%;
+}
+.submit-btn:hover { background:#1e8449; }
+footer {
+    background:#1a1a1a;
+    color:#aaa;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>আপনার সেরা মুহূর্তগুলো ফ্রেমবন্দি করুন</h1>
+<p>Wedding & Event Photography</p>
+</header>
+
+<div class="container">
+
+<div class="slider-container">
+    <div class="slides"><img src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png"></div>
+    <div class="slides"><img src="https://i.postimg.cc/t4zW2p4V/Rommochobi-Package-02-(1).png"></div>
+    <div class="slides"><img src="https://i.postimg.cc/ZY39w4fK/Rommochobi-Package-01.png"></div>
+</div>
+
+<section class="order-form">
+<h2 style="text-align:center;color:#27ae60">বুকিং ফর্ম</h2>
+
+<form id="telegramForm">
+
+<div class="form-group">
+<label>নাম</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="form-group">
+<label>ফোন</label>
+<input type="tel" id="phone" required>
+</div>
+
+<div class="form-group">
+<label>হলুদ</label>
+<input type="date" id="holudDate">
+</div>
+
+<div class="form-group">
+<label>বিয়ে</label>
+<input type="date" id="weddingDate">
+</div>
+
+<div class="form-group">
+<label>রিসিপশন</label>
+<input type="date" id="receptionDate">
+</div>
+
+<div class="form-group">
+<label>ঠিকানা</label>
+<textarea id="address" required></textarea>
+</div>
+
+<div class="form-group">
+<label>বাজেট</label>
+<input type="text" id="budget">
+</div>
+
+<button class="submit-btn" type="submit">বুকিং পাঠান</button>
+
+</form>
+</section>
+
+</div>
+
+<footer>
+&copy; ২০২৬ রম্যছবি
+</footer>
+
+<script>
+/* SLIDER */
+let index = 0;
+const slides = document.getElementsByClassName("slides");
+function showSlides(){
+    for(let i=0;i<slides.length;i++){
+        slides[i].style.display="none";
+    }
+    index++;
+    if(index>slides.length){index=1;}
+    slides[index-1].style.display="block";
+    setTimeout(showSlides,3000);
+}
+showSlides();
+
+/* TELEGRAM FORM */
+document.getElementById("telegramForm").addEventListener("submit",function(e){
+    e.preventDefault();
+
+    const BOT_TOKEN = "BOT_TOKEN_HERE";
+    const CHAT_ID = "CHAT_ID_HERE";
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const holud = document.getElementById("holudDate").value;
+    const wedding = document.getElementById("weddingDate").value;
+    const reception = document.getElementById("receptionDate").value;
+    const address = document.getElementById("address").value;
+    const budget = document.getElementById("budget").value;
+
+    let message =
+`📸 নতুন বুকিং (রম্যছবি)
+
+👤 নাম: ${name}
+📞 ফোন: ${phone}
+
+📅 হলুদ: ${holud || "নেই"}
+📅 বিয়ে: ${wedding || "নেই"}
+📅 রিসিপশন: ${reception || "নেই"}
+
+📍 ঠিকানা: ${address}
+💰 বাজেট: ${budget || "উল্লেখ নেই"}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            chat_id:CHAT_ID,
+            text:message
         })
-        .catch(err => alert("ইন্টারনেট কানেকশন চেক করুন।"));
-    });
+    })
+    .then(r=>{
+        if(r.ok){
+            alert("বুকিং সফলভাবে পাঠানো হয়েছে ✅");
+            e.target.reset();
+        }else{
+            alert("Telegram error ❌");
+        }
+    })
+    .catch(()=>alert("ইন্টারনেট সমস্যা"));
+});
 </script>
 
 </body>
