@@ -162,45 +162,94 @@
 
 </div>
 
-    <h2 style="text-align: center; color: #e67e22;">প্যাকেজ এবং প্রাইস</h2>
-    <table class="package-table">
-        <thead>
-
     <section class="order-form">
-        <h2 style="text-align: center; color: #27ae60; margin-top: 0;">বুকিং ফর্মটি পূরণ করুন</h2>
-        <form id="telegramForm">
-            <div class="form-group">
-                <label>আপনার নাম:</label>
-                <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
-            </div>
-            <div class="form-group">
-                <label>ফোন নম্বর:</label>
-                <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
-            </div>
-            
-            <div class="date-grid">
-                <div class="form-group">
-                    <label>ইভেন্ট শুরু:</label>
-                    <input type="date" id="startDate" required>
-                </div>
-                <div class="form-group">
-                    <label>ইভেন্ট শেষ:</label>
-                    <input type="date" id="endDate" required>
-                </div>
+    <h2 style="text-align: center; color: #27ae60; margin-top: 0;">
+        বুকিং ফর্মটি পূরণ করুন
+    </h2>
+
+    <form id="telegramForm">
+
+        <div class="form-group">
+            <label>আপনার নাম:</label>
+            <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+        </div>
+
+        <div class="form-group">
+            <label>ফোন নম্বর:</label>
+            <input type="tel" id="phone" placeholder="ফোন নম্বর লিখুন" required>
+        </div>
+
+        <!-- Event Selection -->
+        <h3 style="margin-bottom:10px;color:#333;">ইভেন্ট নির্বাচন করুন</h3>
+
+        <div class="event-grid">
+
+            <div class="event-item">
+                <label>হলুদ অনুষ্ঠান</label>
+                <input type="date" id="holudDate">
             </div>
 
-            <div class="form-group">
-                <label>ঠিকানা:</label>
-                <textarea id="address" rows="3" placeholder="ইভেন্টের স্থান ও বিস্তারিত ঠিকানা" required></textarea>
+            <div class="event-item">
+                <label>মেহেন্দি অনুষ্ঠান</label>
+                <input type="date" id="mehendiDate">
             </div>
-            <div class="form-group">
-                <label>আপনার বাজেট:</label>
-                <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
-            </div>
-            <button type="submit" class="submit-btn">বুকিং কনফার্ম করুন</button>
-        </form>
-    </section>
 
+            <div class="event-item">
+                <label>বিয়ের অনুষ্ঠান</label>
+                <input type="date" id="weddingDate">
+            </div>
+
+            <div class="event-item">
+                <label>রিসিপশন</label>
+                <input type="date" id="receptionDate">
+            </div>
+
+            <div class="event-item">
+                <label>এনগেজমেন্ট</label>
+                <input type="date" id="engagementDate">
+            </div>
+
+            <div class="event-item">
+                <label>বিবাহ বার্ষিকী</label>
+                <input type="date" id="anniversaryDate">
+            </div>
+
+            <div class="event-item">
+                <label>বার্থডে ইভেন্ট</label>
+                <input type="date" id="birthdayDate">
+            </div>
+
+            <div class="event-item">
+                <label>অন্নপ্রাশন</label>
+                <input type="date" id="annaprashanDate">
+            </div>
+
+            <div class="event-item">
+                <label>আদার্স প্রোগ্রাম</label>
+                <input type="text" id="otherEventName" placeholder="প্রোগ্রামের নাম">
+                <input type="date" id="otherEventDate">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>ঠিকানা:</label>
+            <textarea id="address" rows="3"
+                placeholder="ইভেন্টের স্থান ও বিস্তারিত ঠিকানা"
+                required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>আপনার বাজেট:</label>
+            <input type="text" id="budget" placeholder="যেমন: ১০০০০ টাকা">
+        </div>
+
+        <button type="submit" class="submit-btn">
+            বুকিং কনফার্ম করুন
+        </button>
+
+    </form>
+</section>
 </div>
 
 <footer>
