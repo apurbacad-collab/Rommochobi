@@ -233,7 +233,11 @@ document.getElementById("telegramForm").addEventListener("submit", function(e){
     function addEvent(name, date){
         if(date){ events += `• ${name}: ${date}\n`; }
     }
-
+const name = document.getElementById("name");
+const phone = document.getElementById("phone");
+const address = document.getElementById("address");
+const budget = document.getElementById("budget"); 
+  
     addEvent("হলুদ", holudDate.value);
     addEvent("মেহেন্দি", mehendiDate.value);
     addEvent("বিয়ে", weddingDate.value);
@@ -251,6 +255,7 @@ document.getElementById("telegramForm").addEventListener("submit", function(e){
     let message = `📸 নতুন বুকিং এসেছে
 
 👤 নাম: ${name.value}
+
 📞 ফোন: ${phone.value}
 
 📅 ইভেন্টসমূহ:
