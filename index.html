@@ -158,25 +158,110 @@ Rommochobi একটি প্রফেশনাল ওয়েডিং ও ই�
 </div>
 </section>
 
-<!-- BOOKING -->
-<section id="booking">
-<h2>বুকিং ফর্ম</h2>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RommoChobi Premium Booking</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#fdfbfb,#ebedee);padding:15px;}
+.container{max-width:420px;margin:auto;animation:fadeIn 1s ease-in-out;}
+.header{background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;padding:18px;border-radius:15px;text-align:center;font-weight:bold;font-size:20px;box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.card{background:white;padding:18px;border-radius:15px;margin-top:18px;box-shadow:0 5px 20px rgba(0,0,0,0.08);transition:all 0.3s ease;}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+input,textarea{width:100%;padding:12px;margin-top:8px;border:1px solid #ddd;border-radius:10px;transition:0.3s;}
+input:focus,textarea:focus{border-color:#ff7a00;box-shadow:0 0 10px rgba(255,122,0,0.2);outline:none;}
+.row{display:flex;justify-content:space-between;align-items:center;}
+.qty{display:flex;gap:6px;}
+.qty button{width:38px;height:38px;border:none;background:linear-gradient(135deg,#ddd,#bbb);font-size:18px;border-radius:8px;cursor:pointer;transition:0.3s;}
+.qty button:hover{background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;}
+.summary{background:white;padding:18px;border-radius:15px;margin-top:18px;box-shadow:0 5px 20px rgba(0,0,0,0.08);}
+.total{font-size:24px;font-weight:bold;color:#ff3c00;}
+.order-btn{width:100%;padding:16px;margin-top:18px;background:linear-gradient(135deg,#00b894,#00cec9);color:white;border:none;border-radius:15px;font-size:18px;cursor:pointer;transition:0.3s;}
+.order-btn:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+a.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;font-size:24px;padding:12px;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.event-grid div{display:flex;flex-direction:column;}
+</style>
+</head>
+<body>
 
-<div class="order-form">
-<form id="telegramForm">
+<div class="container">
+<div class="header">📸 RommoChobi Booking</div>
 
-<<div class="form-group">
-  <label for="name">আপনার নাম</label>
-  <input type="text" id="name" name="client_name" required>
+<form id="bookingForm">
+
+<!-- Client Info -->
+<div class="card">
+<h3>Client Info</h3>
+<input type="text" id="name" placeholder="আপনার নাম" required>
+<input type="tel" id="phone" placeholder="মোবাইল নাম্বার" required>
+<textarea id="address" placeholder="ঠিকানা" required></textarea>
 </div>
 
-<div class="form-group">
-<label>ফোন নম্বর</label>
-<input type="tel" id="phone" required>
+<!-- Photographer -->
+<div class="card">
+<div class="row">
+<div>
+<h3>Photographer</h3>
+<p>প্রতি জন: ৳ 7000</p>
+</div>
+<div class="qty">
+<button type="button" onclick="changeQty('photo',-1)">-</button>
+<input id="photoQty" value="1" readonly>
+<button type="button" onclick="changeQty('photo',1)">+</button>
+</div>
+</div>
 </div>
 
+<!-- Cinematographer -->
+<div class="card">
+<div class="row">
+<div>
+<h3>Cinematographer</h3>
+<p>প্রতি জন: ৳ 7000</p>
+</div>
+<div class="qty">
+<button type="button" onclick="changeQty('cine',-1)">-</button>
+<input id="cineQty" value="0" readonly>
+<button type="button" onclick="changeQty('cine',1)">+</button>
+</div>
+</div>
+</div>
+
+<!-- Discount -->
+<div class="card">
+<h3>Discount (Max 40%)</h3>
+<input type="number" id="discount" value="0" min="0" max="40" onchange="calculateTotal()">
+</div>
+
+<!-- Summary -->
+<div class="summary">
+<p>Subtotal: ৳ <span id="subtotal">0</span></p>
+<p>Discount: ৳ <span id="discountAmount">0</span></p>
+<p class="total">Total: ৳ <span id="total">0</span></p>
+</div>
+
+<!-- Song Selection -->
+<div class="card">
+<h3>🎵 Song Selection</h3>
+<p>আপনার পছন্দ অনুযায়ী গান সিলেকশন করতে পারবেন।</p>
+<a href="https://ramyachobi.video.blog/low-price-package/" target="_blank">
+<button type="button" style="width:100%;padding:12px;margin-top:10px;background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;border:none;border-radius:12px;font-size:16px;cursor:pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🎧 গান সিলেক্ট করুন</button>
+</a>
+</div>
+
+<!-- Budget -->
+<div class="card">
+<h3>Budget</h3>
+<input type="text" id="budget" placeholder="উদাহরণ: 50000">
+</div>
+
+<!-- Event Dates -->
+<div class="card">
 <h3>ইভেন্ট নির্বাচন করুন</h3>
-
 <div class="event-grid">
 <div><label>হলুদ</label><input type="date" id="holudDate"></div>
 <div><label>মেহেন্দি</label><input type="date" id="mehendiDate"></div>
@@ -186,101 +271,126 @@ Rommochobi একটি প্রফেশনাল ওয়েডিং ও ই�
 <div><label>বার্ষিকী</label><input type="date" id="anniversaryDate"></div>
 <div><label>বার্থডে</label><input type="date" id="birthdayDate"></div>
 <div><label>অন্নপ্রাশন</label><input type="date" id="annaprashanDate"></div>
-
 <div>
 <label>Others</label>
 <input type="text" id="otherEventName" placeholder="ইভেন্ট নাম">
 <input type="date" id="otherEventDate">
 </div>
 </div>
-
-<div class="form-group">
-<label>ঠিকানা</label>
-<textarea id="address" required></textarea>
 </div>
 
-<div class="form-group">
-<label>বাজেট</label>
-<input type="text" id="budget">
-</div>
-
-<button class="submit-btn" type="submit">বুকিং কনফার্ম করুন</button>
-
+<button class="order-btn" type="submit">✅ বুকিং কনফার্ম করুন</button>
 </form>
-</div>
-</section>
 
-<a class="whatsapp" href="https://wa.me/8801776044951">💬</a>
+<a class="whatsapp" href="https://wa.me/8801776044951" target="_blank">💬</a>
+
+</div>
 
 <script>
-// SLIDER
-let i=0;
-const slides=document.querySelectorAll(".slide");
-setInterval(()=>{
-  slides.forEach(s=>s.classList.remove("active"));
-  i=(i+1)%slides.length;
-  slides[i].classList.add("active");
-},3000);
+// Prices
+let photoPrice = 7000;
+let cinePrice = 7000;
 
-// TELEGRAM BOOKING
-document.getElementById("telegramForm").addEventListener("submit", function(e){
+function changeQty(type,value){
+  let input=document.getElementById(type+'Qty');
+  let qty=parseInt(input.value)+value;
+  if(qty<0) qty=0;
+  input.value=qty;
+  calculateTotal();
+}
+
+function calculateTotal(){
+  let photoQty=parseInt(document.getElementById('photoQty').value);
+  let cineQty=parseInt(document.getElementById('cineQty').value);
+  let discountPercent=parseFloat(document.getElementById('discount').value)||0;
+  if(discountPercent>40) discountPercent=40;
+  if(discountPercent<0) discountPercent=0;
+  document.getElementById('discount').value=discountPercent;
+
+  let subtotal=(photoQty*photoPrice)+(cineQty*cinePrice);
+  let discountAmount=subtotal*(discountPercent/100);
+  let total=subtotal-discountAmount;
+
+  document.getElementById('subtotal').innerText=subtotal;
+  document.getElementById('discountAmount').innerText=discountAmount.toFixed(0);
+  document.getElementById('total').innerText=total.toFixed(0);
+}
+
+calculateTotal();
+
+document.getElementById('bookingForm').addEventListener('submit',function(e){
     e.preventDefault();
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const address=document.getElementById('address').value.trim();
+    const budget=document.getElementById('budget').value.trim();
+    const photoQty=document.getElementById('photoQty').value;
+    const cineQty=document.getElementById('cineQty').value;
+    const total=document.getElementById('total').innerText;
 
-    const BOT_TOKEN = "8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
-    const CHAT_ID = "7507021624";
+    if(!name||!phone||!address){alert('নাম, ফোন এবং ঠিকানা অবশ্যই পূরণ করুন'); return;}
+    if(phone.length<11){alert('সঠিক মোবাইল নাম্বার দিন'); return;}
 
-    let events = "";
-    function addEvent(name, date){
-        if(date){ events += `• ${name}: ${date}\n`; }
+    // Events
+    let events="";
+    function addEvent(label,id){
+      let d=document.getElementById(id).value;
+      if(d) events+=`• ${label}: ${d}\n`;
     }
-const name = document.getElementById("name");
-const phone = document.getElementById("phone");
-const address = document.getElementById("address");
-const budget = document.getElementById("budget"); 
-  
-    addEvent("হলুদ", holudDate.value);
-    addEvent("মেহেন্দি", mehendiDate.value);
-    addEvent("বিয়ে", weddingDate.value);
-    addEvent("রিসিপশন", receptionDate.value);
-    addEvent("এনগেজমেন্ট", engagementDate.value);
-    addEvent("বার্ষিকী", anniversaryDate.value);
-    addEvent("বার্থডে", birthdayDate.value);
-    addEvent("অন্নপ্রাশন", annaprashanDate.value);
-
-    if(otherEventName.value && otherEventDate.value){
-        events += `• ${otherEventName.value}: ${otherEventDate.value}\n`;
+    addEvent("হলুদ","holudDate");
+    addEvent("মেহেন্দি","mehendiDate");
+    addEvent("বিয়ে","weddingDate");
+    addEvent("রিসিপশন","receptionDate");
+    addEvent("এনগেজমেন্ট","engagementDate");
+    addEvent("বার্ষিকী","anniversaryDate");
+    addEvent("বার্থডে","birthdayDate");
+    addEvent("অন্নপ্রাশন","annaprashanDate");
+    if(document.getElementById("otherEventName").value && document.getElementById("otherEventDate").value){
+        events+=`• ${document.getElementById("otherEventName").value}: ${document.getElementById("otherEventDate").value}\n`;
     }
-    if(events===""){ events="কোনো ইভেন্ট নির্বাচন করা হয়নি"; }
+    if(events===""){events="কোনো ইভেন্ট নির্বাচন করা হয়নি";}
 
-    let message = `📸 নতুন বুকিং এসেছে
-
-👤 নাম: ${name.value}
-
-📞 ফোন: ${phone.value}
-
+    // Telegram Message
+    let telegramMsg=`📸 নতুন বুকিং এসেছে
+👤 নাম: ${name}
+📞 ফোন: ${phone}
+Photographer: ${photoQty}
+Cinematographer: ${cineQty}
 📅 ইভেন্টসমূহ:
 ${events}
+💰 Total: ৳ ${total}
+📍 ঠিকানা: ${address}
+Budget: ${budget || "উল্লেখ নেই"}`;
 
-📍 ঠিকানা:
-${address.value}
-
-💰 বাজেট: ${budget.value || "উল্লেখ নেই"}`;
-
+    const BOT_TOKEN="8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
+    const CHAT_ID="7507021624";
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-    })
-    .then(()=>{
-        alert("✅ বুকিং সফলভাবে Telegram এ পাঠানো হয়েছে");
-        telegramForm.reset();
-    })
-    .catch(()=>{
-        alert("❌ মেসেজ পাঠানো যায়নি");
-    });
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({chat_id:CHAT_ID,text:telegramMsg})
+    }).then(()=>console.log("Telegram sent")).catch(()=>console.log("Telegram error"));
+
+    // WhatsApp Message
+    let waMsg=`📸 RommoChobi Booking
+Name: ${name}
+Phone: ${phone}
+Photographer: ${photoQty}
+Cinematographer: ${cineQty}
+Events:
+${events}
+Total: ৳ ${total}
+Address: ${address}
+Budget: ${budget || "উল্লেখ নেই"}`;
+    let waUrl="https://wa.me/8801776044951?text="+encodeURIComponent(waMsg);
+    window.open(waUrl,"_blank");
+
+    alert('✅ Booking Telegram এবং WhatsApp দুই মাধ্যমেই পাঠানো হয়েছে');
+    this.reset();
+    calculateTotal();
 });
 </script>
-
+</body>
+</html>
 </body>
 </html>
 <!DOCTYPE html>
