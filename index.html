@@ -104,14 +104,65 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
 
 <body>
 
-<!-- HERO -->
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Slideshow</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#000;}
+.hero{position:relative;width:100%;height:80vh;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;}
+.hero img{width:100%;height:100%;object-fit:cover;}
+.hero-content{position:absolute;text-align:center;top:50%;left:50%;transform:translate(-50%, -50%);}
+.hero-content h1{font-size:36px;margin-bottom:10px;text-shadow:2px 2px 8px #000;}
+.hero-content p{font-size:18px;margin-bottom:15px;text-shadow:1px 1px 6px #000;}
+.hero-content a{background:#27ae60;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;font-size:16px;cursor:pointer;}
+</style>
+</head>
+<body>
+
 <div class="hero">
-  <div>
+  <img id="slide" src="" alt="Slideshow">
+  <div class="hero-content">
     <h1>Rommochobi Wedding Photography</h1>
     <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
-    <a href="#booking">📅 এখনই বুক করুন</a>
+    <a onclick="alert('Booking Page এ যাবে!')">📅 এখনই বুক করুন</a>
   </div>
 </div>
+
+<script>
+// Image list
+const images=[
+  'https://drive.google.com/uc?export=view&id=1v2jhThoWLoXMgL3fCYVCO0IfCHpfj8a8',
+  'https://drive.google.com/uc?export=view&id=19epaUg4SaXoWVpW__gtMYgWC4bqjJ68K',
+  'https://drive.google.com/uc?export=view&id=1r0vtPrzj37AJAvLHbA0tHY1COVek0OjQ',
+  'https://drive.google.com/uc?export=view&id=1vVAByNOhVl1aoB6U60SXeVO0L0AfHrZQ',
+  'https://drive.google.com/uc?export=view&id=1rhZXoMKTKgBHIH9bMtoXocRkFArIqAxz',
+  'https://drive.google.com/uc?export=view&id=1IT4TYnPXQqrpRpC8LfhfM86TA_DBy5U2',
+  'https://drive.google.com/uc?export=view&id=1joPvxxYuTL-kooVsN2wbRMTWoEM9H1Wc',
+  'https://drive.google.com/uc?export=view&id=1kM82UhOWA6ZXsY8rLLtpv0hGo8LxAVHe',
+  'https://drive.google.com/uc?export=view&id=1xB0WcEf57cWNkiiJ9X0l6SPExLIsvpXi',
+  'https://drive.google.com/uc?export=view&id=185aAhOEUO4QZyVUQGxw15K5Mp2gzf7Pe',
+  'https://drive.google.com/uc?export=view&id=1EF73KSlyoP8x6tJdSTUMicc168XQ8PQN',
+  'https://drive.google.com/uc?export=view&id=1r0vtPrzj37AJAvLHbA0tHY1COVek0OjQ',
+  'https://drive.google.com/uc?export=view&id=185aAhOEUO4QZyVUQGxw15K5Mp2gzf7Pe'
+];
+
+let index=0;
+const slide=document.getElementById('slide');
+
+function nextSlide(){
+  slide.src=images[index];
+  index=(index+1)%images.length;
+}
+
+nextSlide();
+setInterval(nextSlide,5000); // 30 সেকেন্ড করে ছবি পরিবর্তন
+</script>
+
+</body>
+</html>
 
 
 <!-- SLIDER -->
