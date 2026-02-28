@@ -22,7 +22,6 @@
       --radius:16px;
       --shadow: 0 16px 48px rgba(0,0,0,.38);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -460,10 +459,13 @@
       opacity:.92;
     }
     .footer-logo img{
-      width:48px; height:48px;
-      border-radius: 14px;
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      background:#000;
+      padding:6px;
+      border-radius:14px;
       border:1px solid rgba(255,255,255,.12);
-      object-fit:cover;
     }
 
     details{
@@ -560,6 +562,7 @@
       <h2 class="title">ক্লায়েন্টদের রিভিউ</h2>
       <p class="sub">ছোট কার্ডে রিভিউ দেখুন—বেশি হলে “See more” চাপুন।</p>
 
+      <!-- Wedding Reviews -->
       <div class="rev-group">
         <div class="rev-group-head">
           <span class="rev-badge">⭐</span>
@@ -568,22 +571,22 @@
 
         <div class="rev-list" data-collapsed="true" id="revWedding">
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=12" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/tg0Cr0cv/anika.jpg" alt="Anika">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Rafi & Mitu</strong>
+                <strong>Anika</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
-              <div class="rev-meta">Muslim Wedding • Mymensingh</div>
+              <div class="rev-meta">Wedding • Mymensingh</div>
               <div class="rev-text">অনেক সুন্দর কভারেজ হয়েছে। টিম খুবই ভদ্র, সময়মতো সব ডেলিভারি দিয়েছে।</div>
             </div>
           </div>
 
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=32" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/g09kM975/mou.jpg" alt="Mou">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Shuvo & Tisha</strong>
+                <strong>Mou</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Reception • Dhaka</div>
@@ -592,10 +595,10 @@
           </div>
 
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=41" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/cLtLM1DG/Puja.jpg" alt="Puja">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Hasan & Rima</strong>
+                <strong>Puja</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Holud • Gauripur</div>
@@ -604,10 +607,10 @@
           </div>
 
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=56" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/BnPncZmR/Shuvojit.jpg" alt="Shuvojit">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Jony & Tasnia</strong>
+                <strong>Shuvojit</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Wedding • Mymensingh</div>
@@ -619,6 +622,7 @@
         <button class="rev-more" type="button" data-target="revWedding">See more</button>
       </div>
 
+      <!-- Prewedding/Engagement Reviews -->
       <div class="rev-group" style="margin-top:12px">
         <div class="rev-group-head">
           <span class="rev-badge">⭐</span>
@@ -627,10 +631,10 @@
 
         <div class="rev-list" data-collapsed="true" id="revPrewed">
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=22" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/tg0Cr0cv/anika.jpg" alt="Anika">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Rifat & Nabila</strong>
+                <strong>Anika</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Engagement • Gauripur</div>
@@ -639,10 +643,10 @@
           </div>
 
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=47" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/g09kM975/mou.jpg" alt="Mou">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Nazmul & Sumi</strong>
+                <strong>Mou</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Pre-Wedding • Outdoor</div>
@@ -651,14 +655,26 @@
           </div>
 
           <div class="rev-item">
-            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=18" alt="client">
+            <img class="rev-avatar" src="https://i.postimg.cc/cLtLM1DG/Puja.jpg" alt="Puja">
             <div class="rev-body">
               <div class="rev-top">
-                <strong>Akib & Mim</strong>
+                <strong>Puja</strong>
                 <span class="rev-stars">★★★★★</span>
               </div>
               <div class="rev-meta">Pre-Wedding • Dhaka</div>
               <div class="rev-text">ফ্রেমিং আর এডিট—দুটোই দারুণ লেগেছে।</div>
+            </div>
+          </div>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.postimg.cc/BnPncZmR/Shuvojit.jpg" alt="Shuvojit">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Shuvojit</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Engagement • Mymensingh</div>
+              <div class="rev-text">টিম খুব ভালো। লোকেশন আর পোজিং গাইডেন্স দারুণ ছিল।</div>
             </div>
           </div>
         </div>
@@ -683,22 +699,22 @@
     <!-- TEAM -->
     <section id="team">
       <h2 class="title">আমাদের টিম</h2>
-      <p class="sub">টিমমেটদের নাম, পদবী ও ছবি — Drone Pilot এর ছবি নেই (শুধু ফর্মে কাউন্ট থাকবে)।</p>
+      <p class="sub">Drone Pilot এর ছবি নেই (শুধু ফর্মে কাউন্ট থাকবে)।</p>
 
       <div class="grid four team-grid">
         <div class="team-item">
           <img class="team-photo" src="https://i.postimg.cc/3w2dXrtr/Apurba-Roy-CEO-Core-Photographer.jpg" alt="Apurba Roy">
           <div>
             <strong>Apurba Roy</strong>
-            <div class="role">Founder / CEO, Core Photographer</div>
+            <div class="role">Founder / Lead Photographer</div>
             <div class="mini">Wedding • Portrait • Premium Edit</div>
           </div>
         </div>
 
         <div class="team-item">
-          <img class="team-photo" src="https://i.postimg.cc/C1N52PT8/Maya-Chowdhury-Niyaz-Core-CInematographer.jpg" alt="Maya Chowdhury Niyaz">
+          <img class="team-photo" src="https://i.postimg.cc/C1N52PT8/Maya-Chowdhury-Niyaz-Core-CInematographer.jpg" alt="Maya Chowdhury">
           <div>
-            <strong>Maya Chowdhury</strong>
+            <strong>Maya Chaudhary</strong>
             <div class="role">Core Cinematographer</div>
             <div class="mini">Cinematic • Highlight • Story</div>
           </div>
@@ -973,7 +989,7 @@
     </section>
 
     <footer>
-      <!-- Social first (আপনার নির্দেশ অনুযায়ী) -->
+      <!-- Social first -->
       <div class="footer-social">
         <a href="https://www.facebook.com/share/1FYCGYFWyu/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/romochobi?igsh=bjZiZmRwYmpiNDNu" target="_blank" rel="noopener">Instagram</a>
@@ -982,17 +998,14 @@
 
       <!-- Logo last small -->
       <div class="footer-logo">
-        <img src="images/rommochobi-logo.jpg" alt="RommoChobi Logo">
+        <img src="https://i.postimg.cc/d08d6j5j/Screenshot-20260228-230934.jpg" alt="RommoChobi Logo">
         <div>
           <div style="font-weight:900; color: rgba(238,242,255,.86)">রম্যছবি - RommoChobi</div>
           <div>© <span id="year"></span> • All rights reserved</div>
         </div>
       </div>
-
-      <div class="mini" style="margin-top:10px">
-        * যদি লোগো লিংক দিয়ে দিতে চান, বললেই আমি `images/rommochobi-logo.jpg` এর জায়গায় লিংক বসিয়ে দেব।
-      </div>
     </footer>
+
   </div>
 
   <!-- WhatsApp Floating -->
@@ -1017,17 +1030,6 @@
     const NO_PUBLISH_FEE = 10000;
     const ADVANCE_PERCENT = 40;
     const MAX_DISCOUNT_PERCENT = 50;
-
-    // ================= Helpers =================
-    function clean(v){ return (v || "").toString().trim(); }
-    function toInt(v, d=0){
-      const n = parseInt((v ?? "").toString(), 10);
-      return Number.isFinite(n) ? n : d;
-    }
-    function money(n){
-      const x = Math.round(n);
-      return "৳ " + x.toLocaleString("en-US");
-    }
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -1100,6 +1102,16 @@
     const totalAmtEl   = document.getElementById('totalAmt');
     const advAmtEl     = document.getElementById('advAmt');
     const dueAmtEl     = document.getElementById('dueAmt');
+
+    function clean(v){ return (v || "").toString().trim(); }
+    function toInt(v, d=0){
+      const n = parseInt((v ?? "").toString(), 10);
+      return Number.isFinite(n) ? n : d;
+    }
+    function money(n){
+      const x = Math.round(n);
+      return "৳ " + x.toLocaleString("en-US");
+    }
 
     function getSelectedEvents(){
       return eventChecks.filter(c => c.checked).map(c => c.value);
