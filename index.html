@@ -184,65 +184,7 @@ document.getElementById('bookingBtn').addEventListener('click', () => {
 
 </body>
 </html>
-<div class="apurba-slider">
-  <div class="apurba-slides">
-    <img src="https://i.postimg.cc/3JMzGYct/20260228-054820.jpg">
-    <img src="https://i.postimg.cc/nc8NmpP5/20260228-054953.jpg">
-    <img src="https://i.postimg.cc/PfvBNP2J/20260228-055102.jpg">
-    <img src="https://i.postimg.cc/SN0H9kvt/20260228-055202.jpg">
-    <img src="https://i.postimg.cc/6ptSHzw9/20260228-055251.jpg">
-    <img src="https://i.postimg.cc/4xsM8wZX/20260228-055400.jpg">
-    <img src="https://i.postimg.cc/nhp5dTZJ/20260228-055501.jpg">
-    <img src="https://i.postimg.cc/65sFZtmm/20260228-055548.jpg">
-    <img src="https://i.postimg.cc/t4pfrDy3/20260228-055647.jpg">
-    <img src="https://i.postimg.cc/2SrJHTm3/DSC02321-(1).jpg">
-  </div>
-</div>
 
-<style>
-/* Full HD Slider Frame */
-.apurba-slider{
-  width:100%;
-  max-width:1920px;
-  height:1080px;
-  overflow:hidden;
-  margin:auto;
-  border-radius:0; /* Full HD frame, no rounding */
-  background:#000; /* পাশে কালো থাকবে */
-  position:relative;
-}
-
-/* Slide container */
-.apurba-slides{
-  display:flex;
-  width:1000%; /* 10 images */
-  animation: apurbaSlide 30s cubic-bezier(0.77,0,0.175,1) infinite;
-}
-
-/* Individual images */
-.apurba-slides img{
-  width:100%;
-  height:1080px;
-  object-fit:contain; /* কোনো জুম/কাট হবে না */
-  flex:1 0 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Keyframes for smooth sliding */
-@keyframes apurbaSlide{
-  0%,8% {transform:translateX(0);}
-  10%,18% {transform:translateX(-100%);}
-  20%,28% {transform:translateX(-200%);}
-  30%,38% {transform:translateX(-300%);}
-  40%,48% {transform:translateX(-400%);}
-  50%,58% {transform:translateX(-500%);}
-  60%,68% {transform:translateX(-600%);}
-  70%,78% {transform:translateX(-700%);}
-  80%,88% {transform:translateX(-800%);}
-  90%,98% {transform:translateX(-900%);}
-  100% {transform:translateX(0);}
-}
-</style>
 </html>
 <!-- ABOUT -->
 <section class="about">
