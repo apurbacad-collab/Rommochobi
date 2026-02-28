@@ -43,6 +43,7 @@
     section{padding:32px 0}
     .title{margin:0 0 10px; font-size:22px; letter-spacing:.2px;}
     .sub{margin:0; color:var(--muted); font-size:15px;}
+    .mini{font-size:12px; color: rgba(238,242,255,.62); margin-top:6px;}
 
     /* Topbar */
     .topbar{
@@ -55,7 +56,7 @@
       max-width:1100px; margin:0 auto; padding:12px 16px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
     .logoMark{
       width:34px;height:34px;border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -66,7 +67,7 @@
     .nav a{padding:8px 10px; border-radius:12px;}
     .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
     .nav .cta{
-      color:#09101a; font-weight:800;
+      color:#09101a; font-weight:900;
       background: linear-gradient(135deg, #a78bfa, #67e8f9);
       border-radius:12px; padding:9px 12px;
       box-shadow: 0 14px 36px rgba(0,0,0,.38);
@@ -127,7 +128,7 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.07);
       color: var(--text);
-      font-weight:800;
+      font-weight:900;
       font-size:15px;
       backdrop-filter: blur(8px);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
@@ -144,8 +145,13 @@
     .grid{display:grid; gap:14px}
     .grid.two{grid-template-columns: repeat(2, minmax(0,1fr))}
     .grid.three{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .grid.four{grid-template-columns: repeat(4, minmax(0,1fr))}
+    @media (max-width: 980px){
+      .grid.four{grid-template-columns: repeat(2, minmax(0,1fr))}
+    }
     @media (max-width: 860px){
       .grid.two,.grid.three{grid-template-columns:1fr}
+      .grid.four{grid-template-columns:1fr}
     }
 
     .card{
@@ -177,7 +183,7 @@
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
-      font-weight:700;
+      font-weight:800;
       font-size:14px;
     }
     .social a:hover{background: rgba(255,255,255,.08)}
@@ -195,7 +201,7 @@
 
     /* Packages */
     .pkg{display:flex; flex-direction:column; gap:10px;}
-    .pkg .price{font-size:22px; font-weight:900; letter-spacing:.2px;}
+    .pkg .price{font-size:22px; font-weight:1000; letter-spacing:.2px;}
     .pkg ul{
       margin:0;
       padding:0;
@@ -235,12 +241,6 @@
     }
     textarea{min-height:110px; resize:vertical}
     input::placeholder, textarea::placeholder{color:rgba(238,242,255,.55)}
-    .mini{
-      font-size:12px;
-      color: rgba(238,242,255,.62);
-      margin-top:6px;
-    }
-    .note{margin-top:10px; color:rgba(238,242,255,.68); font-size:13px}
 
     /* events chips */
     .event-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
@@ -296,7 +296,15 @@
     }
 
     /* Team */
-    .team-card{display:flex; gap:12px; align-items:center;}
+    .team-grid{margin-top:16px;}
+    .team-item{
+      display:flex; gap:12px; align-items:center;
+      padding:14px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 14px 40px rgba(0,0,0,.22);
+    }
     .team-photo{
       width:56px; height:56px;
       border-radius: 16px;
@@ -371,7 +379,7 @@
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
       color: rgba(238,242,255,.90);
-      font-weight:800;
+      font-weight:900;
       cursor:pointer;
     }
     .rev-more:hover{ background: rgba(255,255,255,.08); }
@@ -408,7 +416,7 @@
       text-align:center;
       padding:12px;
       border-radius: 16px;
-      font-weight:900;
+      font-weight:1000;
       font-size:15px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.08);
@@ -426,12 +434,36 @@
       .whatsapp{bottom:92px}
     }
 
+    /* Footer */
     footer{
       padding:26px 0 40px;
       color: rgba(238,242,255,.62);
       font-size:13px;
       border-top:1px solid rgba(255,255,255,.08);
       margin-top: 10px;
+    }
+    .footer-social{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .footer-social a{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-weight:900;
+      font-size:14px;
+    }
+    .footer-social a:hover{background: rgba(255,255,255,.08)}
+    .footer-logo{
+      display:flex; align-items:center; gap:10px;
+      opacity:.92;
+    }
+    .footer-logo img{
+      width:48px; height:48px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      object-fit:cover;
     }
 
     details{
@@ -443,7 +475,7 @@
     }
     summary{
       cursor:pointer;
-      font-weight:800;
+      font-weight:900;
       color: rgba(238,242,255,.9);
       list-style:none;
     }
@@ -514,13 +546,11 @@
           <h3>অফিস লোকেশন</h3>
           <p>ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
 
-          <!-- Social links (আপনার পেজ লিংক বসান) -->
           <div class="social">
-            <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
-            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.facebook.com/share/1FYCGYFWyu/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/romochobi?igsh=bjZiZmRwYmpiNDNu" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://youtube.com/@ramyachobi?si=faxiYYW0cPfwiwyk" target="_blank" rel="noopener">YouTube</a>
           </div>
-          <p class="mini">* উপরোক্ত লিংকগুলো আপনার আসল পেজ লিংক দিয়ে বদলান।</p>
         </div>
       </div>
     </section>
@@ -650,47 +680,55 @@
       <script src="https://player.vimeo.com/api/player.js"></script>
     </section>
 
-    <!-- TEAM (আপনার দেওয়া টিম + লোগো + অফিস ছবি) -->
+    <!-- TEAM -->
     <section id="team">
       <h2 class="title">আমাদের টিম</h2>
-      <p class="sub">টিমমেটদের নাম, পদবী ও ছবি — Drone Pilot এর ছবি থাকবে না (শুধু ফর্মে কাউন্ট থাকবে)।</p>
+      <p class="sub">টিমমেটদের নাম, পদবী ও ছবি — Drone Pilot এর ছবি নেই (শুধু ফর্মে কাউন্ট থাকবে)।</p>
 
-      <div class="grid three" style="margin-top:16px">
-
-        <div class="card team-card">
-          <img class="team-photo" src="images/apurba-roy.jpg" alt="Apurba Roy">
+      <div class="grid four team-grid">
+        <div class="team-item">
+          <img class="team-photo" src="https://i.postimg.cc/3w2dXrtr/Apurba-Roy-CEO-Core-Photographer.jpg" alt="Apurba Roy">
           <div>
             <strong>Apurba Roy</strong>
-            <div class="role">Founder, Lead Photographer</div>
-            <div class="mini">Wedding • Portrait • Color Tone</div>
+            <div class="role">Founder / CEO, Core Photographer</div>
+            <div class="mini">Wedding • Portrait • Premium Edit</div>
           </div>
         </div>
 
-        <div class="card team-card">
-          <img class="team-photo" src="images/maya-chaudhary.jpg" alt="Maya Chaudhary">
+        <div class="team-item">
+          <img class="team-photo" src="https://i.postimg.cc/C1N52PT8/Maya-Chowdhury-Niyaz-Core-CInematographer.jpg" alt="Maya Chowdhury Niyaz">
           <div>
-            <strong>Maya Chaudhary</strong>
+            <strong>Maya Chowdhury</strong>
             <div class="role">Core Cinematographer</div>
             <div class="mini">Cinematic • Highlight • Story</div>
           </div>
         </div>
 
-        <div class="card">
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-            <img src="images/rommochobi-logo.jpg" alt="RommoChobi Logo" style="width:34px; height:34px; border-radius:12px; border:1px solid rgba(255,255,255,.12); object-fit:cover;">
-            <div>
-              <strong>RommoChobi Office</strong>
-              <div class="mini">Team working • Editing • Planning</div>
-            </div>
+        <div class="team-item">
+          <img class="team-photo" src="https://i.postimg.cc/Px4J73sW/Md-Ariyan-Hasan-Rahat.jpg" alt="Md Ariyan Hasan Rahat">
+          <div>
+            <strong>Md Ariyan Hasan Rahat</strong>
+            <div class="role">Photographer</div>
+            <div class="mini">Event • Portrait • Support</div>
           </div>
-
-          <img src="images/rommochobi-office.jpg" alt="RommoChobi Office" style="width:100%; height:180px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-
-          <p class="mini" style="margin-top:10px">
-            অফিস: ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ
-          </p>
         </div>
 
+        <div class="team-item">
+          <img class="team-photo" src="https://i.postimg.cc/sXy1wF8R/Md-Oly-Raj-Assistant-Cinematographer.jpg" alt="Md Oly Raj">
+          <div>
+            <strong>Md Oly Raj</strong>
+            <div class="role">Assistant Cinematographer</div>
+            <div class="mini">Support • Setup • Shoot</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3 style="margin:0 0 10px">RommoChobi Office</h3>
+        <img src="https://i.postimg.cc/TYnFvZNH/file-0000000071107206b9c825ee0d92bbff.png"
+             alt="RommoChobi Office"
+             style="width:100%; height:240px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
+        <p class="mini" style="margin-top:10px">অফিস: ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
       </div>
     </section>
 
@@ -737,8 +775,8 @@
       <details>
         <summary>প্যাকেজ নোট (সংক্ষেপ)</summary>
         <p class="mini" style="margin-top:10px">
-          সাধারণত BD ওয়েডিং ফটোগ্রাফিতে বুকিং কনফার্ম করতে Advance নেওয়া হয় (ডেট লক করার জন্য)।
-          টিম পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করতে পারে; ক্লায়েন্ট না চাইলে “No publish fee” রাখা হয়।
+          BD ওয়েডিং ফটোগ্রাফিতে বুকিং কনফার্ম করতে Advance নেওয়া হয় (ডেট লক করার জন্য)।
+          টিম পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করতে পারে; ক্লায়েন্ট না চাইলে No-Publish fee রাখা হয়।
           ডেলিভারি টাইম, অ্যালবাম/প্রিন্ট, ট্রাভেল/অতিরিক্ত আওয়ার আলাদা শর্তে যোগ হতে পারে।
         </p>
       </details>
@@ -904,8 +942,8 @@
             <button class="btn" id="sendTelegram" type="button">✈️ Telegram এ পাঠান</button>
           </div>
 
-          <p class="note">
-            * এইটা আনুমানিক বাজেট। ফাইনাল কোটেশন লোকেশন, ইভেন্ট টাইমলাইন, ডেলিভারেবল, ট্রাভেল ইত্যাদির উপর নির্ভর করে।
+          <p class="mini" style="margin-top:10px">
+            * এইটা আনুমানিক বাজেট। ফাইনাল কোটেশন লোকেশন, টাইমলাইন, ডেলিভারেবল, ট্রাভেল ইত্যাদির উপর নির্ভর করে।
           </p>
         </div>
 
@@ -935,7 +973,25 @@
     </section>
 
     <footer>
-      © <span id="year"></span> RommoChobi — All rights reserved.
+      <!-- Social first (আপনার নির্দেশ অনুযায়ী) -->
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1FYCGYFWyu/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/romochobi?igsh=bjZiZmRwYmpiNDNu" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://youtube.com/@ramyachobi?si=faxiYYW0cPfwiwyk" target="_blank" rel="noopener">YouTube</a>
+      </div>
+
+      <!-- Logo last small -->
+      <div class="footer-logo">
+        <img src="images/rommochobi-logo.jpg" alt="RommoChobi Logo">
+        <div>
+          <div style="font-weight:900; color: rgba(238,242,255,.86)">রম্যছবি - RommoChobi</div>
+          <div>© <span id="year"></span> • All rights reserved</div>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top:10px">
+        * যদি লোগো লিংক দিয়ে দিতে চান, বললেই আমি `images/rommochobi-logo.jpg` এর জায়গায় লিংক বসিয়ে দেব।
+      </div>
     </footer>
   </div>
 
@@ -950,8 +1006,8 @@
 
   <script>
     // ================= CONFIG =================
-    const WHATSAPP_NUMBER = "8801776044951"; // ✅ WhatsApp
-    const PAYMENT_NUMBER  = "01776044951";   // ✅ bKash/Nagad/Rocket
+    const WHATSAPP_NUMBER = "8801776044951"; // WhatsApp
+    const PAYMENT_NUMBER  = "01776044951";   // bKash/Nagad/Rocket
 
     // Rates (per day per person)
     const RATE_PHOTO_PER_PERSON_PER_DAY  = 7000;
