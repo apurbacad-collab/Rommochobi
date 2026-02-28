@@ -1,145 +1,3 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<title>রম্যছবি - RommoChobi Wedding Photography</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#333}
-
-/* HERO 16:9 CINEMATIC */
-.hero{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:black;
-}
-
-.hero img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.8s ease-in-out, transform 8s ease-in-out;
-  transform:scale(1);
-}
-
-.hero img.active{
-  opacity:1;
-  transform:scale(1.08);
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.45);
-  top:0;
-  left:0;
-}
-
-.hero-content{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  color:#fff;
-  z-index:2;
-  width:90%;
-}
-
-.hero-content h1{
-  font-size:clamp(22px,5vw,42px);
-  margin-bottom:10px;
-}
-
-.hero-content p{
-  font-size:clamp(14px,3vw,18px);
-  margin-bottom:15px;
-}
-
-.hero-content a{
-  background:#27ae60;
-  color:#fff;
-  padding:12px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  font-size:14px;
-}
-
-/* SECTION */
-section{padding:50px 20px}
-h2{text-align:center;color:#27ae60;margin-bottom:20px}
-.about{max-width:800px;margin:auto;text-align:center}
-
-/* PACKAGES */
-.packages{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  max-width:900px;
-  margin:auto
-}
-.package{
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 10px rgba(0,0,0,.1);
-  text-align:center;
-}
-.package h3{color:#27ae60;margin-bottom:10px}
-.package strong{font-size:18px}
-
-/* BOOKING */
-.container{
-  max-width:500px;
-  margin:40px auto;
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,.1)
-}
-input,textarea{
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:8px
-}
-button{
-  width:100%;
-  padding:12px;
-  background:#27ae60;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-size:16px
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#fff;
-  padding:15px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO SLIDER -->
 <!doctype html>
 <html lang="bn">
 <head>
@@ -153,18 +11,16 @@ button{
 
   <style>
     :root{
-      --bg:#070A12;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
+      --bg:#0b0f1a;
+      --card: rgba(255,255,255,.06);
       --border: rgba(255,255,255,.12);
-      --text:#EAF0FF;
-      --muted: rgba(234,240,255,.72);
-      --brand1:#7C3AED; /* purple */
-      --brand2:#22D3EE; /* cyan */
+      --text:#eef2ff;
+      --muted: rgba(238,242,255,.72);
+      --accent:#7c3aed;
+      --accent2:#22d3ee;
       --good:#25d366;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 14px;
+      --radius:16px;
+      --shadow: 0 16px 48px rgba(0,0,0,.38);
     }
 
     *{box-sizing:border-box}
@@ -173,9 +29,8 @@ button{
       margin:0;
       font-family:"Noto Sans Bengali", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 110% 10%, rgba(34,211,238,.22), transparent 55%),
-        radial-gradient(900px 600px at 40% 120%, rgba(124,58,237,.18), transparent 55%),
+        radial-gradient(900px 500px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(34,211,238,.12), transparent 55%),
         var(--bg);
       color:var(--text);
       line-height:1.6;
@@ -183,14 +38,20 @@ button{
     }
 
     a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
 
-    /* Top Bar */
+    .container{max-width:1100px; margin:0 auto; padding:0 16px}
+    section{padding:34px 0}
+    .title{margin:0 0 10px; font-size:22px; letter-spacing:.2px;}
+    .sub{margin:0; color:var(--muted); font-size:15px;}
+
+    /* Topbar (simple) */
     .topbar{
       position:sticky;
       top:0;
       z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(7,10,18,.78), rgba(7,10,18,.45));
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,26,.72);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .topbar .wrap{
@@ -202,65 +63,43 @@ button{
       justify-content:space-between;
       gap:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700;
-      letter-spacing:.2px;
-    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700;}
     .logo{
-      width:36px;height:36px;border-radius:12px;
-      background: linear-gradient(135deg, var(--brand1), var(--brand2));
-      box-shadow: 0 10px 25px rgba(124,58,237,.35);
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
-    .nav{
-      display:flex; gap:12px; align-items:center;
-      font-size:14px;
-      color:var(--muted);
-    }
-    .nav a{padding:8px 10px; border-radius:12px}
+    .nav{display:flex; gap:10px; align-items:center; font-size:14px; color:var(--muted);}
+    .nav a{padding:8px 10px; border-radius:12px;}
     .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
     .nav .cta{
-      color:#06101a;
-      background: linear-gradient(135deg, #A78BFA, #67E8F9);
-      font-weight:700;
+      color:#09101a;
+      font-weight:800;
+      background: linear-gradient(135deg, #a78bfa, #67e8f9);
+      border-radius:12px;
       padding:9px 12px;
-      border-radius:14px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      box-shadow: 0 14px 36px rgba(0,0,0,.38);
     }
+    @media (max-width: 700px){ .nav{display:none} }
 
-    /* Layout */
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    section{padding:42px 0}
-    .section-title{
-      font-size:22px;
-      margin:0 0 12px;
-      letter-spacing:.2px;
-    }
-    .section-sub{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    /* Hero */
+    /* Hero Slider */
     .hero{
-      position:relative;
-      border-radius: clamp(18px, 4vw, 28px);
-      overflow:hidden;
       margin:16px auto 0;
-      box-shadow: var(--shadow);
+      border-radius: clamp(16px, 4vw, 24px);
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
       background:#000;
+      position:relative;
     }
     .hero-media{
       position:relative;
       aspect-ratio: 16/10;
-      min-height: 440px;
-      max-height: 720px;
+      min-height: 420px;
     }
     @media (max-width: 640px){
       .hero-media{aspect-ratio: 9/13; min-height: 560px;}
-      .nav{display:none}
     }
     .hero img{
       position:absolute;
@@ -269,54 +108,40 @@ button{
       height:100%;
       object-fit:cover;
       opacity:0;
-      transform: scale(1.05);
-      transition: opacity 900ms ease, transform 1400ms ease;
-      filter: saturate(1.05) contrast(1.03);
+      transition: opacity 800ms ease;
     }
-    .hero img.active{
-      opacity:1;
-      transform: scale(1.0);
-    }
+    .hero img.active{opacity:1}
     .hero::after{
       content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to top, rgba(7,10,18,.78) 0%, rgba(7,10,18,.20) 45%, rgba(7,10,18,.10) 70%),
-        radial-gradient(900px 450px at 40% 90%, rgba(124,58,237,.28), transparent 60%);
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(11,15,26,.75) 0%, rgba(11,15,26,.22) 55%, rgba(11,15,26,.10) 75%);
       pointer-events:none;
     }
-
     .hero-content{
       position:absolute;
-      inset:auto 0 0 0;
-      padding: 22px 18px 18px;
+      left:0; right:0; bottom:0;
+      padding: 18px 16px 16px;
+      z-index:2;
       display:flex;
       flex-direction:column;
       gap:10px;
-      z-index:2;
     }
     .hero h1{
       margin:0;
-      font-size: clamp(24px, 5.6vw, 44px);
+      font-size: clamp(24px, 5.4vw, 42px);
       line-height:1.2;
+      text-shadow: 0 10px 30px rgba(0,0,0,.55);
       letter-spacing:.2px;
-      text-shadow: 0 10px 30px rgba(0,0,0,.6);
     }
     .hero p{
       margin:0;
-      color: rgba(234,240,255,.82);
+      color: rgba(238,242,255,.82);
       font-size: clamp(14px, 2.8vw, 18px);
-      max-width: 60ch;
+      max-width: 62ch;
       text-shadow: 0 10px 26px rgba(0,0,0,.5);
     }
-    .hero-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
 
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;}
     .btn{
       display:inline-flex;
       align-items:center;
@@ -325,107 +150,47 @@ button{
       padding: 12px 14px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
+      background: rgba(255,255,255,.07);
       color: var(--text);
-      font-weight:700;
+      font-weight:800;
       font-size:15px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 36px rgba(0,0,0,.28);
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      backdrop-filter: blur(8px);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.20)}
     .btn.primary{
-      color:#07111a;
-      border: none;
-      background: linear-gradient(135deg, #A78BFA, #67E8F9);
-    }
-    .btn.primary:hover{filter: brightness(1.02)}
-    .chips{
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-top: 6px;
-    }
-    .chip{
-      font-size:12px;
-      color: rgba(234,240,255,.86);
-      padding:6px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
+      color:#09101a;
+      border:none;
+      background: linear-gradient(135deg, #a78bfa, #67e8f9);
     }
 
-    /* Cards */
-    .grid{
-      display:grid;
-      gap:14px;
-    }
+    /* Cards / Grid */
+    .grid{display:grid; gap:14px}
     .grid.two{grid-template-columns: repeat(2, minmax(0,1fr))}
     .grid.three{grid-template-columns: repeat(3, minmax(0,1fr))}
     @media (max-width: 860px){
-      .grid.three{grid-template-columns: 1fr}
-      .grid.two{grid-template-columns: 1fr}
+      .grid.two,.grid.three{grid-template-columns:1fr}
     }
 
     .card{
       border-radius: var(--radius);
       border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      box-shadow: 0 18px 50px rgba(0,0,0,.28);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
       padding:16px;
     }
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted); font-size:14px}
-    .meta{
-      margin-top:12px;
-      display:flex; gap:10px; flex-wrap:wrap;
-      color: rgba(234,240,255,.86);
-      font-size:13px;
-    }
-    .meta span{
-      padding:7px 10px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.12);
-    }
 
-    /* Packages */
-    .package{
-      position:relative;
-      overflow:hidden;
-    }
-    .package::before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background: radial-gradient(circle at 30% 30%, rgba(167,139,250,.35), transparent 55%),
-                  radial-gradient(circle at 70% 70%, rgba(103,232,249,.25), transparent 55%);
-      transform: rotate(12deg);
-      opacity:.7;
-      pointer-events:none;
-    }
-    .price{
-      margin-top:12px;
-      font-size:22px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
-    .pkg-list{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-      color: rgba(234,240,255,.88);
-      position:relative;
-      z-index:1;
-      font-size:14px;
-    }
-    .pkg-list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:8px 10px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.14);
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+    .chip{
+      font-size:12px;
+      color: rgba(238,242,255,.86);
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
     }
 
     /* Video */
@@ -436,13 +201,26 @@ button{
       box-shadow: var(--shadow);
       background: rgba(255,255,255,.04);
     }
-    .video-wrap .ratio{
-      position:relative;
-      padding-top:56.25%;
+    .ratio{position:relative; padding-top:56.25%}
+    .ratio iframe{position:absolute; inset:0; width:100%; height:100%}
+
+    /* Packages */
+    .pkg{display:flex; flex-direction:column; gap:10px;}
+    .pkg .price{font-size:22px; font-weight:900; letter-spacing:.2px;}
+    .pkg ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color: rgba(238,242,255,.86);
+      font-size:14px;
     }
-    .video-wrap iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%;
+    .pkg li{
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
     }
 
     /* Booking */
@@ -453,13 +231,9 @@ button{
       align-items:start;
     }
     @media (max-width: 860px){ .booking{grid-template-columns:1fr} }
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      margin-top:12px;
-    }
-    label{font-size:13px; color:rgba(234,240,255,.78)}
+
+    .field{display:flex; flex-direction:column; gap:6px; margin-top:12px}
+    label{font-size:13px; color:rgba(238,242,255,.75)}
     input, select, textarea{
       width:100%;
       padding:12px 12px;
@@ -471,65 +245,62 @@ button{
       font-size:15px;
     }
     textarea{min-height:110px; resize:vertical}
-    input::placeholder, textarea::placeholder{color:rgba(234,240,255,.55)}
-    .note{
-      margin-top:10px;
-      color: rgba(234,240,255,.72);
-      font-size:13px;
+    input::placeholder, textarea::placeholder{color:rgba(238,242,255,.55)}
+    .note{margin-top:10px; color:rgba(238,242,255,.68); font-size:13px}
+
+    /* WhatsApp floating */
+    .whatsapp{
+      position:fixed;
+      bottom:18px;
+      right:18px;
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      background: var(--good);
+      color:#fff;
+      border-radius:50%;
+      font-size:22px;
+      text-decoration:none;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.16);
+      z-index:80;
     }
 
-    /* Sticky Bottom CTA (mobile) */
+    /* Mobile bottom CTA */
     .bottom-cta{
       position:fixed;
       left:12px; right:12px; bottom:12px;
-      z-index:60;
       display:none;
       gap:10px;
-    }
-    @media (max-width: 640px){
-      .bottom-cta{display:flex}
-      body{padding-bottom:84px}
+      z-index:70;
     }
     .bottom-cta a{
       flex:1;
       text-align:center;
-      padding:12px 12px;
+      padding:12px;
       border-radius: 16px;
-      font-weight:800;
+      font-weight:900;
       font-size:15px;
-      box-shadow: 0 18px 45px rgba(0,0,0,.45);
       border:1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(12px);
       background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
     }
     .bottom-cta a.primary{
       border:none;
-      color:#06101a;
-      background: linear-gradient(135deg, #A78BFA, #67E8F9);
+      color:#09101a;
+      background: linear-gradient(135deg, #a78bfa, #67e8f9);
     }
-
-    /* WhatsApp Floating */
-    .whatsapp{
-      position:fixed;
-      bottom:92px;
-      right:18px;
-      width:54px; height:54px;
-      display:grid; place-items:center;
-      background: var(--good);
-      color:#fff;
-      border-radius: 50%;
-      font-size:22px;
-      box-shadow: 0 16px 40px rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.18);
-      z-index:70;
-    }
-    @media (min-width: 641px){
-      .whatsapp{bottom:20px}
+    @media (max-width: 640px){
+      .bottom-cta{display:flex}
+      body{padding-bottom:84px}
+      .whatsapp{bottom:92px}
     }
 
     footer{
-      padding:28px 0 40px;
-      color: rgba(234,240,255,.65);
+      padding:26px 0 40px;
+      color: rgba(238,242,255,.62);
       font-size:13px;
       border-top:1px solid rgba(255,255,255,.08);
       margin-top: 10px;
@@ -548,8 +319,8 @@ button{
       </div>
       <div class="nav">
         <a href="#about">আমাদের সম্পর্কে</a>
-        <a href="#packages">প্যাকেজ</a>
         <a href="#reviews">রিভিউ</a>
+        <a href="#packages">প্যাকেজ</a>
         <a class="cta" href="#booking">📅 বুকিং</a>
       </div>
     </div>
@@ -557,27 +328,21 @@ button{
 
   <div class="container">
 
-    <!-- HERO -->
+    <!-- HERO SLIDER -->
     <div class="hero" aria-label="Hero slider">
       <div class="hero-media">
-        <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active" alt="RommoChobi slider 1">
-        <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg" alt="RommoChobi slider 2">
-        <img src="https://i.postimg.cc/g2mcj6QF/20260228-085650.jpg" alt="RommoChobi slider 3">
-        <img src="https://i.postimg.cc/jStq2J9m/20260228-085941.jpg" alt="RommoChobi slider 4">
+        <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active" alt="RommoChobi slide 1">
+        <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg" alt="RommoChobi slide 2">
+        <img src="https://i.postimg.cc/g2mcj6QF/20260228-085650.jpg" alt="RommoChobi slide 3">
+        <img src="https://i.postimg.cc/jStq2J9m/20260228-085941.jpg" alt="RommoChobi slide 4">
 
         <div class="hero-content">
-          <h1>আপনার জীবনের সেরা মুহূর্তগুলো<br/>আমাদের ক্যামেরায়</h1>
-          <p>Wedding, Pre-Wedding, Engagement এবং সব ধরনের ইভেন্টে প্রিমিয়াম ফটো + সিনেমাটিক ভিডিও কভারেজ।</p>
+          <h1>রম্যছবি - RommoChobi</h1>
+          <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায় — Wedding, Pre-Wedding, Engagement এবং সকল ইভেন্ট কভারেজ।</p>
 
-          <div class="hero-actions">
-            <a class="btn primary" id="bookingBtn" href="#booking">📅 এখনই বুক করুন</a>
+          <div class="actions">
+            <a class="btn primary" href="#booking" id="bookingBtn">📅 এখনই বুক করুন</a>
             <a class="btn" href="#packages">✨ প্যাকেজ দেখুন</a>
-          </div>
-
-          <div class="chips">
-            <span class="chip">📸 প্রিমিয়াম কালার গ্রেডিং</span>
-            <span class="chip">⚡ ফাস্ট ডেলিভারি</span>
-            <span class="chip">🎥 সিনেমাটিক হাইলাইটস</span>
           </div>
         </div>
       </div>
@@ -585,8 +350,8 @@ button{
 
     <!-- ABOUT -->
     <section id="about">
-      <h2 class="section-title">আমাদের সম্পর্কে</h2>
-      <p class="section-sub">
+      <h2 class="title">আমাদের সম্পর্কে</h2>
+      <p class="sub">
         RommoChobi একটি প্রফেশনাল ওয়েডিং ও ইভেন্ট ফটোগ্রাফি টিম।
         আমরা সুন্দর মুহূর্তগুলো গল্পের মতো ধরে রাখি—যাতে বছর পরে দেখলেও একই অনুভূতি ফিরে আসে।
       </p>
@@ -594,30 +359,30 @@ button{
       <div class="grid two" style="margin-top:16px">
         <div class="card">
           <h3>Professional Wedding Photography</h3>
-          <p>প্রতিটি মুহূর্তকে আমরা গল্পে রূপ দেই—ফ্রেম, লাইট, কম্পোজিশন আর ইমোশন মিলিয়ে।</p>
-          <div class="meta">
-            <span>✅ Wedding</span>
-            <span>✅ Pre-Wedding</span>
-            <span>✅ Engagement</span>
-            <span>✅ Event Coverage</span>
+          <p>আমরা প্রতিটি মুহূর্তকে গল্পে রূপ দেই—লাইট, কম্পোজিশন আর ইমোশন ঠিক রেখে।</p>
+          <div class="chips">
+            <span class="chip">Wedding</span>
+            <span class="chip">Pre-Wedding</span>
+            <span class="chip">Engagement</span>
+            <span class="chip">Event Coverage</span>
           </div>
         </div>
+
         <div class="card">
-          <h3>আমাদের অঙ্গীকার</h3>
-          <p>সময়মতো উপস্থিতি, ক্লিন এডিট, প্রিমিয়াম ডেলিভারি এবং আপনার পছন্দ অনুযায়ী কাস্টম কভারেজ।</p>
-          <div class="meta">
-            <span>⏱️ টাইম ম্যানেজমেন্ট</span>
-            <span>🎨 প্রিমিয়াম এডিট</span>
-            <span>🤝 ফ্রেন্ডলি টিম</span>
+          <h3>অফিস লোকেশন</h3>
+          <p>ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
+          <div class="chips">
+            <span class="chip">📍 গৌরীপুর</span>
+            <span class="chip">🏙️ ময়মনসিংহ</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- REVIEWS VIDEO -->
+    <!-- REVIEWS -->
     <section id="reviews">
-      <h2 class="section-title">ক্লায়েন্টদের রিভিউ</h2>
-      <p class="section-sub">ক্লায়েন্টদের রিয়েল ফিডব্যাক—ভিডিওতে দেখুন।</p>
+      <h2 class="title">ক্লায়েন্টদের রিভিউ</h2>
+      <p class="sub">ভিডিও রিভিউ দেখুন—ক্লায়েন্টদের অভিজ্ঞতা।</p>
 
       <div class="video-wrap" style="margin-top:16px">
         <div class="ratio">
@@ -634,35 +399,35 @@ button{
 
     <!-- PACKAGES -->
     <section id="packages">
-      <h2 class="section-title">প্যাকেজসমূহ</h2>
-      <p class="section-sub">আপনার ইভেন্টের ধরন ও সময় অনুযায়ী প্যাকেজ বেছে নিন। চাইলে কাস্টম প্যাকেজও করা যাবে।</p>
+      <h2 class="title">প্যাকেজসমূহ</h2>
+      <p class="sub">আপনার ইভেন্টের ধরন ও সময় অনুযায়ী প্যাকেজ বেছে নিন।</p>
 
       <div class="grid three" style="margin-top:16px">
-        <div class="card package">
+        <div class="card pkg">
           <h3>🥈 Silver</h3>
-          <ul class="pkg-list">
+          <ul>
             <li>📸 1 Photographer</li>
-            <li>🕒 4 Hours Coverage</li>
-            <li>🖼️ Basic Premium Edit</li>
+            <li>🕒 4 Hours</li>
+            <li>🖼️ Premium Edit (Basic)</li>
             <li>📦 Digital Delivery</li>
           </ul>
           <div class="price">৳ 6,999</div>
         </div>
 
-        <div class="card package" style="border-color: rgba(167,139,250,.35)">
+        <div class="card pkg" style="border-color: rgba(167,139,250,.28)">
           <h3>🥇 Gold</h3>
-          <ul class="pkg-list">
+          <ul>
             <li>📸 2 Photographer</li>
-            <li>🕒 6 Hours Coverage</li>
-            <li>🎨 Advanced Premium Edit</li>
-            <li>📦 Fast Digital Delivery</li>
+            <li>🕒 6 Hours</li>
+            <li>🎨 Premium Edit (Advanced)</li>
+            <li>📦 Fast Delivery</li>
           </ul>
           <div class="price">৳ 11,999</div>
         </div>
 
-        <div class="card package" style="border-color: rgba(103,232,249,.30)">
+        <div class="card pkg" style="border-color: rgba(103,232,249,.22)">
           <h3>💎 Premium</h3>
-          <ul class="pkg-list">
+          <ul>
             <li>📸 Full Coverage</li>
             <li>🎥 Cinematic Video</li>
             <li>✨ Premium Color Grade</li>
@@ -675,55 +440,112 @@ button{
 
     <!-- BOOKING -->
     <section id="booking">
-      <h2 class="section-title">বুকিং / কনট্যাক্ট</h2>
-      <p class="section-sub">নিচের ফর্ম পূরণ করলে আমরা দ্রুত যোগাযোগ করবো—অথবা WhatsApp এ মেসেজ দিন।</p>
+      <h2 class="title">বুকিং / কনট্যাক্ট</h2>
+      <p class="sub">ফর্ম পূরণ করে WhatsApp-এ অটো মেসেজ পাঠাতে পারবেন।</p>
 
       <div class="booking" style="margin-top:16px">
         <div class="card">
-          <h3>বুকিং ইনফো</h3>
+          <h3>বুকিং তথ্য দিন</h3>
 
           <div class="field">
-            <label>আপনার নাম</label>
-            <input type="text" placeholder="যেমন: Rahim" />
+            <label for="name">আপনার নাম</label>
+            <input id="name" type="text" placeholder="যেমন: Rahim" />
           </div>
 
           <div class="field">
-            <label>মোবাইল নম্বর</label>
-            <input type="tel" placeholder="01XXXXXXXXX" />
+            <label for="phone">মোবাইল নম্বর</label>
+            <input id="phone" type="tel" placeholder="01XXXXXXXXX" />
           </div>
 
           <div class="field">
-            <label>ইভেন্ট টাইপ</label>
-            <select>
+            <label for="eventType">ইভেন্ট টাইপ</label>
+            <select id="eventType">
               <option>Wedding</option>
               <option>Pre-Wedding</option>
               <option>Engagement</option>
               <option>Holud</option>
+              <option>Birthday</option>
+              <option>Corporate</option>
               <option>Other Event</option>
             </select>
           </div>
 
           <div class="field">
-            <label>মেসেজ</label>
-            <textarea placeholder="তারিখ, লোকেশন, সময়, প্যাকেজ—সব লিখুন"></textarea>
+            <label for="date">ইভেন্টের তারিখ (ঐচ্ছিক)</label>
+            <input id="date" type="text" placeholder="যেমন: 15 March 2026" />
           </div>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp এ মেসেজ</a>
-            <a class="btn" href="#packages">📦 প্যাকেজ আবার দেখুন</a>
+          <!-- TIME (from - to) -->
+          <div class="field">
+            <label for="startTime">শুরুর সময়</label>
+            <input id="startTime" type="time" />
           </div>
 
-          <p class="note">* WhatsApp এ মেসেজ দিলে দ্রুত রেসপন্স পাবেন।</p>
+          <div class="field">
+            <label for="endTime">শেষ সময়</label>
+            <input id="endTime" type="time" />
+          </div>
+
+          <div class="field">
+            <label for="location">লোকেশন (ঐচ্ছিক)</label>
+            <input id="location" type="text" placeholder="যেমন: Gauripur, Mymensingh" />
+          </div>
+
+          <!-- Coverage Type -->
+          <div class="field">
+            <label for="coverageType">কভারেজ টাইপ</label>
+            <select id="coverageType">
+              <option value="Full Day">Full Day (একদিন)</option>
+              <option value="Half Day">Half Day (অর্ধেক)</option>
+              <option value="Hourly">Hourly (ঘণ্টা ভিত্তিক)</option>
+            </select>
+          </div>
+
+          <!-- Counts -->
+          <div class="grid two" style="margin-top:12px">
+            <div class="field" style="margin-top:0">
+              <label for="photoCount">Photographer সংখ্যা</label>
+              <input id="photoCount" type="number" min="0" value="1" inputmode="numeric" />
+            </div>
+            <div class="field" style="margin-top:0">
+              <label for="cinemaCount">Cinematographer সংখ্যা</label>
+              <input id="cinemaCount" type="number" min="0" value="1" inputmode="numeric" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="droneCount">Drone Pilot সংখ্যা</label>
+            <input id="droneCount" type="number" min="0" value="0" inputmode="numeric" />
+          </div>
+
+          <div class="field">
+            <label for="message">মেসেজ</label>
+            <textarea id="message" placeholder="আপনার প্রয়োজন/সময়/প্যাকেজ লিখুন"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="note">Note (অতিরিক্ত তথ্য)</label>
+            <textarea id="note" placeholder="যেমন: ফুল ডে কভারেজ, ড্রোন শট, অ্যালবাম, ভেন্যু ডিটেইলস..."></textarea>
+          </div>
+
+          <div class="actions" style="margin-top:14px">
+            <button class="btn primary" id="sendWhatsApp" type="button">💬 WhatsApp এ পাঠান</button>
+            <a class="btn" href="#packages">📦 প্যাকেজ দেখুন</a>
+          </div>
+
+          <p class="note">* “WhatsApp এ পাঠান” চাপলে আপনার দেওয়া তথ্য দিয়ে অটো মেসেজ তৈরি হবে।</p>
         </div>
 
         <div class="card">
-          <h3>কুইক তথ্য</h3>
-          <p>আপনি চাইলে কাস্টম কভারেজ, অতিরিক্ত ফটোগ্রাফার/ভিডিওগ্রাফার, ড্রোন, অ্যালবাম—সবই যোগ করা যাবে।</p>
-          <div class="meta" style="margin-top:12px">
-            <span>📍 লোকেশন: Bangladesh</span>
-            <span>🕘 সাপোর্ট: 9am–11pm</span>
-            <span>⚡ দ্রুত কনফার্মেশন</span>
+          <h3>অফিস</h3>
+          <p>ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
+          <div class="chips">
+            <span class="chip">🕘 সাপোর্ট: 9am–11pm</span>
+            <span class="chip">⚡ দ্রুত রেসপন্স</span>
           </div>
+          <p class="note" style="margin-top:12px">
+            চাইলে কাস্টম প্যাকেজ, অতিরিক্ত Photographer/Video, Album ইত্যাদি যোগ করা যাবে।
+          </p>
         </div>
       </div>
     </section>
@@ -731,606 +553,104 @@ button{
     <footer>
       © <span id="year"></span> RommoChobi — All rights reserved.
     </footer>
-
   </div>
 
-  <!-- WhatsApp floating -->
-  <a href="https://wa.me/8801XXXXXXXXX" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp chat">💬</a>
+  <!-- WhatsApp Floating Button -->
+  <a id="waFloat" href="#" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp chat">💬</a>
 
-  <!-- Mobile bottom CTA -->
+  <!-- Mobile Bottom CTA -->
   <div class="bottom-cta" aria-hidden="false">
     <a class="primary" href="#booking">📅 বুকিং</a>
-    <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a id="waBottom" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
   </div>
 
   <script>
+    // ========= CONFIG =========
+    const WHATSAPP_NUMBER = "8801776044951"; // আপনার নাম্বার সেট করা আছে
+
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Hero Slider
+    // WhatsApp base links
+    const waBase = `https://wa.me/${WHATSAPP_NUMBER}`;
+    document.getElementById('waFloat').href = waBase;
+    document.getElementById('waBottom').href = waBase;
+
+    // ========= HERO SLIDER =========
     const slides = document.querySelectorAll('.hero img');
     let current = 0;
 
-    function showNextSlide(){
-      slides[current].classList.remove('active');
+    function showSlide(index){
+      slides.forEach((img,i)=> img.classList.toggle('active', i === index));
+    }
+    function nextSlide(){
       current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
+      showSlide(current);
     }
-    setInterval(showNextSlide, 4000);
+    showSlide(0);
+    setInterval(nextSlide, 4000);
 
-    // bookingBtn smooth scroll safety (already anchor, but keeping for older browsers)
-    const bookingBtn = document.getElementById('bookingBtn');
-    if (bookingBtn){
-      bookingBtn.addEventListener('click', (e) => {
-        const el = document.querySelector('#booking');
-        if(el){
-          e.preventDefault();
-          el.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    }
+    // ========= BOOKING -> WhatsApp =========
+    const sendBtn = document.getElementById('sendWhatsApp');
+    function clean(v){ return (v || '').toString().trim(); }
+
+    // Optional: Full Day select করলে ডিফল্ট কাউন্ট সেট (আপনার ইচ্ছা হলে পরিবর্তন করবেন)
+    const coverageEl = document.getElementById('coverageType');
+    coverageEl.addEventListener('change', () => {
+      if(coverageEl.value === "Full Day"){
+        // ডিফল্ট: 2 photographer, 1 cinematographer, 0 drone
+        document.getElementById('photoCount').value = "2";
+        document.getElementById('cinemaCount').value = "1";
+        document.getElementById('droneCount').value = "0";
+      }
+    });
+
+    sendBtn.addEventListener('click', () => {
+      const name = clean(document.getElementById('name').value);
+      const phone = clean(document.getElementById('phone').value);
+      const eventType = clean(document.getElementById('eventType').value);
+      const date = clean(document.getElementById('date').value);
+      const startTime = clean(document.getElementById('startTime').value);
+      const endTime = clean(document.getElementById('endTime').value);
+      const location = clean(document.getElementById('location').value);
+
+      const coverageType = clean(document.getElementById('coverageType').value);
+      const photoCount = clean(document.getElementById('photoCount').value);
+      const cinemaCount = clean(document.getElementById('cinemaCount').value);
+      const droneCount = clean(document.getElementById('droneCount').value);
+
+      const message = clean(document.getElementById('message').value);
+      const note = clean(document.getElementById('note').value);
+
+      const lines = [];
+      lines.push("Assalamu Alaikum, RommoChobi!");
+      if(name) lines.push(`Name: ${name}`);
+      if(phone) lines.push(`Phone: ${phone}`);
+      if(eventType) lines.push(`Event: ${eventType}`);
+      if(date) lines.push(`Date: ${date}`);
+      if(location) lines.push(`Location: ${location}`);
+
+      if(startTime && endTime) lines.push(`Time: ${startTime} - ${endTime}`);
+
+      if(coverageType) lines.push(`Coverage: ${coverageType}`);
+
+      const pc = parseInt(photoCount || "0", 10);
+      const cc = parseInt(cinemaCount || "0", 10);
+      const dc = parseInt(droneCount || "0", 10);
+      if(!isNaN(pc)) lines.push(`Photographer: ${pc} জন`);
+      if(!isNaN(cc)) lines.push(`Cinematographer: ${cc} জন`);
+      if(!isNaN(dc)) lines.push(`Drone Pilot: ${dc} জন`);
+
+      if(message) lines.push(`Message: ${message}`);
+      if(note) lines.push(`Note: ${note}`);
+
+      lines.push("");
+      lines.push("Please share availability & details. ধন্যবাদ।");
+
+      const text = encodeURIComponent(lines.join("\n"));
+      const link = `${waBase}?text=${text}`;
+      window.open(link, "_blank", "noopener");
+    });
   </script>
 </body>
 </html>
-</div>
-</section>
-
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RommoChobi Premium Booking</title>
-<style>
-body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#fdfbfb,#ebedee);padding:15px;}
-.container{max-width:420px;margin:auto;animation:fadeIn 1s ease-in-out;}
-.header{background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;padding:18px;border-radius:15px;text-align:center;font-weight:bold;font-size:20px;box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-.card{background:white;padding:18px;border-radius:15px;margin-top:18px;box-shadow:0 5px 20px rgba(0,0,0,0.08);transition:all 0.3s ease;}
-.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
-input,textarea{width:100%;padding:12px;margin-top:8px;border:1px solid #ddd;border-radius:10px;transition:0.3s;}
-input:focus,textarea:focus{border-color:#ff7a00;box-shadow:0 0 10px rgba(255,122,0,0.2);outline:none;}
-.row{display:flex;justify-content:space-between;align-items:center;}
-.qty{display:flex;gap:6px;}
-.qty button{width:38px;height:38px;border:none;background:linear-gradient(135deg,#ddd,#bbb);font-size:18px;border-radius:8px;cursor:pointer;transition:0.3s;}
-.qty button:hover{background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;}
-.summary{background:white;padding:18px;border-radius:15px;margin-top:18px;box-shadow:0 5px 20px rgba(0,0,0,0.08);}
-.total{font-size:24px;font-weight:bold;color:#ff3c00;}
-.order-btn{width:100%;padding:16px;margin-top:18px;background:linear-gradient(135deg,#00b894,#00cec9);color:white;border:none;border-radius:15px;font-size:18px;cursor:pointer;transition:0.3s;}
-.order-btn:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
-a.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;font-size:24px;padding:12px;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
-.event-grid div{display:flex;flex-direction:column;}
-</style>
-</head>
-<body>
-
-  <!-- Dummy Section (ভুয়া ফর্ম / scroll target) -->
-<div id="dummy">
-  আমাদের কাছে টাকা পাঠালে অবশ্যই মানি রিসিট Pdf বা Photo সংগ্রহ করে রাখবেন
-</div>
-  
-<div class="container">
-<div class="header">📸 RommoChobi Booking</div>
-
-<form id="bookingForm">
-
-<!-- Client Info -->
-<div class="card">
-<h3>Client Info</h3>
-<input type="text" id="name" placeholder="আপনার নাম" required>
-<input type="tel" id="phone" placeholder="মোবাইল নাম্বার" required>
-<textarea id="address" placeholder="ঠিকানা" required></textarea>
-</div>
-
-<!-- Photographer -->
-<div class="card">
-<div class="row">
-<div>
-<h3>Photographer</h3>
-<p>প্রতি জন: ৳ 7000</p>
-</div>
-<div class="qty">
-<button type="button" onclick="changeQty('photo',-1)">-</button>
-<input id="photoQty" value="1" readonly>
-<button type="button" onclick="changeQty('photo',1)">+</button>
-</div>
-</div>
-</div>
-
-<!-- Cinematographer -->
-<div class="card">
-<div class="row">
-<div>
-<h3>Cinematographer</h3>
-<p>প্রতি জন: ৳ 7000</p>
-</div>
-<div class="qty">
-<button type="button" onclick="changeQty('cine',-1)">-</button>
-<input id="cineQty" value="0" readonly>
-<button type="button" onclick="changeQty('cine',1)">+</button>
-</div>
-</div>
-</div>
-
-<!-- Discount -->
-<div class="card">
-<h3>Discount (Max 40%)</h3>
-<input type="number" id="discount" value="0" min="0" max="40" onchange="calculateTotal()">
-</div>
-
-<!-- Summary -->
-<div class="summary">
-<p>Subtotal: ৳ <span id="subtotal">0</span></p>
-<p>Discount: ৳ <span id="discountAmount">0</span></p>
-<p class="total">Total: ৳ <span id="total">0</span></p>
-</div>
-
-<!-- Song Selection -->
-<div class="card">
-<h3>🎵 Song Selection</h3>
-<p>আপনার পছন্দ অনুযায়ী গান সিলেকশন করতে পারবেন।</p>
-<a href="https://ramyachobi.video.blog/low-price-package/" target="_blank">
-<button type="button" style="width:100%;padding:12px;margin-top:10px;background:linear-gradient(135deg,#ff7a00,#ff3c00);color:white;border:none;border-radius:12px;font-size:16px;cursor:pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🎧 গান সিলেক্ট করুন</button>
-</a>
-</div>
-
-<!-- Budget -->
-<div class="card">
-<h3>Budget</h3>
-<input type="text" id="budget" placeholder="উদাহরণ: 50000">
-</div>
-
-<!-- Event Dates -->
-<div class="card">
-<h3>ইভেন্ট নির্বাচন করুন</h3>
-<div class="event-grid">
-<div><label>হলুদ</label><input type="date" id="holudDate"></div>
-<div><label>মেহেন্দি</label><input type="date" id="mehendiDate"></div>
-<div><label>বিয়ে</label><input type="date" id="weddingDate"></div>
-<div><label>রিসিপশন</label><input type="date" id="receptionDate"></div>
-<div><label>এনগেজমেন্ট</label><input type="date" id="engagementDate"></div>
-<div><label>বার্ষিকী</label><input type="date" id="anniversaryDate"></div>
-<div><label>বার্থডে</label><input type="date" id="birthdayDate"></div>
-<div><label>অন্নপ্রাশন</label><input type="date" id="annaprashanDate"></div>
-<div>
-<label>Others</label>
-<input type="text" id="otherEventName" placeholder="ইভেন্ট নাম">
-<input type="date" id="otherEventDate">
-</div>
-</div>
-</div>
-
-<button class="order-btn" type="submit">✅ বুকিং কনফার্ম করুন</button>
-</form>
-
-<a class="whatsapp" href="https://wa.me/8801776044951" target="_blank">💬</a>
-
-</div>
-
-<script>
-// Prices
-let photoPrice = 7000;
-let cinePrice = 7000;
-
-function changeQty(type,value){
-  let input=document.getElementById(type+'Qty');
-  let qty=parseInt(input.value)+value;
-  if(qty<0) qty=0;
-  input.value=qty;
-  calculateTotal();
-}
-
-function calculateTotal(){
-  let photoQty=parseInt(document.getElementById('photoQty').value);
-  let cineQty=parseInt(document.getElementById('cineQty').value);
-  let discountPercent=parseFloat(document.getElementById('discount').value)||0;
-  if(discountPercent>40) discountPercent=40;
-  if(discountPercent<0) discountPercent=0;
-  document.getElementById('discount').value=discountPercent;
-
-  let subtotal=(photoQty*photoPrice)+(cineQty*cinePrice);
-  let discountAmount=subtotal*(discountPercent/100);
-  let total=subtotal-discountAmount;
-
-  document.getElementById('subtotal').innerText=subtotal;
-  document.getElementById('discountAmount').innerText=discountAmount.toFixed(0);
-  document.getElementById('total').innerText=total.toFixed(0);
-}
-
-calculateTotal();
-
-document.getElementById('bookingForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    const name=document.getElementById('name').value.trim();
-    const phone=document.getElementById('phone').value.trim();
-    const address=document.getElementById('address').value.trim();
-    const budget=document.getElementById('budget').value.trim();
-    const photoQty=document.getElementById('photoQty').value;
-    const cineQty=document.getElementById('cineQty').value;
-    const total=document.getElementById('total').innerText;
-
-    if(!name||!phone||!address){alert('নাম, ফোন এবং ঠিকানা অবশ্যই পূরণ করুন'); return;}
-    if(phone.length<11){alert('সঠিক মোবাইল নাম্বার দিন'); return;}
-
-    // Events
-    let events="";
-    function addEvent(label,id){
-      let d=document.getElementById(id).value;
-      if(d) events+=`• ${label}: ${d}\n`;
-    }
-    addEvent("হলুদ","holudDate");
-    addEvent("মেহেন্দি","mehendiDate");
-    addEvent("বিয়ে","weddingDate");
-    addEvent("রিসিপশন","receptionDate");
-    addEvent("এনগেজমেন্ট","engagementDate");
-    addEvent("বার্ষিকী","anniversaryDate");
-    addEvent("বার্থডে","birthdayDate");
-    addEvent("অন্নপ্রাশন","annaprashanDate");
-    if(document.getElementById("otherEventName").value && document.getElementById("otherEventDate").value){
-        events+=`• ${document.getElementById("otherEventName").value}: ${document.getElementById("otherEventDate").value}\n`;
-    }
-    if(events===""){events="কোনো ইভেন্ট নির্বাচন করা হয়নি";}
-
-    // Telegram Message
-    let telegramMsg=`📸 নতুন বুকিং এসেছে
-👤 নাম: ${name}
-📞 ফোন: ${phone}
-Photographer: ${photoQty}
-Cinematographer: ${cineQty}
-📅 ইভেন্টসমূহ:
-${events}
-💰 Total: ৳ ${total}
-📍 ঠিকানা: ${address}
-Budget: ${budget || "উল্লেখ নেই"}`;
-
-    const BOT_TOKEN="8092928069:AAEmPnJtjmz2iVjECy-B-ESBAfc_Ah4Seho";
-    const CHAT_ID="7507021624";
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({chat_id:CHAT_ID,text:telegramMsg})
-    }).then(()=>console.log("Telegram sent")).catch(()=>console.log("Telegram error"));
-
-    // WhatsApp Message
-    let waMsg=`📸 RommoChobi Booking
-Name: ${name}
-Phone: ${phone}
-Photographer: ${photoQty}
-Cinematographer: ${cineQty}
-Events:
-${events}
-Total: ৳ ${total}
-Address: ${address}
-Budget: ${budget || "উল্লেখ নেই"}`;
-    let waUrl="https://wa.me/8801776044951?text="+encodeURIComponent(waMsg);
-    window.open(waUrl,"_blank");
-
-    alert('✅ Booking Telegram এবং WhatsApp দুই মাধ্যমেই পাঠানো হয়েছে');
-    this.reset();
-    calculateTotal();
-});
-</script>
-</body>
-</html>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<title>RommoChobi</title>
-
-<!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#f5f5f5;
-}
-
-/* ================= TEAM SECTION ================= */
-.team-section{
-  text-align:center;
-  padding:50px 0;
-  background:#fafafa;
-  overflow:hidden;
-}
-
-.team-section h2{
-  margin-bottom:25px;
-}
-
-.team-slider{
-  overflow:hidden;
-}
-
-.team-track{
-  display:flex;
-  gap:20px;
-  animation: teamScroll 6s linear infinite;
-}
-
-.member{
-  min-width:180px;
-  background:#fff;
-  padding:12px;
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,.12);
-}
-
-.member img{
-  width:100%;
-  height:150px;
-  object-fit:contain;
-  background:#eee;
-  border-radius:8px;
-  padding:6px;
-}
-
-.member h4{
-  font-size:14px;
-  margin:8px 0 4px;
-}
-
-.member p{
-  font-size:12px;
-  color:#555;
-}
-
-@keyframes teamScroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
-}
-
-/* ================= REVIEW SECTION ================= */
-.review-section{
-  padding:50px 0 40px;
-  background:linear-gradient(135deg,#111,#333);
-  color:#fff;
-  text-align:center;
-  overflow:hidden;
-}
-
-.review-section h2{
-  margin-bottom:25px;
-}
-
-.review-slider{
-  overflow:hidden;
-}
-
-.review-track{
-  display:flex;
-  gap:20px;
-  animation: reviewScroll 7s linear infinite;
-}
-
-.review-card{
-  min-width:260px;
-  background:#fff;
-  color:#333;
-  padding:15px;
-  border-radius:14px;
-  box-shadow:0 6px 15px rgba(0,0,0,.25);
-  text-align:left;
-}
-
-.review-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.review-header img{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-.review-header h4{
-  font-size:14px;
-  margin:0;
-}
-
-.review-card p{
-  font-size:13px;
-  margin-top:10px;
-  color:#555;
-  line-height:1.4;
-}
-
-@keyframes reviewScroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
-}
-
-/* Facebook Review Button */
-.review-btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:12px 26px;
-  background:#1877f2;
-  color:#fff;
-  border-radius:30px;
-  text-decoration:none;
-  font-size:14px;
-  transition:.3s;
-}
-
-.review-btn:hover{
-  background:#0f5ec4;
-  transform:translateY(-2px);
-}
-
-/* ================= SOCIAL MEDIA AD ================= */
-.social-ad{
-  background:#fff;
-  padding:25px 0;
-  text-align:center;
-}
-
-.social-ad h3{
-  margin-bottom:15px;
-  font-size:16px;
-  color:#333;
-}
-
-.social-icons{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-
-.social-icons a{
-  width:45px;
-  height:45px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  color:#fff;
-  font-size:20px;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.social-icons a:hover{
-  transform:scale(1.1);
-}
-
-/* Platform Colors */
-.facebook{background:#1877f2;}
-.instagram{background:#e1306c;}
-.youtube{background:#ff0000;}
-
-/* ================= FOOTER ================= */
-.footer{
-  background:#000;
-  color:#aaa;
-  text-align:center;
-  padding:16px;
-  font-size:13px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- ================= TEAM ================= -->
-<section class="team-section">
-<h2>📸 RommoChobi Team</h2>
-
-<div class="team-slider">
-<div class="team-track">
-
-  <div class="member">
-    <img src="https://i.postimg.cc/HLySx98T/Apurba-Roy-CEO-Core-Photographer-(1).jpg">
-    <h4>(01) Apurba Roy</h4>
-    <p>Founder & Lead Photographer</p>
-  </div>
-
-  <div class="member">
-    <img src="https://i.postimg.cc/2yzT0pc2/Maya-Chowdhury-Niyaz-Core-CInematographer.jpg">
-    <h4>(02) Maya Chowdhury Niyaz</h4>
-    <p>Core Cinematographer</p>
-  </div>
-
-  <div class="member">
-    <img src="https://i.postimg.cc/7YtXnWgY/FB-IMG-1770755709289.jpg">
-    <h4>(03) Bornali Roy</h4>
-    <p>Editor</p>
-  </div>
-
-  <div class="member">
-    <img src="https://i.postimg.cc/C5m7tv9F/Md-Ariyan-Hasan-Rahat.jpg">
-    <h4>(04) Md Ariyan Hasan Rahat</h4>
-    <p>Assistant Photographer</p>
-  </div>
-
-  <div class="member">
-    <img src="https://i.postimg.cc/DzXCZP4Q/Md-Oly-Raj-Assistant-Cinematographer.jpg">
-    <h4>(05) Md Oly Raj</h4>
-    <p>Assistant Cinematographer</p>
-  </div>
-
-</div>
-</div>
-</section>
-
-<!-- ================= REVIEWS ================= -->
-<section class="review-section">
-<h2>💬 Client Reviews</h2>
-
-<div class="review-slider">
-<div class="review-track">
-
-  <div class="review-card">
-    <div class="review-header">
-      <img src="https://i.postimg.cc/j55SPcPH/Shuvojit.jpg">
-      <h4>Shuvojit Saha</h4>
-    </div>
-    <p>ধন্যবাদ রম্যছবির টিম আর বিশেষ করে অপূর্ব ভাইয়াকে এত সুন্দর সুন্দর ছবি তোলে দেওয়ার🥰 জন্য।</p>
-  </div>
-
-  <div class="review-card">
-    <div class="review-header">
-      <img src="https://i.postimg.cc/266ShGhv/Puja.jpg">
-      <h4>Puja Roy</h4>
-    </div>
-    <p>ধন্যবাদ রম্যছবির টিম কে এত সুন্দর সুন্দর ছবি তোলে দেওয়ার জন্য 💜🥰</p>
-  </div>
-
-  <div class="review-card">
-    <div class="review-header">
-      <img src="https://i.postimg.cc/gJJ28s8v/mou.jpg">
-      <h4>Mou Mita</h4>
-    </div>
-    <p>অপূর্ব ভাইয়া এত সুন্দর করে পিক তুলার জন্য😍। কাজ সত্যিই অসাধারণ।</p>
-  </div>
-
-  <div class="review-card">
-    <div class="review-header">
-      <img src="https://i.postimg.cc/855zM4MM/anika.jpg">
-      <h4>Anika Osihee</h4>
-    </div>
-    <p>ব্যবহার ও কাজ দুইটাই অসাধারণ। অনেক শুভ কামনা।</p>
-  </div>
-
-</div>
-</div>
-
-<a class="review-btn"
-   href="https://www.facebook.com/groups/411753944950781/?ref=share&mibextid=NSMWBT"
-   target="_blank">
-✍️ Facebook এ রিভিউ লিখুন
-</a>
-</section>
-
-<!-- ================= SOCIAL MEDIA ICON AD ================= -->
-<section class="social-ad">
-  <h3>🔔 Follow RommoChobi</h3>
-  <div class="social-icons">
-    <a class="facebook" href="https://www.facebook.com/share/1CQSNv3Hf1/" target="_blank">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a class="instagram" href="https://www.instagram.com/romochobi?igsh=bjZiZmRwYmpiNDNu" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a class="youtube" href="https://youtube.com/@ramyachobi?si=gttOfmFEevrgYimx" target="_blank">
-      <i class="fab fa-youtube"></i>
-    </a>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-© রম্যছবি - RommoChobi
-</footer>
-
-</body>
-</html>
-
