@@ -100,71 +100,189 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
   text-decoration:none;
 }
 </style>
-</head>
-
-<body>
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hero Slideshow</title>
+<title>Rommochobi Premium Hero Page</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#000;}
-.hero{position:relative;width:100%;height:80vh;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;}
-.hero img{width:100%;height:100%;object-fit:cover;}
-.hero-content{position:absolute;text-align:center;top:50%;left:50%;transform:translate(-50%, -50%);}
-.hero-content h1{font-size:36px;margin-bottom:10px;text-shadow:2px 2px 8px #000;}
-.hero-content p{font-size:18px;margin-bottom:15px;text-shadow:1px 1px 6px #000;}
-.hero-content a{background:#27ae60;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;font-size:16px;cursor:pointer;}
+body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smooth;}
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+/* Video background */
+.hero video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  filter: brightness(0.7);
+}
+/* Gradient overlay */
+.hero::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  z-index:1;
+}
+/* Images slideshow */
+.hero img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s ease-in-out, transform 5s ease;
+  z-index:2;
+}
+.hero img.active{
+  opacity:1;
+  transform: scale(1.05);
+}
+/* Hero text overlay */
+.hero-content{
+  position:absolute;
+  text-align:center;
+  z-index:3;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  padding:0 15px;
+  animation: fadeInUp 2s ease forwards;
+}
+.hero-content h1{
+  font-size:3rem;
+  margin-bottom:10px;
+  text-shadow:2px 2px 15px rgba(0,0,0,0.7);
+}
+.hero-content p{
+  font-size:1.2rem;
+  margin-bottom:20px;
+  text-shadow:1px 1px 8px rgba(0,0,0,0.7);
+}
+.hero-content a{
+  background:#27ae60;
+  color:#fff;
+  padding:12px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+.hero-content a:hover{
+  background:#1e8449;
+  transform: scale(1.05);
+}
+
+/* Fade in animation */
+@keyframes fadeInUp{
+  0%{opacity:0; transform:translate(-50%, -60%);}
+  100%{opacity:1; transform:translate(-50%, -50%);}
+}
+@media(max-width:768px){
+  .hero-content h1{font-size:2rem;}
+  .hero-content p{font-size:1rem;}
+}
+
+/* Dummy Section */
+#dummy{
+  height:500px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+  font-size:1.5rem;
+  text-align:center;
+}
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <img id="slide" src="" alt="Slideshow">
+  <!-- Video background (autoplay, loop) -->
+  <video id="heroVideo" autoplay muted loop playsinline style="display:none;">
+    <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
+    আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
+  </video>
+
+  <!-- Images slideshow -->
+  <img src="https://i.postimg.cc/tT9hZXZ3/20260228-054820.jpg" class="active">
+  <img src="https://i.postimg.cc/qRp8hkh2/20260228-054953.jpg">
+  <img src="https://i.postimg.cc/vBGWgQgG/20260228-055102.jpg">
+  <img src="https://i.postimg.cc/9McGRWRQ/20260228-055202.jpg">
+  <img src="https://i.postimg.cc/sX3pQVQj/20260228-055251.jpg">
+
+  <!-- Hero text -->
   <div class="hero-content">
     <h1>Rommochobi Wedding Photography</h1>
     <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
-    <a onclick="alert('Booking Page এ যাবে!')">📅 এখনই বুক করুন</a>
+    <a id="bookingBtn">📅 এখনই বুক করুন</a>
   </div>
 </div>
 
+<!-- Dummy Section (ভুয়া ফর্ম / scroll target) -->
+<div id="dummy">
+  এখানে Booking Form বা বিস্তারিত আসতে পারত
+</div>
+
 <script>
-// Image list
-const images=[
-  'https://drive.google.com/uc?export=view&id=1v2jhThoWLoXMgL3fCYVCO0IfCHpfj8a8',
-  'https://drive.google.com/uc?export=view&id=19epaUg4SaXoWVpW__gtMYgWC4bqjJ68K',
-  'https://drive.google.com/uc?export=view&id=1r0vtPrzj37AJAvLHbA0tHY1COVek0OjQ',
-  'https://drive.google.com/uc?export=view&id=1vVAByNOhVl1aoB6U60SXeVO0L0AfHrZQ',
-  'https://drive.google.com/uc?export=view&id=1rhZXoMKTKgBHIH9bMtoXocRkFArIqAxz',
-  'https://drive.google.com/uc?export=view&id=1IT4TYnPXQqrpRpC8LfhfM86TA_DBy5U2',
-  'https://drive.google.com/uc?export=view&id=1joPvxxYuTL-kooVsN2wbRMTWoEM9H1Wc',
-  'https://drive.google.com/uc?export=view&id=1kM82UhOWA6ZXsY8rLLtpv0hGo8LxAVHe',
-  'https://drive.google.com/uc?export=view&id=1xB0WcEf57cWNkiiJ9X0l6SPExLIsvpXi',
-  'https://drive.google.com/uc?export=view&id=185aAhOEUO4QZyVUQGxw15K5Mp2gzf7Pe',
-  'https://drive.google.com/uc?export=view&id=1EF73KSlyoP8x6tJdSTUMicc168XQ8PQN',
-  'https://drive.google.com/uc?export=view&id=1r0vtPrzj37AJAvLHbA0tHY1COVek0OjQ',
-  'https://drive.google.com/uc?export=view&id=185aAhOEUO4QZyVUQGxw15K5Mp2gzf7Pe'
-];
+// Slideshow + Video logic
+const slides = document.querySelectorAll('.hero img');
+const video = document.getElementById('heroVideo');
+let current = 0;
+let showingVideo = false;
 
-let index=0;
-const slide=document.getElementById('slide');
+function showNextSlide(){
+  // Hide previous video if showing
+  if(showingVideo){ 
+    video.style.display = 'none'; 
+    showingVideo=false; 
+  }
+  
+  slides.forEach(img => img.classList.remove('active'));
 
-function nextSlide(){
-  slide.src=images[index];
-  index=(index+1)%images.length;
+  // Show video after last image in the set
+  if(current === slides.length - 1){
+    video.style.display='block';
+    showingVideo=true;
+  } else {
+    slides[current].classList.add('active');
+  }
+
+  current = (current + 1) % slides.length;
 }
 
-nextSlide();
-setInterval(nextSlide,5000); // 30 সেকেন্ড করে ছবি পরিবর্তন
+// Start slideshow
+showNextSlide();
+setInterval(showNextSlide,5000);
+
+// Smooth scroll on Booking button click
+document.getElementById('bookingBtn').addEventListener('click', () => {
+  document.getElementById('dummy').scrollIntoView({behavior:'smooth'});
+});
 </script>
 
 </body>
 </html>
-
-
+  
 <!-- SLIDER -->
 <div class="slider">
   <img class="slide active" src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png">
