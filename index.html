@@ -140,90 +140,638 @@ button{
 <body>
 
 <!-- HERO SLIDER -->
-<div class="hero">
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>রম্যছবি - RommoChobi</title>
 
-  <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active">
-  <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg">
-  <img src="https://i.postimg.cc/g2mcj6QF/20260228-085650.jpg">
-  <img src="https://i.postimg.cc/jStq2J9m/20260228-085941.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <div class="hero-content">
-    <h1>রম্যছবি - RommoChobi</h1>
-    <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
-    <a href="#booking">📅 এখনই বুক করুন</a>
+  <style>
+    :root{
+      --bg:#070A12;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --brand1:#7C3AED; /* purple */
+      --brand2:#22D3EE; /* cyan */
+      --good:#25d366;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Noto Sans Bengali", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(34,211,238,.22), transparent 55%),
+        radial-gradient(900px 600px at 40% 120%, rgba(124,58,237,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    /* Top Bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(7,10,18,.78), rgba(7,10,18,.45));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      box-shadow: 0 10px 25px rgba(124,58,237,.35);
+    }
+    .nav{
+      display:flex; gap:12px; align-items:center;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .nav a{padding:8px 10px; border-radius:12px}
+    .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .nav .cta{
+      color:#06101a;
+      background: linear-gradient(135deg, #A78BFA, #67E8F9);
+      font-weight:700;
+      padding:9px 12px;
+      border-radius:14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    section{padding:42px 0}
+    .section-title{
+      font-size:22px;
+      margin:0 0 12px;
+      letter-spacing:.2px;
+    }
+    .section-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      border-radius: clamp(18px, 4vw, 28px);
+      overflow:hidden;
+      margin:16px auto 0;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.10);
+      background:#000;
+    }
+    .hero-media{
+      position:relative;
+      aspect-ratio: 16/10;
+      min-height: 440px;
+      max-height: 720px;
+    }
+    @media (max-width: 640px){
+      .hero-media{aspect-ratio: 9/13; min-height: 560px;}
+      .nav{display:none}
+    }
+    .hero img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform: scale(1.05);
+      transition: opacity 900ms ease, transform 1400ms ease;
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .hero img.active{
+      opacity:1;
+      transform: scale(1.0);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(7,10,18,.78) 0%, rgba(7,10,18,.20) 45%, rgba(7,10,18,.10) 70%),
+        radial-gradient(900px 450px at 40% 90%, rgba(124,58,237,.28), transparent 60%);
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding: 22px 18px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:2;
+    }
+    .hero h1{
+      margin:0;
+      font-size: clamp(24px, 5.6vw, 44px);
+      line-height:1.2;
+      letter-spacing:.2px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+    .hero p{
+      margin:0;
+      color: rgba(234,240,255,.82);
+      font-size: clamp(14px, 2.8vw, 18px);
+      max-width: 60ch;
+      text-shadow: 0 10px 26px rgba(0,0,0,.5);
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      font-weight:700;
+      font-size:15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 36px rgba(0,0,0,.28);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      color:#07111a;
+      border: none;
+      background: linear-gradient(135deg, #A78BFA, #67E8F9);
+    }
+    .btn.primary:hover{filter: brightness(1.02)}
+    .chips{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top: 6px;
+    }
+    .chip{
+      font-size:12px;
+      color: rgba(234,240,255,.86);
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      gap:14px;
+    }
+    .grid.two{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .grid.three{grid-template-columns: repeat(3, minmax(0,1fr))}
+    @media (max-width: 860px){
+      .grid.three{grid-template-columns: 1fr}
+      .grid.two{grid-template-columns: 1fr}
+    }
+
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      box-shadow: 0 18px 50px rgba(0,0,0,.28);
+      padding:16px;
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .meta{
+      margin-top:12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      color: rgba(234,240,255,.86);
+      font-size:13px;
+    }
+    .meta span{
+      padding:7px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+    }
+
+    /* Packages */
+    .package{
+      position:relative;
+      overflow:hidden;
+    }
+    .package::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(167,139,250,.35), transparent 55%),
+                  radial-gradient(circle at 70% 70%, rgba(103,232,249,.25), transparent 55%);
+      transform: rotate(12deg);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .price{
+      margin-top:12px;
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .pkg-list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color: rgba(234,240,255,.88);
+      position:relative;
+      z-index:1;
+      font-size:14px;
+    }
+    .pkg-list li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+    }
+
+    /* Video */
+    .video-wrap{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.04);
+    }
+    .video-wrap .ratio{
+      position:relative;
+      padding-top:56.25%;
+    }
+    .video-wrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+    }
+
+    /* Booking */
+    .booking{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 860px){ .booking{grid-template-columns:1fr} }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      margin-top:12px;
+    }
+    label{font-size:13px; color:rgba(234,240,255,.78)}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      outline:none;
+      font-size:15px;
+    }
+    textarea{min-height:110px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(234,240,255,.55)}
+    .note{
+      margin-top:10px;
+      color: rgba(234,240,255,.72);
+      font-size:13px;
+    }
+
+    /* Sticky Bottom CTA (mobile) */
+    .bottom-cta{
+      position:fixed;
+      left:12px; right:12px; bottom:12px;
+      z-index:60;
+      display:none;
+      gap:10px;
+    }
+    @media (max-width: 640px){
+      .bottom-cta{display:flex}
+      body{padding-bottom:84px}
+    }
+    .bottom-cta a{
+      flex:1;
+      text-align:center;
+      padding:12px 12px;
+      border-radius: 16px;
+      font-weight:800;
+      font-size:15px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.08);
+    }
+    .bottom-cta a.primary{
+      border:none;
+      color:#06101a;
+      background: linear-gradient(135deg, #A78BFA, #67E8F9);
+    }
+
+    /* WhatsApp Floating */
+    .whatsapp{
+      position:fixed;
+      bottom:92px;
+      right:18px;
+      width:54px; height:54px;
+      display:grid; place-items:center;
+      background: var(--good);
+      color:#fff;
+      border-radius: 50%;
+      font-size:22px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.18);
+      z-index:70;
+    }
+    @media (min-width: 641px){
+      .whatsapp{bottom:20px}
+    }
+
+    footer{
+      padding:28px 0 40px;
+      color: rgba(234,240,255,.65);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>রম্যছবি - RommoChobi</div>
+      </div>
+      <div class="nav">
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a href="#packages">প্যাকেজ</a>
+        <a href="#reviews">রিভিউ</a>
+        <a class="cta" href="#booking">📅 বুকিং</a>
+      </div>
+    </div>
   </div>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero" aria-label="Hero slider">
+      <div class="hero-media">
+        <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active" alt="RommoChobi slider 1">
+        <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg" alt="RommoChobi slider 2">
+        <img src="https://i.postimg.cc/g2mcj6QF/20260228-085650.jpg" alt="RommoChobi slider 3">
+        <img src="https://i.postimg.cc/jStq2J9m/20260228-085941.jpg" alt="RommoChobi slider 4">
+
+        <div class="hero-content">
+          <h1>আপনার জীবনের সেরা মুহূর্তগুলো<br/>আমাদের ক্যামেরায়</h1>
+          <p>Wedding, Pre-Wedding, Engagement এবং সব ধরনের ইভেন্টে প্রিমিয়াম ফটো + সিনেমাটিক ভিডিও কভারেজ।</p>
+
+          <div class="hero-actions">
+            <a class="btn primary" id="bookingBtn" href="#booking">📅 এখনই বুক করুন</a>
+            <a class="btn" href="#packages">✨ প্যাকেজ দেখুন</a>
+          </div>
+
+          <div class="chips">
+            <span class="chip">📸 প্রিমিয়াম কালার গ্রেডিং</span>
+            <span class="chip">⚡ ফাস্ট ডেলিভারি</span>
+            <span class="chip">🎥 সিনেমাটিক হাইলাইটস</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">আমাদের সম্পর্কে</h2>
+      <p class="section-sub">
+        RommoChobi একটি প্রফেশনাল ওয়েডিং ও ইভেন্ট ফটোগ্রাফি টিম।
+        আমরা সুন্দর মুহূর্তগুলো গল্পের মতো ধরে রাখি—যাতে বছর পরে দেখলেও একই অনুভূতি ফিরে আসে।
+      </p>
+
+      <div class="grid two" style="margin-top:16px">
+        <div class="card">
+          <h3>Professional Wedding Photography</h3>
+          <p>প্রতিটি মুহূর্তকে আমরা গল্পে রূপ দেই—ফ্রেম, লাইট, কম্পোজিশন আর ইমোশন মিলিয়ে।</p>
+          <div class="meta">
+            <span>✅ Wedding</span>
+            <span>✅ Pre-Wedding</span>
+            <span>✅ Engagement</span>
+            <span>✅ Event Coverage</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>আমাদের অঙ্গীকার</h3>
+          <p>সময়মতো উপস্থিতি, ক্লিন এডিট, প্রিমিয়াম ডেলিভারি এবং আপনার পছন্দ অনুযায়ী কাস্টম কভারেজ।</p>
+          <div class="meta">
+            <span>⏱️ টাইম ম্যানেজমেন্ট</span>
+            <span>🎨 প্রিমিয়াম এডিট</span>
+            <span>🤝 ফ্রেন্ডলি টিম</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS VIDEO -->
+    <section id="reviews">
+      <h2 class="section-title">ক্লায়েন্টদের রিভিউ</h2>
+      <p class="section-sub">ক্লায়েন্টদের রিয়েল ফিডব্যাক—ভিডিওতে দেখুন।</p>
+
+      <div class="video-wrap" style="margin-top:16px">
+        <div class="ratio">
+          <iframe
+            src="https://player.vimeo.com/video/1169051992?badge=0&autopause=0&player_id=0&app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="ক্লায়েন্টদের রিভিউ ভিডিও"></iframe>
+        </div>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages">
+      <h2 class="section-title">প্যাকেজসমূহ</h2>
+      <p class="section-sub">আপনার ইভেন্টের ধরন ও সময় অনুযায়ী প্যাকেজ বেছে নিন। চাইলে কাস্টম প্যাকেজও করা যাবে।</p>
+
+      <div class="grid three" style="margin-top:16px">
+        <div class="card package">
+          <h3>🥈 Silver</h3>
+          <ul class="pkg-list">
+            <li>📸 1 Photographer</li>
+            <li>🕒 4 Hours Coverage</li>
+            <li>🖼️ Basic Premium Edit</li>
+            <li>📦 Digital Delivery</li>
+          </ul>
+          <div class="price">৳ 6,999</div>
+        </div>
+
+        <div class="card package" style="border-color: rgba(167,139,250,.35)">
+          <h3>🥇 Gold</h3>
+          <ul class="pkg-list">
+            <li>📸 2 Photographer</li>
+            <li>🕒 6 Hours Coverage</li>
+            <li>🎨 Advanced Premium Edit</li>
+            <li>📦 Fast Digital Delivery</li>
+          </ul>
+          <div class="price">৳ 11,999</div>
+        </div>
+
+        <div class="card package" style="border-color: rgba(103,232,249,.30)">
+          <h3>💎 Premium</h3>
+          <ul class="pkg-list">
+            <li>📸 Full Coverage</li>
+            <li>🎥 Cinematic Video</li>
+            <li>✨ Premium Color Grade</li>
+            <li>📦 Priority Delivery</li>
+          </ul>
+          <div class="price">৳ 18,999</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="booking">
+      <h2 class="section-title">বুকিং / কনট্যাক্ট</h2>
+      <p class="section-sub">নিচের ফর্ম পূরণ করলে আমরা দ্রুত যোগাযোগ করবো—অথবা WhatsApp এ মেসেজ দিন।</p>
+
+      <div class="booking" style="margin-top:16px">
+        <div class="card">
+          <h3>বুকিং ইনফো</h3>
+
+          <div class="field">
+            <label>আপনার নাম</label>
+            <input type="text" placeholder="যেমন: Rahim" />
+          </div>
+
+          <div class="field">
+            <label>মোবাইল নম্বর</label>
+            <input type="tel" placeholder="01XXXXXXXXX" />
+          </div>
+
+          <div class="field">
+            <label>ইভেন্ট টাইপ</label>
+            <select>
+              <option>Wedding</option>
+              <option>Pre-Wedding</option>
+              <option>Engagement</option>
+              <option>Holud</option>
+              <option>Other Event</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>মেসেজ</label>
+            <textarea placeholder="তারিখ, লোকেশন, সময়, প্যাকেজ—সব লিখুন"></textarea>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp এ মেসেজ</a>
+            <a class="btn" href="#packages">📦 প্যাকেজ আবার দেখুন</a>
+          </div>
+
+          <p class="note">* WhatsApp এ মেসেজ দিলে দ্রুত রেসপন্স পাবেন।</p>
+        </div>
+
+        <div class="card">
+          <h3>কুইক তথ্য</h3>
+          <p>আপনি চাইলে কাস্টম কভারেজ, অতিরিক্ত ফটোগ্রাফার/ভিডিওগ্রাফার, ড্রোন, অ্যালবাম—সবই যোগ করা যাবে।</p>
+          <div class="meta" style="margin-top:12px">
+            <span>📍 লোকেশন: Bangladesh</span>
+            <span>🕘 সাপোর্ট: 9am–11pm</span>
+            <span>⚡ দ্রুত কনফার্মেশন</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> RommoChobi — All rights reserved.
+    </footer>
+
   </div>
 
-  
-<section>
-<h2>Professional Wedding Photography</h2>
-<p class="about">
-আমরা প্রতিটি মুহূর্তকে গল্পে রূপ দেই।  
-Wedding, Pre-Wedding, Engagement এবং সকল ইভেন্ট কভারেজে আমরা আছি আপনার পাশে।
-</p>
-</section>
+  <!-- WhatsApp floating -->
+  <a href="https://wa.me/8801XXXXXXXXX" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp chat">💬</a>
 
-<a href="https://wa.me/8801" class="whatsapp">💬</a>
+  <!-- Mobile bottom CTA -->
+  <div class="bottom-cta" aria-hidden="false">
+    <a class="primary" href="#booking">📅 বুকিং</a>
+    <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
 
-<script>
-const slides = document.querySelectorAll('.hero img');
-let current = 0;
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-function showNextSlide(){
-  slides.forEach(img => img.classList.remove('active'));
-  slides[current].classList.add('active');
-  current = (current + 1) % slides.length;
-}
+    // Hero Slider
+    const slides = document.querySelectorAll('.hero img');
+    let current = 0;
 
-setInterval(showNextSlide,4000);
+    function showNextSlide(){
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+    setInterval(showNextSlide, 4000);
 
-document.getElementById('bookingBtn').addEventListener('click', () => {
-  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
-});
-</script>
-
+    // bookingBtn smooth scroll safety (already anchor, but keeping for older browsers)
+    const bookingBtn = document.getElementById('bookingBtn');
+    if (bookingBtn){
+      bookingBtn.addEventListener('click', (e) => {
+        const el = document.querySelector('#booking');
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    }
+  </script>
 </body>
 </html>
-
-</html>
-<!-- ABOUT -->
-<section class="about">
-<h2>আমাদের সম্পর্কে</h2>
-<p>
-Rommochobi একটি প্রফেশনাল ওয়েডিং ও ইভেন্ট ফটোগ্রাফি টিম।
-আমরা সুন্দর মুহূর্তগুলো গল্পের মতো ধরে রাখি।
-</p>
-</section>
-
-<div style="padding:56.67% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1169051992?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ক্লায়েন্টদের রিভিউ ভিডিও"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-
-<!-- PACKAGES -->
-<section>
-<h2>প্যাকেজসমূহ</h2>
-<div class="packages">
-
-  <div class="package">
-    <h3>🥈 Silver</h3>
-    <p>📸 1 Photographer</p>
-    <p>🕒 4 Hours</p>
-    <strong>৳ 6,999</strong>
-  </div>
-
-  <div class="package">
-    <h3>🥇 Gold</h3>
-    <p>📸 2 Photographer</p>
-    <p>🕒 6 Hours</p>
-    <strong>৳ 11,999</strong>
-  </div>
-
-  <div class="package">
-    <h3>💎 Premium</h3>
-    <p>📸 Full Coverage</p>
-    <p>🎥 Cinematic Video</p>
-    <strong>৳ 18,999</strong>
-  </div>
-
 </div>
 </section>
 
