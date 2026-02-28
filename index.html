@@ -99,100 +99,89 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
   font-size:22px;
   text-decoration:none;
 }
-<!-- HERO SECTION (Mobile Friendly Premium Look) -->
-<div class="hero">
-  <!-- Background Video -->
-  <video id="heroVideo" autoplay muted loop playsinline>
-    <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
-    আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
-  </video>
-
-  <!-- Image Slides -->
-  <img src="https://i.postimg.cc/tT9hZXZ3/20260228-054820.jpg" class="active">
-  <img src="https://i.postimg.cc/qRp8hkh2/20260228-054953.jpg">
-  <img src="https://i.postimg.cc/vBGWgQgG/20260228-055102.jpg">
-  <img src="https://i.postimg.cc/9McGRWRQ/20260228-055202.jpg">
-  <img src="https://i.postimg.cc/sX3pQVQj/20260228-055251.jpg">
-
-  <!-- Hero Text -->
-  <div class="hero-content">
-    <h1>Rommochobi Wedding Photography</h1>
-    <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
-    <a id="bookingBtn">📅 এখনই বুক করুন</a>
-  </div>
-</div>
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rommochobi Premium Hero Page</title>
 <style>
+/* Basic Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+
+/* Body */
+body{background:#000;color:#fff;scroll-behavior:smooth;}
+
+/* HERO SECTION */
 .hero{
   position:relative;
   width:100%;
-  height:100vh;
-  overflow:hidden;
+  min-height:70vh; /* Mobile-friendly height */
+  max-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#fff;
-  background:#000; /* fallback background */
+  overflow:hidden;
 }
 
+/* VIDEO BACKGROUND */
 .hero video{
   position:absolute;
   top:50%;
   left:50%;
-  width:100%;
-  height:100%;
+  min-width:100%;
+  min-height:100%;
+  transform:translate(-50%, -50%);
   object-fit:cover;
-  transform:translate(-50%,-50%);
   z-index:0;
-  filter: brightness(0.7);
+  filter:brightness(0.7);
+  display:none; /* Slideshow priority */
 }
 
+/* IMAGE SLIDES */
 .hero img{
   position:absolute;
   top:50%;
   left:50%;
+  transform:translate(-50%, -50%);
   width:auto;
   max-width:100%;
   height:auto;
   max-height:100%;
-  object-fit:cover;
-  transform:translate(-50%,-50%);
+  object-fit:contain;
   opacity:0;
   transition:opacity 1s ease-in-out, transform 5s ease;
-  z-index:1;
+  z-index:2;
 }
-
 .hero img.active{
   opacity:1;
-  transform:translate(-50%,-50%) scale(1.05);
+  transform:translate(-50%, -50%) scale(1.05);
 }
 
+/* HERO CONTENT */
 .hero-content{
   position:absolute;
+  z-index:3;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
+  transform:translate(-50%, -50%);
   text-align:center;
-  z-index:2;
   padding:0 15px;
 }
-
 .hero-content h1{
-  font-size:2rem;
+  font-size:2.5rem;
   margin-bottom:10px;
   text-shadow:2px 2px 15px rgba(0,0,0,0.7);
 }
-
 .hero-content p{
   font-size:1rem;
   margin-bottom:20px;
   text-shadow:1px 1px 8px rgba(0,0,0,0.7);
 }
-
 .hero-content a{
   background:#27ae60;
   color:#fff;
-  padding:12px 30px;
+  padding:10px 25px;
   border-radius:30px;
   text-decoration:none;
   font-size:1rem;
@@ -200,22 +189,57 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
   box-shadow:0 5px 15px rgba(0,0,0,0.3);
   transition:0.3s;
 }
+.hero-content a:hover{background:#1e8449;transform:scale(1.05);}
 
-.hero-content a:hover{
-  background:#1e8449;
-  transform:scale(1.05);
+/* DUMMY SECTION */
+#dummy{
+  height:500px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  text-align:center;
+  color:#333;
 }
 
-/* Responsive for Mobile */
+/* Responsive for mobile */
 @media(max-width:768px){
-  .hero-content h1{font-size:1.6rem;}
+  .hero-content h1{font-size:1.8rem;}
   .hero-content p{font-size:0.9rem;}
-  .hero-content a{padding:10px 25px;font-size:0.95rem;}
 }
 </style>
+</head>
+<body>
+
+<div class="hero">
+  <!-- VIDEO BACKGROUND -->
+  <video id="heroVideo" autoplay muted loop playsinline>
+    <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
+    আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
+  </video>
+
+  <!-- IMAGE SLIDES -->
+  <img src="https://i.postimg.cc/tT9hZXZ3/20260228-054820.jpg" class="active">
+  <img src="https://i.postimg.cc/qRp8hkh2/20260228-054953.jpg">
+  <img src="https://i.postimg.cc/vBGWgQgG/20260228-055102.jpg">
+  <img src="https://i.postimg.cc/9McGRWRQ/20260228-055202.jpg">
+  <img src="https://i.postimg.cc/sX3pQVQj/20260228-055251.jpg">
+
+  <!-- HERO TEXT -->
+  <div class="hero-content">
+    <h1>Rommochobi Wedding Photography</h1>
+    <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
+    <a id="bookingBtn">📅 এখনই বুক করুন</a>
+  </div>
+</div>
+
+<div id="dummy">
+  এখানে Booking Form বা বিস্তারিত content
+</div>
 
 <script>
-// Slideshow + Video logic (existing system untouched)
+// Slideshow logic
 const slides = document.querySelectorAll('.hero img');
 const video = document.getElementById('heroVideo');
 let current = 0;
@@ -226,37 +250,33 @@ function showNextSlide(){
     video.style.display='none'; 
     showingVideo=false; 
   }
+
   slides.forEach(img => img.classList.remove('active'));
+
   if(current === slides.length - 1){
     video.style.display='block';
     showingVideo=true;
   } else {
     slides[current].classList.add('active');
   }
+
   current = (current + 1) % slides.length;
 }
 
+// Start slideshow
 showNextSlide();
 setInterval(showNextSlide,5000);
 
-// Booking Button Scroll
+// Smooth scroll
 document.getElementById('bookingBtn').addEventListener('click', () => {
   document.getElementById('dummy').scrollIntoView({behavior:'smooth'});
 });
 </script>
 
-<!-- VIDEO SECTION (Mobile Friendly) -->
-<div class="video-section" style="position:relative; width:100%; max-height:60vh; overflow:hidden;">
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    style="width:100%; height:auto; max-height:60vh; object-fit:cover;">
-    <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
-    আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
-  </video>
-</div>
+</body>
+</html>
+
+
 
 <!-- ABOUT -->
 <section class="about">
