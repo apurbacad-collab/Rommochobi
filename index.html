@@ -12,7 +12,6 @@
   <style>
     :root{
       --bg:#0b0f1a;
-      --card: rgba(255,255,255,.06);
       --border: rgba(255,255,255,.12);
       --text:#eef2ff;
       --muted: rgba(238,242,255,.72);
@@ -57,7 +56,7 @@
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
     .brand{display:flex; align-items:center; gap:10px; font-weight:700;}
-    .logo{
+    .logoMark{
       width:34px;height:34px;border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 10px 25px rgba(0,0,0,.35);
@@ -140,20 +139,14 @@
       border:none;
       background: linear-gradient(135deg, #a78bfa, #67e8f9);
     }
-    .btn.danger{
-      border:none;
-      background: rgba(251,113,133,.18);
-      color: var(--text);
-    }
 
     /* Cards / Grid */
     .grid{display:grid; gap:14px}
     .grid.two{grid-template-columns: repeat(2, minmax(0,1fr))}
     .grid.three{grid-template-columns: repeat(3, minmax(0,1fr))}
-    .grid.four{grid-template-columns: repeat(4, minmax(0,1fr))}
-    @media (max-width: 980px){ .grid.four{grid-template-columns: repeat(2, minmax(0,1fr))} }
-    @media (max-width: 860px){ .grid.two,.grid.three{grid-template-columns:1fr} }
-    @media (max-width: 520px){ .grid.four{grid-template-columns: 1fr} }
+    @media (max-width: 860px){
+      .grid.two,.grid.three{grid-template-columns:1fr}
+    }
 
     .card{
       border-radius: var(--radius);
@@ -175,40 +168,21 @@
       background: rgba(255,255,255,.05);
     }
 
-    /* Reviews */
-    .review{
-      display:flex; gap:12px; align-items:flex-start;
-      padding:14px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.10);
+    /* Social */
+    .social{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
     }
-    .avatar{
-      width:44px; height:44px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.14);
-      object-fit:cover;
-      flex:0 0 auto;
-    }
-    .review h4{margin:0; font-size:15px}
-    .review small{display:block; margin-top:2px; color:rgba(238,242,255,.62); font-size:12px}
-    .stars{color: rgba(238,242,255,.85); font-size:12px; margin-top:6px}
-    .review p{margin-top:6px; color:rgba(238,242,255,.78); font-size:14px}
-
-    /* Team */
-    .team-card{
-      display:flex; gap:12px; align-items:center;
-    }
-    .team-photo{
-      width:56px; height:56px;
-      border-radius: 16px;
+    .social a{
+      padding:10px 12px;
+      border-radius: 14px;
       border:1px solid rgba(255,255,255,.12);
-      object-fit:cover;
-      flex:0 0 auto;
+      background: rgba(255,255,255,.05);
+      font-weight:700;
+      font-size:14px;
     }
-    .role{color:rgba(238,242,255,.72); font-size:13px; margin-top:2px}
+    .social a:hover{background: rgba(255,255,255,.08)}
 
-    /* Video */
+    /* Vimeo */
     .video-wrap{
       border-radius: var(--radius);
       overflow:hidden;
@@ -261,14 +235,28 @@
     }
     textarea{min-height:110px; resize:vertical}
     input::placeholder, textarea::placeholder{color:rgba(238,242,255,.55)}
-    .note{margin-top:10px; color:rgba(238,242,255,.68); font-size:13px}
-
     .mini{
       font-size:12px;
       color: rgba(238,242,255,.62);
       margin-top:6px;
     }
+    .note{margin-top:10px; color:rgba(238,242,255,.68); font-size:13px}
 
+    /* events chips */
+    .event-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .ev{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-size:13px;
+      color: rgba(238,242,255,.86);
+      user-select:none;
+    }
+    .ev input{width:16px; height:16px; margin:0}
+
+    /* calculator box */
     .calc{
       margin-top:14px;
       padding:14px;
@@ -298,45 +286,95 @@
       font-size:13px;
     }
 
-    /* event chips list */
-    .event-list{
-      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
-    }
-    .ev{
-      display:flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      font-size:13px;
-      color: rgba(238,242,255,.86);
-      user-select:none;
-    }
-    .ev input{width:16px; height:16px; margin:0}
-
-    /* upload preview */
-    .preview{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
-    }
+    /* uploads preview */
+    .preview{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
     .thumb{
-      width:64px; height:64px; border-radius: 14px;
+      width:64px; height:64px;
+      border-radius: 14px;
       border:1px solid rgba(255,255,255,.12);
       object-fit:cover;
     }
 
-    /* Social */
-    .social{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+    /* Team */
+    .team-card{display:flex; gap:12px; align-items:center;}
+    .team-photo{
+      width:56px; height:56px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      object-fit:cover;
+      flex:0 0 auto;
     }
-    .social a{
+    .role{color:rgba(238,242,255,.72); font-size:13px; margin-top:2px}
+
+    /* Compact Reviews + See more */
+    .rev-group{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 14px 40px rgba(0,0,0,.22);
+      padding:12px;
+    }
+    .rev-group-head{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:6px 6px 10px;
+    }
+    .rev-badge{
+      width:28px;height:28px;
+      display:grid;place-items:center;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .rev-group-head h3{
+      margin:0;
+      font-size:16px;
+      color: rgba(238,242,255,.92);
+    }
+    .rev-list{display:grid; gap:10px;}
+    .rev-list[data-collapsed="true"] .rev-item:nth-child(n+3){display:none;}
+    .rev-item{
+      display:flex;
+      gap:10px;
+      padding:10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+    }
+    .rev-avatar{
+      width:40px;height:40px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      flex:0 0 auto;
+    }
+    .rev-body{min-width:0}
+    .rev-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+    .rev-top strong{font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .rev-stars{font-size:12px; color: rgba(238,242,255,.82); flex:0 0 auto;}
+    .rev-meta{font-size:12px; color: rgba(238,242,255,.60); margin-top:2px;}
+    .rev-text{
+      font-size:13px;
+      color: rgba(238,242,255,.78);
+      margin-top:6px;
+      display:-webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .rev-more{
+      margin-top:10px;
+      width:100%;
       padding:10px 12px;
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
-      font-weight:700;
-      font-size:14px;
+      color: rgba(238,242,255,.90);
+      font-weight:800;
+      cursor:pointer;
     }
-    .social a:hover{background: rgba(255,255,255,.08)}
+    .rev-more:hover{ background: rgba(255,255,255,.08); }
 
     /* WhatsApp floating */
     .whatsapp{
@@ -415,10 +453,11 @@
 
 <body>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logoMark" aria-hidden="true"></div>
         <div>রম্যছবি - RommoChobi</div>
       </div>
       <div class="nav">
@@ -434,7 +473,7 @@
   <div class="container">
 
     <!-- HERO -->
-    <div class="hero">
+    <div class="hero" aria-label="Hero slider">
       <div class="hero-media">
         <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active" alt="RommoChobi slide 1">
         <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg" alt="RommoChobi slide 2">
@@ -475,13 +514,13 @@
           <h3>অফিস লোকেশন</h3>
           <p>ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
 
+          <!-- Social links (আপনার পেজ লিংক বসান) -->
           <div class="social">
             <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
             <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
             <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
           </div>
-
-          <p class="mini">* উপরোক্ত লিংকগুলো আপনার পেজের লিংক দিয়ে বদলান।</p>
+          <p class="mini">* উপরোক্ত লিংকগুলো আপনার আসল পেজ লিংক দিয়ে বদলান।</p>
         </div>
       </div>
     </section>
@@ -489,59 +528,116 @@
     <!-- REVIEWS -->
     <section id="reviews">
       <h2 class="title">ক্লায়েন্টদের রিভিউ</h2>
-      <p class="sub">প্রোফাইল ছবি সহ বাস্তব রিভিউ — আপনার বিশ্বাসই আমাদের শক্তি।</p>
+      <p class="sub">ছোট কার্ডে রিভিউ দেখুন—বেশি হলে “See more” চাপুন।</p>
 
-      <!-- REVIEW GROUPS -->
-      <details open>
-        <summary>⭐ Wedding Reviews (Group)</summary>
-        <div class="grid two" style="margin-top:12px">
-          <div class="review">
-            <img class="avatar" src="https://i.pravatar.cc/100?img=12" alt="client">
-            <div>
-              <h4>Rafi & Mitu</h4>
-              <small>Muslim Wedding • Mymensingh</small>
-              <div class="stars">★★★★★</div>
-              <p>অনেক সুন্দর কভারেজ হয়েছে। টিম খুবই ভদ্র, সময়মতো সব ডেলিভারি দিয়েছে।</p>
+      <div class="rev-group">
+        <div class="rev-group-head">
+          <span class="rev-badge">⭐</span>
+          <h3>Wedding Reviews (Group)</h3>
+        </div>
+
+        <div class="rev-list" data-collapsed="true" id="revWedding">
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=12" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Rafi & Mitu</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Muslim Wedding • Mymensingh</div>
+              <div class="rev-text">অনেক সুন্দর কভারেজ হয়েছে। টিম খুবই ভদ্র, সময়মতো সব ডেলিভারি দিয়েছে।</div>
             </div>
           </div>
-          <div class="review">
-            <img class="avatar" src="https://i.pravatar.cc/100?img=32" alt="client">
-            <div>
-              <h4>Shuvo & Tisha</h4>
-              <small>Reception • Dhaka</small>
-              <div class="stars">★★★★★</div>
-              <p>কোয়ালিটি একদম প্রিমিয়াম। কালার টোন ও সিনেমাটিক ভিডিও অসাধারণ।</p>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=32" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Shuvo & Tisha</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Reception • Dhaka</div>
+              <div class="rev-text">কোয়ালিটি একদম প্রিমিয়াম। কালার টোন ও সিনেমাটিক ভিডিও অসাধারণ।</div>
+            </div>
+          </div>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=41" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Hasan & Rima</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Holud • Gauripur</div>
+              <div class="rev-text">ছবির টোন খুব সুন্দর। সবাই খুব সহযোগিতা করেছে।</div>
+            </div>
+          </div>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=56" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Jony & Tasnia</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Wedding • Mymensingh</div>
+              <div class="rev-text">ভালো এডিটিং, টাইমলি ডেলিভারি—এক কথায় সন্তুষ্ট।</div>
             </div>
           </div>
         </div>
-      </details>
 
-      <details>
-        <summary>⭐ Pre-Wedding / Engagement Reviews (Group)</summary>
-        <div class="grid two" style="margin-top:12px">
-          <div class="review">
-            <img class="avatar" src="https://i.pravatar.cc/100?img=47" alt="client">
-            <div>
-              <h4>Nazmul & Sumi</h4>
-              <small>Pre-Wedding • Outdoor</small>
-              <div class="stars">★★★★★</div>
-              <p>পোজিং গাইড, লোকেশন সিলেকশন—সবই দারুণ। খুব আরাম করে কাজ করেছে।</p>
+        <button class="rev-more" type="button" data-target="revWedding">See more</button>
+      </div>
+
+      <div class="rev-group" style="margin-top:12px">
+        <div class="rev-group-head">
+          <span class="rev-badge">⭐</span>
+          <h3>Pre-Wedding / Engagement Reviews (Group)</h3>
+        </div>
+
+        <div class="rev-list" data-collapsed="true" id="revPrewed">
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=22" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Rifat & Nabila</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Engagement • Gauripur</div>
+              <div class="rev-text">ছবিগুলো এক কথায় অসাধারণ। অল্প সময়ে ডেলিভারি পেয়েছি।</div>
             </div>
           </div>
-          <div class="review">
-            <img class="avatar" src="https://i.pravatar.cc/100?img=22" alt="client">
-            <div>
-              <h4>Rifat & Nabila</h4>
-              <small>Engagement • Gauripur</small>
-              <div class="stars">★★★★★</div>
-              <p>ছবিগুলো এক কথায় অসাধারণ। অল্প সময়ে ডেলিভারি পেয়েছি।</p>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=47" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Nazmul & Sumi</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Pre-Wedding • Outdoor</div>
+              <div class="rev-text">পোজিং গাইড ও লোকেশন সাজেশন খুব ভালো ছিল।</div>
+            </div>
+          </div>
+
+          <div class="rev-item">
+            <img class="rev-avatar" src="https://i.pravatar.cc/100?img=18" alt="client">
+            <div class="rev-body">
+              <div class="rev-top">
+                <strong>Akib & Mim</strong>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <div class="rev-meta">Pre-Wedding • Dhaka</div>
+              <div class="rev-text">ফ্রেমিং আর এডিট—দুটোই দারুণ লেগেছে।</div>
             </div>
           </div>
         </div>
-      </details>
 
-      <!-- Vimeo Video -->
-      <div style="margin-top:16px" class="video-wrap">
+        <button class="rev-more" type="button" data-target="revPrewed">See more</button>
+      </div>
+
+      <!-- Vimeo Review Video -->
+      <div class="video-wrap" style="margin-top:16px">
         <div class="ratio">
           <iframe
             src="https://player.vimeo.com/video/1169051992?badge=0&autopause=0&player_id=0&app_id=58479"
@@ -554,38 +650,48 @@
       <script src="https://player.vimeo.com/api/player.js"></script>
     </section>
 
-    <!-- TEAM -->
+    <!-- TEAM (আপনার দেওয়া টিম + লোগো + অফিস ছবি) -->
     <section id="team">
       <h2 class="title">আমাদের টিম</h2>
-      <p class="sub">টিমমেটদের নাম, পদবী ও ছবি — যাতে ক্লায়েন্ট বুঝতে পারে কারা কাজ করবে।</p>
+      <p class="sub">টিমমেটদের নাম, পদবী ও ছবি — Drone Pilot এর ছবি থাকবে না (শুধু ফর্মে কাউন্ট থাকবে)।</p>
 
       <div class="grid three" style="margin-top:16px">
+
         <div class="card team-card">
-          <img class="team-photo" src="https://i.pravatar.cc/120?img=5" alt="team">
+          <img class="team-photo" src="images/apurba-roy.jpg" alt="Apurba Roy">
           <div>
-            <strong>Rommo</strong>
-            <div class="role">Lead Photographer</div>
+            <strong>Apurba Roy</strong>
+            <div class="role">Founder, Lead Photographer</div>
             <div class="mini">Wedding • Portrait • Color Tone</div>
           </div>
         </div>
+
         <div class="card team-card">
-          <img class="team-photo" src="https://i.pravatar.cc/120?img=8" alt="team">
+          <img class="team-photo" src="images/maya-chaudhary.jpg" alt="Maya Chaudhary">
           <div>
-            <strong>Arif</strong>
-            <div class="role">Cinematographer</div>
+            <strong>Maya Chaudhary</strong>
+            <div class="role">Core Cinematographer</div>
             <div class="mini">Cinematic • Highlight • Story</div>
           </div>
         </div>
-        <div class="card team-card">
-          <img class="team-photo" src="https://i.pravatar.cc/120?img=15" alt="team">
-          <div>
-            <strong>Raihan</strong>
-            <div class="role">Drone Pilot</div>
-            <div class="mini">Aerial • Venue • Establishing</div>
+
+        <div class="card">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="images/rommochobi-logo.jpg" alt="RommoChobi Logo" style="width:34px; height:34px; border-radius:12px; border:1px solid rgba(255,255,255,.12); object-fit:cover;">
+            <div>
+              <strong>RommoChobi Office</strong>
+              <div class="mini">Team working • Editing • Planning</div>
+            </div>
           </div>
+
+          <img src="images/rommochobi-office.jpg" alt="RommoChobi Office" style="width:100%; height:180px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
+
+          <p class="mini" style="margin-top:10px">
+            অফিস: ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ
+          </p>
         </div>
+
       </div>
-      <p class="mini" style="margin-top:10px">* আপনার আসল টিম ফটো/নাম বসিয়ে দিন।</p>
     </section>
 
     <!-- PACKAGES -->
@@ -631,22 +737,23 @@
       <details>
         <summary>প্যাকেজ নোট (সংক্ষেপ)</summary>
         <p class="mini" style="margin-top:10px">
-          BD ইন্ডাস্ট্রিতে সাধারণত Delivery: 7–30 দিন (সিজন/লোড অনুযায়ী), Raw ফুটেজ সাধারণত আলাদা শর্তে, Album/Print আলাদা কোটেশন হয়।
-          আপনার নিয়ম অনুযায়ী এখানে “ফর্মে বাজেট এস্টিমেট” দেখানো হবে যাতে ক্লায়েন্ট আগে থেকেই ধারণা পায়।
+          সাধারণত BD ওয়েডিং ফটোগ্রাফিতে বুকিং কনফার্ম করতে Advance নেওয়া হয় (ডেট লক করার জন্য)।
+          টিম পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করতে পারে; ক্লায়েন্ট না চাইলে “No publish fee” রাখা হয়।
+          ডেলিভারি টাইম, অ্যালবাম/প্রিন্ট, ট্রাভেল/অতিরিক্ত আওয়ার আলাদা শর্তে যোগ হতে পারে।
         </p>
       </details>
     </section>
 
-    <!-- BOOKING -->
+    <!-- BOOKING + CALCULATOR -->
     <section id="booking">
       <h2 class="title">বুকিং / কোটেশন (Auto হিসাব)</h2>
       <p class="sub">
-        ফর্ম ফিলাপ করলেই ইভেন্ট কাউন্ট + দিন/সময় + টিম কাউন্ট অনুযায়ী আনুমানিক বাজেট বের হবে।
+        ইভেন্ট কাউন্ট + দিন/সময় + টিম কাউন্ট অনুযায়ী আনুমানিক বাজেট বের হবে।
         তারপর এক ক্লিকে WhatsApp এবং Telegram—দুই জায়গায় মেসেজ যাবে।
       </p>
 
       <div class="booking" style="margin-top:16px">
-        <!-- FORM -->
+
         <div class="card">
           <h3>বুকিং তথ্য দিন</h3>
 
@@ -660,11 +767,9 @@
             <input id="phone" type="tel" placeholder="01XXXXXXXXX" />
           </div>
 
-          <!-- EVENTS (count) -->
           <div class="field">
             <label>ইভেন্ট নির্বাচন করুন (একাধিক)</label>
             <div class="event-list" id="eventList">
-              <!-- JS inject or static -->
               <label class="ev"><input type="checkbox" value="Engagement">Engagement</label>
               <label class="ev"><input type="checkbox" value="Bridal Shower">Bridal shower</label>
               <label class="ev"><input type="checkbox" value="Pre Wedding">Pre wedding</label>
@@ -682,7 +787,6 @@
             <div class="mini">* ইভেন্ট যতগুলো সিলেক্ট করবেন, কাউন্ট তত হবে।</div>
           </div>
 
-          <!-- DATE COUNT (days) -->
           <div class="grid two" style="margin-top:12px">
             <div class="field" style="margin-top:0">
               <label for="startDate">তারিখ (Start)</label>
@@ -694,7 +798,6 @@
             </div>
           </div>
 
-          <!-- TIME COUNT (hours) -->
           <div class="grid two" style="margin-top:12px">
             <div class="field" style="margin-top:0">
               <label for="startTime">শুরুর সময়</label>
@@ -711,7 +814,6 @@
             <input id="location" type="text" placeholder="যেমন: Gauripur, Mymensingh" />
           </div>
 
-          <!-- TEAM COUNT -->
           <div class="grid three" style="margin-top:12px">
             <div class="field" style="margin-top:0">
               <label for="photoCount">Photographer (জন)</label>
@@ -727,25 +829,40 @@
             </div>
           </div>
 
-          <!-- Privacy fee -->
           <div class="field">
             <label>
               <input id="noPublish" type="checkbox" />
               অনলাইনে ছবি/ভিডিও পাবলিশ করা যাবে না (Privacy/No-Publish Fee: ৳10,000)
             </label>
             <div class="mini">
-              নোট: BD ফটোগ্রাফি ইন্ডাস্ট্রিতে টিম সাধারণত পোর্টফোলিও/পেজে কিছু ছবি পোস্ট করে।
-              যদি ক্লায়েন্ট অনুমতি না দেন, সেক্ষেত্রে আলাদা “Privacy/No publish fee” রাখা হয়।
+              BD ইন্ডাস্ট্রিতে টিম সাধারণত পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করে।
+              ক্লায়েন্ট নিষেধ করলে “No publish fee” রাখা হয়।
             </div>
           </div>
 
-          <!-- Discount (max 50%) -->
           <div class="field">
             <label for="discount">Discount (%) (সর্বোচ্চ 50%)</label>
             <input id="discount" type="number" min="0" max="50" value="0" inputmode="numeric" />
           </div>
 
-          <!-- Message / Note -->
+          <!-- Payment -->
+          <div class="field">
+            <label for="payMethod">Advance Payment Method</label>
+            <select id="payMethod">
+              <option value="">Select Method</option>
+              <option value="bKash">bKash</option>
+              <option value="Nagad">Nagad</option>
+              <option value="Rocket">Rocket</option>
+            </select>
+            <div class="mini">Payment Number: <strong>01776044951</strong></div>
+          </div>
+
+          <div class="field">
+            <label for="advanceTxId">Advance Transaction ID (বাধ্যতামূলক)</label>
+            <input id="advanceTxId" type="text" placeholder="যেমন: 9A7X... / TXN..." />
+            <div class="mini">* Advance (40%) পেমেন্টের TX ID না দিলে বুকিং সাবমিট হবে না।</div>
+          </div>
+
           <div class="field">
             <label for="message">মেসেজ</label>
             <textarea id="message" placeholder="আপনার প্রয়োজন/প্যাকেজ/ভেন্যু ডিটেইলস লিখুন"></textarea>
@@ -756,18 +873,16 @@
             <textarea id="note" placeholder="যেমন: অ্যালবাম, ড্রোন শট, বিশেষ রিকোয়েস্ট ইত্যাদি"></textarea>
           </div>
 
-          <!-- Upload couple photos -->
           <div class="field">
             <label for="couplePhotos">জামাই-বউয়ের ছবি আপলোড (ঐচ্ছিক)</label>
             <input id="couplePhotos" type="file" accept="image/*" multiple />
             <div class="mini">
               * ওয়েবসাইট থেকে সরাসরি WhatsApp/Telegram এ ফাইল অটো-সেন্ড হয় না।
-              আপনি/ক্লায়েন্ট চ্যাট ওপেন হওয়ার পরে ছবি আলাদা করে পাঠাবেন।
+              চ্যাট ওপেন হওয়ার পরে ছবি আলাদা করে পাঠাবেন।
             </div>
             <div class="preview" id="photoPreview"></div>
           </div>
 
-          <!-- CALCULATOR -->
           <div class="calc" id="calcBox">
             <div class="row"><span>ইভেন্ট কাউন্ট</span><strong id="evCount">0</strong></div>
             <div class="row"><span>দিন (তারিখ কাউন্ট)</span><strong id="dayCount">0</strong></div>
@@ -794,7 +909,6 @@
           </p>
         </div>
 
-        <!-- SIDE INFO -->
         <div class="card">
           <h3>কুইক তথ্য</h3>
           <p>অফিস: ঝলমল সিনেমা হল মোড়ে, গৌরীপুর, ময়মনসিংহ</p>
@@ -804,27 +918,19 @@
             <span class="chip">🎥 Cinematographer ৳7000/দিন/জন</span>
             <span class="chip">🚁 Drone Pilot ৳5000/দিন/জন</span>
             <span class="chip">🔒 No-Publish ৳10,000</span>
+            <span class="chip">💳 bKash/Nagad/Rocket: 01776044951</span>
           </div>
 
           <details>
             <summary>বাংলাদেশে সাধারণ নিয়ম (সংক্ষেপ)</summary>
             <p class="mini" style="margin-top:10px">
-              সাধারণত BD ওয়েডিং ফটোগ্রাফিতে: বুকিং কনফার্ম করতে Advance নেওয়া হয় (সিজন/ডেট লক করার জন্য),
-              টিম পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করে (ব্র্যান্ডিং), ক্লায়েন্ট যদি নিষেধ করেন—Privacy/No publish fee থাকতে পারে।
+              সাধারণত BD ওয়েডিং ফটোগ্রাফিতে: বুকিং কনফার্ম করতে Advance নেওয়া হয় (ডেট লক করার জন্য),
+              টিম পোর্টফোলিও/পেজে নির্বাচিত ছবি পোস্ট করে (ব্র্যান্ডিং), ক্লায়েন্ট যদি নিষেধ করেন—No publish fee থাকতে পারে।
               ডেলিভারি টাইম, অ্যালবাম/প্রিন্ট, ট্রাভেল/অতিরিক্ত আওয়ার আলাদা শর্তে যোগ হয়।
             </p>
           </details>
-
-          <details>
-            <summary>আপনার সোশ্যাল</summary>
-            <div class="social">
-              <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-              <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-            </div>
-            <p class="mini">* এগুলো আপনার আসল লিংক দিয়ে বদলান।</p>
-          </details>
         </div>
+
       </div>
     </section>
 
@@ -843,21 +949,20 @@
   </div>
 
   <script>
-    // ============== CONFIG ==============
-    const WHATSAPP_NUMBER = "8801776044951"; // ✅ আপনার নাম্বার
-    // Telegram share (আপনার username বা channel link দিন)
-    // Example: const TELEGRAM_SHARE_URL = "https://t.me/rommochobi";
-    const TELEGRAM_SHARE_URL = "https://t.me/share/url"; // share endpoint (works without username)
+    // ================= CONFIG =================
+    const WHATSAPP_NUMBER = "8801776044951"; // ✅ WhatsApp
+    const PAYMENT_NUMBER  = "01776044951";   // ✅ bKash/Nagad/Rocket
 
-    // Rates
-    const RATE_PHOTO_PER_PERSON_PER_DAY = 7000;
+    // Rates (per day per person)
+    const RATE_PHOTO_PER_PERSON_PER_DAY  = 7000;
     const RATE_CINEMA_PER_PERSON_PER_DAY = 7000;
-    const RATE_DRONE_PER_PERSON_PER_DAY = 5000;
+    const RATE_DRONE_PER_PERSON_PER_DAY  = 5000;
+
     const NO_PUBLISH_FEE = 10000;
     const ADVANCE_PERCENT = 40;
     const MAX_DISCOUNT_PERCENT = 50;
 
-    // ============== Helpers ==============
+    // ================= Helpers =================
     function clean(v){ return (v || "").toString().trim(); }
     function toInt(v, d=0){
       const n = parseInt((v ?? "").toString(), 10);
@@ -876,7 +981,7 @@
     document.getElementById('waFloat').href = waBase;
     document.getElementById('waBottom').href = waBase;
 
-    // ============== HERO SLIDER ==============
+    // ================= HERO SLIDER =================
     const slides = document.querySelectorAll('.hero img');
     let current = 0;
     function showSlide(index){
@@ -889,14 +994,24 @@
     showSlide(0);
     setInterval(nextSlide, 4000);
 
-    // ============== Upload preview ==============
+    // ================= Reviews See more / less =================
+    document.querySelectorAll('.rev-more').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const box = document.getElementById(id);
+        const collapsed = box.getAttribute('data-collapsed') === 'true';
+        box.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+        btn.textContent = collapsed ? 'See less' : 'See more';
+      });
+    });
+
+    // ================= Upload preview =================
     const couplePhotos = document.getElementById('couplePhotos');
     const photoPreview = document.getElementById('photoPreview');
-
     couplePhotos.addEventListener('change', () => {
       photoPreview.innerHTML = "";
       const files = Array.from(couplePhotos.files || []);
-      files.slice(0, 6).forEach(file => { // ছোট জায়গা—সর্বোচ্চ ৬টা প্রিভিউ
+      files.slice(0, 6).forEach(file => {
         const url = URL.createObjectURL(file);
         const img = document.createElement("img");
         img.className = "thumb";
@@ -906,27 +1021,29 @@
       });
     });
 
-    // ============== Calculator ==============
+    // ================= Calculator =================
     const eventChecks = Array.from(document.querySelectorAll('#eventList input[type="checkbox"]'));
     const startDateEl = document.getElementById('startDate');
     const endDateEl   = document.getElementById('endDate');
     const startTimeEl = document.getElementById('startTime');
     const endTimeEl   = document.getElementById('endTime');
-    const photoCountEl = document.getElementById('photoCount');
-    const cinemaCountEl = document.getElementById('cinemaCount');
-    const droneCountEl = document.getElementById('droneCount');
-    const noPublishEl = document.getElementById('noPublish');
-    const discountEl = document.getElementById('discount');
 
-    const evCountEl = document.getElementById('evCount');
-    const dayCountEl = document.getElementById('dayCount');
-    const hourCountEl = document.getElementById('hourCount');
-    const teamCostEl = document.getElementById('teamCost');
+    const photoCountEl  = document.getElementById('photoCount');
+    const cinemaCountEl = document.getElementById('cinemaCount');
+    const droneCountEl  = document.getElementById('droneCount');
+
+    const noPublishEl = document.getElementById('noPublish');
+    const discountEl  = document.getElementById('discount');
+
+    const evCountEl    = document.getElementById('evCount');
+    const dayCountEl   = document.getElementById('dayCount');
+    const hourCountEl  = document.getElementById('hourCount');
+    const teamCostEl   = document.getElementById('teamCost');
     const privacyFeeEl = document.getElementById('privacyFee');
-    const discAmtEl = document.getElementById('discAmt');
-    const totalAmtEl = document.getElementById('totalAmt');
-    const advAmtEl = document.getElementById('advAmt');
-    const dueAmtEl = document.getElementById('dueAmt');
+    const discAmtEl    = document.getElementById('discAmt');
+    const totalAmtEl   = document.getElementById('totalAmt');
+    const advAmtEl     = document.getElementById('advAmt');
+    const dueAmtEl     = document.getElementById('dueAmt');
 
     function getSelectedEvents(){
       return eventChecks.filter(c => c.checked).map(c => c.value);
@@ -936,12 +1053,11 @@
       const s = startDateEl.value;
       const e = endDateEl.value;
       if(!s || !e) return 0;
-
       const sd = new Date(s + "T00:00:00");
       const ed = new Date(e + "T00:00:00");
       const diff = (ed - sd) / (1000*60*60*24);
       if(!Number.isFinite(diff) || diff < 0) return 0;
-      return Math.floor(diff) + 1; // inclusive day count
+      return Math.floor(diff) + 1; // inclusive
     }
 
     function calcHoursPerDay(){
@@ -955,12 +1071,12 @@
       let startMin = sh*60 + sm;
       let endMin   = eh*60 + em;
 
-      // যদি endTime ছোট হয়, ধরে নিলাম next day (রাতের পরে)
+      // endTime ছোট হলে next day ধরা
       if(endMin < startMin) endMin += 24*60;
 
       const mins = endMin - startMin;
       const hours = mins / 60;
-      return hours > 0 ? Math.round(hours*10)/10 : 0; // 1 decimal
+      return hours > 0 ? Math.round(hours*10)/10 : 0;
     }
 
     function compute(){
@@ -970,9 +1086,9 @@
       const days = calcDays();
       const hours = calcHoursPerDay();
 
-      const photoCount = Math.max(0, toInt(photoCountEl.value, 0));
+      const photoCount  = Math.max(0, toInt(photoCountEl.value, 0));
       const cinemaCount = Math.max(0, toInt(cinemaCountEl.value, 0));
-      const droneCount = Math.max(0, toInt(droneCountEl.value, 0));
+      const droneCount  = Math.max(0, toInt(droneCountEl.value, 0));
 
       const discountPctRaw = toInt(discountEl.value, 0);
       const discountPct = Math.min(Math.max(discountPctRaw, 0), MAX_DISCOUNT_PERCENT);
@@ -980,25 +1096,19 @@
 
       const privacyFee = noPublishEl.checked ? NO_PUBLISH_FEE : 0;
 
-      // ===== Pricing logic (simple & understandable) =====
-      // Per day per person rate * days
-      // eventCount আলাদা করে “ডিটেইল” দেখাবে, কিন্তু মূল কস্ট day-based.
       const teamPerDay =
         (photoCount * RATE_PHOTO_PER_PERSON_PER_DAY) +
         (cinemaCount * RATE_CINEMA_PER_PERSON_PER_DAY) +
         (droneCount * RATE_DRONE_PER_PERSON_PER_DAY);
 
       const teamCost = teamPerDay * (days || 0);
-
       const subtotal = teamCost + privacyFee;
-
-      const discAmt = subtotal * (discountPct/100);
-      const total = Math.max(0, subtotal - discAmt);
+      const discAmt  = subtotal * (discountPct/100);
+      const total    = Math.max(0, subtotal - discAmt);
 
       const advance = total * (ADVANCE_PERCENT/100);
-      const due = Math.max(0, total - advance);
+      const due     = Math.max(0, total - advance);
 
-      // UI
       evCountEl.textContent = evCount.toString();
       dayCountEl.textContent = days.toString();
       hourCountEl.textContent = hours.toString();
@@ -1026,13 +1136,16 @@
     watchEls.forEach(el => el.addEventListener('change', compute));
     compute();
 
-    // ============== Build message ==============
+    // ================= Build message =================
     function buildMessage(){
       const name = clean(document.getElementById('name').value);
       const phone = clean(document.getElementById('phone').value);
       const location = clean(document.getElementById('location').value);
       const message = clean(document.getElementById('message').value);
       const note = clean(document.getElementById('note').value);
+
+      const payMethod = clean(document.getElementById('payMethod').value);
+      const advanceTxId = clean(document.getElementById('advanceTxId').value);
 
       const sDate = clean(startDateEl.value);
       const eDate = clean(endDateEl.value);
@@ -1050,24 +1163,18 @@
       if(phone) lines.push(`Phone: ${phone}`);
       if(location) lines.push(`Location: ${location}`);
 
-      // Events
       if(calc.evCount > 0){
         lines.push(`Events (${calc.evCount}): ${calc.selectedEvents.join(", ")}`);
       } else {
         lines.push("Events: (Not selected)");
       }
 
-      // Date / Time
       if(sDate && eDate) lines.push(`Date: ${sDate} to ${eDate} (Days: ${calc.days})`);
       if(sTime && eTime) lines.push(`Time: ${sTime} - ${eTime} (Hours/day: ${calc.hours})`);
 
-      // Team
       lines.push(`Team -> Photographer: ${calc.photoCount}, Cinematographer: ${calc.cinemaCount}, Drone Pilot: ${calc.droneCount}`);
-
-      // Privacy
       lines.push(`No-Publish: ${calc.privacyFee > 0 ? "Yes (৳ 10,000)" : "No"}`);
 
-      // Pricing
       lines.push("");
       lines.push("---- Budget Estimate ----");
       lines.push(`Team Cost: ${money(calc.teamCost)}`);
@@ -1077,7 +1184,12 @@
       lines.push(`Advance (40%): ${money(calc.advance)} (Mandatory)`);
       lines.push(`Due: ${money(calc.due)}`);
 
-      // Upload note
+      lines.push("");
+      lines.push("---- Advance Payment ----");
+      lines.push(`Method: ${payMethod}`);
+      lines.push(`Number: ${PAYMENT_NUMBER}`);
+      lines.push(`Transaction ID: ${advanceTxId}`);
+
       if(photoCountUploaded > 0){
         lines.push("");
         lines.push(`Couple Photos Uploaded on Form: ${photoCountUploaded} file(s)`);
@@ -1094,18 +1206,31 @@
       return lines.join("\n");
     }
 
-    // ============== Send WhatsApp / Telegram ==============
+    function requireAdvanceInfo(){
+      const payMethod = clean(document.getElementById('payMethod').value);
+      const tx = clean(document.getElementById('advanceTxId').value);
+      if(!payMethod){
+        alert("Advance Payment Method নির্বাচন করুন (bKash/Nagad/Rocket).");
+        return false;
+      }
+      if(!tx){
+        alert("Advance Transaction ID (TX ID) দিন — এটা বাধ্যতামূলক।");
+        return false;
+      }
+      return true;
+    }
+
+    // ================= Send WhatsApp / Telegram =================
     document.getElementById('sendWhatsApp').addEventListener('click', () => {
+      if(!requireAdvanceInfo()) return;
       const text = encodeURIComponent(buildMessage());
       const link = `${waBase}?text=${text}`;
       window.open(link, "_blank", "noopener");
     });
 
     document.getElementById('sendTelegram').addEventListener('click', () => {
+      if(!requireAdvanceInfo()) return;
       const text = encodeURIComponent(buildMessage());
-      // Telegram share link (works generally)
-      // If you want direct to your username, set TELEGRAM_SHARE_URL = "https://t.me/YourUsername"
-      // But direct prefill text is best via share/url:
       const link = `https://t.me/share/url?url=${encodeURIComponent("RommoChobi Booking")}&text=${text}`;
       window.open(link, "_blank", "noopener");
     });
