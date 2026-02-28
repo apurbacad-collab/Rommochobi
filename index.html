@@ -200,28 +200,35 @@ document.getElementById('bookingBtn').addEventListener('click', () => {
 </div>
 
 <style>
+/* Full HD Slider Frame */
 .apurba-slider{
   width:100%;
-  max-width:750px;
-  height:420px;
+  max-width:1920px;
+  height:1080px;
   overflow:hidden;
   margin:auto;
-  border-radius:15px;
+  border-radius:0; /* Full HD frame, no rounding */
+  background:#000; /* পাশে কালো থাকবে */
+  position:relative;
 }
 
+/* Slide container */
 .apurba-slides{
   display:flex;
-  width:1000%;
-  animation: apurbaSlide 40s cubic-bezier(0.77,0,0.175,1) infinite;
+  width:1000%; /* 10 images */
+  animation: apurbaSlide 30s cubic-bezier(0.77,0,0.175,1) infinite;
 }
 
+/* Individual images */
 .apurba-slides img{
   width:100%;
-  height:420px;
-  object-fit:cover;
+  height:1080px;
+  object-fit:contain; /* কোনো জুম/কাট হবে না */
   flex:1 0 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
+/* Keyframes for smooth sliding */
 @keyframes apurbaSlide{
   0%,8% {transform:translateX(0);}
   10%,18% {transform:translateX(-100%);}
