@@ -9,12 +9,11 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#f5f5f5;color:#333}
 
-/* HERO SLIDER */
-<style>
+/* HERO 16:9 CINEMATIC */
 .hero{
   position:relative;
   width:100%;
-  aspect-ratio:16/9;   /* 1920x1080 ratio */
+  aspect-ratio:16/9;
   overflow:hidden;
   background:black;
 }
@@ -74,26 +73,9 @@ body{background:#f5f5f5;color:#333}
   font-size:14px;
 }
 
-  <script>
-const slides = document.querySelectorAll('.hero img');
-let current = 0;
-
-function showNextSlide(){
-  slides.forEach(img => img.classList.remove('active'));
-  slides[current].classList.add('active');
-  current = (current + 1) % slides.length;
-}
-
-setInterval(showNextSlide,5000);
-</script>
-
-  
-  
 /* SECTION */
-section{padding:40px 20px}
+section{padding:50px 20px}
 h2{text-align:center;color:#27ae60;margin-bottom:20px}
-
-/* ABOUT */
 .about{max-width:800px;margin:auto;text-align:center}
 
 /* PACKAGES */
@@ -113,6 +95,32 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
 }
 .package h3{color:#27ae60;margin-bottom:10px}
 .package strong{font-size:18px}
+
+/* BOOKING */
+.container{
+  max-width:500px;
+  margin:40px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1)
+}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:8px
+}
+button{
+  width:100%;
+  padding:12px;
+  background:#27ae60;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:16px
+}
 
 /* WHATSAPP */
 .whatsapp{
@@ -134,17 +142,19 @@ h2{text-align:center;color:#27ae60;margin-bottom:20px}
 <!-- HERO SLIDER -->
 <div class="hero">
 
-  <img src="https://i.postimg.cc/tT9hZXZ3/20260228-054820.jpg" class="active">
-  <img src="https://i.postimg.cc/qRp8hkh2/20260228-054953.jpg">
-  <img src="https://i.postimg.cc/vBGWgQgG/20260228-055102.jpg">
-  <img src="https://i.postimg.cc/9McGRWRQ/20260228-055202.jpg">
-  <img src="https://i.postimg.cc/sX3pQVQj/20260228-055251.jpg">
+  <img src="https://i.postimg.cc/RZ4Chnym/20260228-085206.jpg" class="active">
+  <img src="https://i.postimg.cc/52b9yFT9/20260228-085437.jpg">
+  <img src="https://i.postimg.cc/g2mcj6QF/20260228-085650.jpg">
+  <img src="https://i.postimg.cc/jStq2J9m/20260228-085941.jpg">
 
   <div class="hero-content">
     <h1>রম্যছবি - RommoChobi</h1>
     <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
-    <a id="bookingBtn">📅 এখনই বুক করুন</a>
+    <a href="#booking">📅 এখনই বুক করুন</a>
   </div>
+
+</div>
+
 
 </div>
 
