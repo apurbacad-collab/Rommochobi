@@ -216,9 +216,118 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
 </head>
 <body>
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rommochobi Hero Mobile-Friendly</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smooth;}
+
+/* HERO SECTION */
+.hero{
+  position:relative;
+  width:100%;
+  min-height:70vh; /* Mobile friendly height */
+  max-height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+/* VIDEO BACKGROUND */
+.hero video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  min-width:100%;
+  min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  z-index:0;
+  filter:brightness(0.7);
+  display:none;
+}
+
+/* IMAGE SLIDES */
+.hero img{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:100%;
+  object-fit:contain; /* Maintain full image */
+  opacity:0;
+  transition:opacity 1s ease-in-out, transform 5s ease;
+  z-index:2;
+}
+.hero img.active{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1.05);
+}
+
+/* HERO TEXT */
+.hero-content{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  padding:0 15px;
+}
+.hero-content h1{
+  font-size:2.5rem;
+  margin-bottom:10px;
+  text-shadow:2px 2px 15px rgba(0,0,0,0.7);
+}
+.hero-content p{
+  font-size:1rem;
+  margin-bottom:20px;
+  text-shadow:1px 1px 8px rgba(0,0,0,0.7);
+}
+.hero-content a{
+  background:#27ae60;
+  color:#fff;
+  padding:10px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+.hero-content a:hover{background:#1e8449;transform:scale(1.05);}
+
+/* DUMMY BOTTOM SECTION */
+#dummy{
+  height:500px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  text-align:center;
+  color:#333;
+}
+
+@media(max-width:768px){
+  .hero-content h1{font-size:1.8rem;}
+  .hero-content p{font-size:0.9rem;}
+}
+</style>
+</head>
+<body>
+
 <div class="hero">
-  <!-- Video background (autoplay, loop) -->
-  <video id="heroVideo" autoplay muted loop playsinline style="display:none;">
+  <!-- Video background -->
+  <video id="heroVideo" autoplay muted loop playsinline>
     <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
     আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
   </video>
@@ -238,6 +347,10 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
   </div>
 </div>
 
+<div id="dummy">
+  এখানে Booking Form বা বিস্তারিত content
+</div>
+
 <script>
 // Slideshow + Video logic
 const slides = document.querySelectorAll('.hero img');
@@ -246,15 +359,13 @@ let current = 0;
 let showingVideo = false;
 
 function showNextSlide(){
-  // Hide previous video if showing
   if(showingVideo){ 
-    video.style.display = 'none'; 
+    video.style.display='none'; 
     showingVideo=false; 
   }
   
   slides.forEach(img => img.classList.remove('active'));
 
-  // Show video after last image in the set
   if(current === slides.length - 1){
     video.style.display='block';
     showingVideo=true;
@@ -265,11 +376,10 @@ function showNextSlide(){
   current = (current + 1) % slides.length;
 }
 
-// Start slideshow
 showNextSlide();
 setInterval(showNextSlide,5000);
 
-// Smooth scroll on Booking button click
+// Smooth scroll
 document.getElementById('bookingBtn').addEventListener('click', () => {
   document.getElementById('dummy').scrollIntoView({behavior:'smooth'});
 });
