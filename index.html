@@ -184,8 +184,54 @@ document.getElementById('bookingBtn').addEventListener('click', () => {
 
 </body>
 </html>
+<div class="apurba-slider">
+  <div class="apurba-slides">
+    <img src="https://i.postimg.cc/L5nBWKWb/20260228-055102.jpg">
+    <img src="https://i.postimg.cc/NGSnRB5c/20260228-054820.jpg">
+    <img src="https://i.postimg.cc/jqm1ytLK/20260228-054953.jpg">
+    <img src="https://i.postimg.cc/66yS7y6P/20260228-055202.jpg">
+    <img src="https://i.postimg.cc/1RfTgfRC/20260228-055251.jpg">
+    <img src="https://i.postimg.cc/bYsMGsYV/20260228-055400.jpg">
+    <img src="https://i.postimg.cc/c1rjKr1M/20260228-055501.jpg">
+    <img src="https://i.postimg.cc/K4hkD6ht/20260228-055548.jpg">
+  </div>
+</div>
 
+<style>
+.apurba-slider{
+  width:100%;
+  max-width:700px;
+  height:400px;
+  overflow:hidden;
+  margin:auto;
+}
 
+.apurba-slides{
+  display:flex;
+  width:800%;
+  animation: apurbaSlide 32s cubic-bezier(0.77,0,0.175,1) infinite;
+}
+
+.apurba-slides img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  flex:1 0 100%;
+}
+
+@keyframes apurbaSlide{
+  0%,10% {transform:translateX(0);}
+  12.5%,22.5% {transform:translateX(-100%);}
+  25%,35% {transform:translateX(-200%);}
+  37.5%,47.5% {transform:translateX(-300%);}
+  50%,60% {transform:translateX(-400%);}
+  62.5%,72.5% {transform:translateX(-500%);}
+  75%,85% {transform:translateX(-600%);}
+  87.5%,97.5% {transform:translateX(-700%);}
+  100% {transform:translateX(0);}
+}
+</style>
+</html>
 <!-- ABOUT -->
 <section class="about">
 <h2>আমাদের সম্পর্কে</h2>
