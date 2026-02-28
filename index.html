@@ -2,226 +2,8 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<title>Rommochobi Wedding Photography</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#333}
-
-/* HERO */
-.hero{
-  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-  url("https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png") center/cover;
-  height:80vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-}
-.hero h1{font-size:36px;margin-bottom:10px}
-.hero p{font-size:16px;margin-bottom:20px}
-.hero a{
-  background:#27ae60;
-  color:#fff;
-  padding:12px 22px;
-  border-radius:30px;
-  text-decoration:none;
-}
-
-/* SLIDER */
-.slider{max-width:900px;margin:30px auto}
-.slide{display:none;width:100%;border-radius:10px}
-.slide.active{display:block}
-
-/* SECTION */
-section{padding:40px 20px}
-h2{text-align:center;color:#27ae60;margin-bottom:20px}
-
-/* ABOUT */
-.about{max-width:800px;margin:auto;text-align:center}
-
-/* PACKAGES */
-.packages{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  max-width:900px;
-  margin:auto
-}
-.package{
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 10px rgba(0,0,0,.1);
-  text-align:center;
-}
-.package h3{color:#27ae60;margin-bottom:10px}
-.package strong{font-size:18px}
-
-/* BOOKING FORM (Your Given Design) */
-.order-form{
-    max-width:700px;
-    margin:30px auto;
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-}
-.form-group{margin-bottom:15px}
-.form-group label{display:block;margin-bottom:5px}
-.form-group input,
-.form-group textarea{width:100%;padding:8px}
-.event-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:10px;
-}
-.submit-btn{
-    width:100%;
-    padding:12px;
-    background:#27ae60;
-    color:#fff;
-    border:none;
-    font-size:16px;
-    cursor:pointer;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#fff;
-  padding:15px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-}
-</style>
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rommochobi Premium Hero Page</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smooth;}
-.hero{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-}
-/* Video background */
-.hero video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
-  filter: brightness(0.7);
-}
-/* Gradient overlay */
-.hero::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
-  z-index:1;
-}
-/* Images slideshow */
-.hero img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1s ease-in-out, transform 5s ease;
-  z-index:2;
-}
-.hero img.active{
-  opacity:1;
-  transform: scale(1.05);
-}
-/* Hero text overlay */
-.hero-content{
-  position:absolute;
-  text-align:center;
-  z-index:3;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  padding:0 15px;
-  animation: fadeInUp 2s ease forwards;
-}
-.hero-content h1{
-  font-size:3rem;
-  margin-bottom:10px;
-  text-shadow:2px 2px 15px rgba(0,0,0,0.7);
-}
-.hero-content p{
-  font-size:1.2rem;
-  margin-bottom:20px;
-  text-shadow:1px 1px 8px rgba(0,0,0,0.7);
-}
-.hero-content a{
-  background:#27ae60;
-  color:#fff;
-  padding:12px 30px;
-  border-radius:30px;
-  text-decoration:none;
-  font-size:1rem;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-.hero-content a:hover{
-  background:#1e8449;
-  transform: scale(1.05);
-}
-
-/* Fade in animation */
-@keyframes fadeInUp{
-  0%{opacity:0; transform:translate(-50%, -60%);}
-  100%{opacity:1; transform:translate(-50%, -50%);}
-}
-@media(max-width:768px){
-  .hero-content h1{font-size:2rem;}
-  .hero-content p{font-size:1rem;}
-}
-
-/* Dummy Section */
-#dummy{
-  height:500px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#333;
-  font-size:1.5rem;
-  text-align:center;
-}
-</style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rommochobi Hero Mobile-Friendly</title>
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smooth;}
 
@@ -249,7 +31,7 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
   object-fit:cover;
   z-index:0;
   filter:brightness(0.7);
-  display:none;
+  display:none; /* Slideshow priority */
 }
 
 /* IMAGE SLIDES */
@@ -262,7 +44,7 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
   max-width:100%;
   height:auto;
   max-height:100%;
-  object-fit:contain; /* Maintain full image */
+  object-fit:contain;
   opacity:0;
   transition:opacity 1s ease-in-out, transform 5s ease;
   z-index:2;
@@ -317,6 +99,7 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
   color:#333;
 }
 
+/* Responsive */
 @media(max-width:768px){
   .hero-content h1{font-size:1.8rem;}
   .hero-content p{font-size:0.9rem;}
@@ -326,20 +109,20 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
 <body>
 
 <div class="hero">
-  <!-- Video background -->
+  <!-- VIDEO BACKGROUND -->
   <video id="heroVideo" autoplay muted loop playsinline>
     <source src="https://jumpshare.com/s/Jm2khReeaO2oChy4u7RZ" type="video/mp4">
     আপনার ব্রাউজার ভিডিও সাপোর্ট করে না
   </video>
 
-  <!-- Images slideshow -->
+  <!-- IMAGES SLIDES -->
   <img src="https://i.postimg.cc/tT9hZXZ3/20260228-054820.jpg" class="active">
   <img src="https://i.postimg.cc/qRp8hkh2/20260228-054953.jpg">
   <img src="https://i.postimg.cc/vBGWgQgG/20260228-055102.jpg">
   <img src="https://i.postimg.cc/9McGRWRQ/20260228-055202.jpg">
   <img src="https://i.postimg.cc/sX3pQVQj/20260228-055251.jpg">
 
-  <!-- Hero text -->
+  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Rommochobi Wedding Photography</h1>
     <p>আপনার জীবনের সেরা মুহূর্তগুলো আমাদের ক্যামেরায়</p>
@@ -347,6 +130,7 @@ body{margin:0;font-family:Arial,sans-serif;background:#000;scroll-behavior:smoot
   </div>
 </div>
 
+<!-- Dummy section -->
 <div id="dummy">
   এখানে Booking Form বা বিস্তারিত content
 </div>
@@ -359,13 +143,15 @@ let current = 0;
 let showingVideo = false;
 
 function showNextSlide(){
+  // Hide video if showing
   if(showingVideo){ 
     video.style.display='none'; 
     showingVideo=false; 
   }
-  
+
   slides.forEach(img => img.classList.remove('active'));
 
+  // Show video after last image
   if(current === slides.length - 1){
     video.style.display='block';
     showingVideo=true;
@@ -376,10 +162,11 @@ function showNextSlide(){
   current = (current + 1) % slides.length;
 }
 
+// Start slideshow
 showNextSlide();
 setInterval(showNextSlide,5000);
 
-// Smooth scroll
+// Smooth scroll for booking button
 document.getElementById('bookingBtn').addEventListener('click', () => {
   document.getElementById('dummy').scrollIntoView({behavior:'smooth'});
 });
@@ -387,7 +174,8 @@ document.getElementById('bookingBtn').addEventListener('click', () => {
 
 </body>
 </html>
-  
+
+
 <!-- SLIDER -->
 <div class="slider">
   <img class="slide active" src="https://i.postimg.cc/QxHQ8RSh/Rommochobi-Package-03.png">
